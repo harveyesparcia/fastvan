@@ -1,0 +1,17 @@
+sceneSetups:
+- path: Assets/Scenes/LoginScene.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
+- path: Assets/Scenes/Dashboard.unity
+  isLoaded: 1
+  isActive: 0
+  isSubScene: 0
+- path: Assets/Scenes/Passenger.unity
+  isLoaded: 1
+  isActive: 0
+  isSubScene: 0
+- path: Assets/Scenes/Driver.unity
+  isLoaded: 1
+  isActive: 0
+  isSubScene: 0
