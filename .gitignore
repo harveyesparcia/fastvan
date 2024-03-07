@@ -31,8 +31,10 @@ capstone/obj/Release/SimpleSideMenu.csproj.AssemblyReference.cache
 capstone/obj/Release/SimpleSideMenuEditor.csproj.AssemblyReference.cache
 capstone/obj/
 capstone/Logs/
+capstone/Library/Bee
 capstone/.vs/
 _BACKUP_971.gitignore
 _BASE_971.gitignore
 _LOCAL_971.gitignore
 _REMOTE_971.gitignore
+capstone/Temp/

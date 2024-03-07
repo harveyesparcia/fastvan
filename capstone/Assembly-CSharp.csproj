@@ -64,6 +64,7 @@
     <Compile Include="Assets\WoLfulus\UI\Modal\Scripts\ModalDialog.Controls.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePicker_Animator.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePicker.cs" />
+    <Compile Include="Assets\Models\Context.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePickerExtensions.cs" />
     <Compile Include="Assets\WoLfulus\UI\Modal\Demos\Scripts\ShowDialogAndGetResult.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePicker_DayButton_Pool.cs" />
@@ -110,7 +111,6 @@
     <Compile Include="Assets\UI\TableLayout\TableLayout.cs" />
     <Compile Include="Assets\SimpleTableUI\Example\TableUIExample.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePickerCache.cs" />
-    <Compile Include="Assets\Models\Context.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
