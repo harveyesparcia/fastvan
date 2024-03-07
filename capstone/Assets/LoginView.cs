@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class LoginView
     : MonoBehaviour
 {
-
+    [SerializeField] private DataController dataController;
     [SerializeField] private TMP_InputField input;
     [SerializeField] private TMP_InputField password;
     [SerializeField] private Button ButtonSubmit;
