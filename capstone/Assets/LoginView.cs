@@ -71,7 +71,7 @@ public class LoginView
             return;
         }
 
-        StartCoroutine(Registation());
+        StartCoroutine(Registration());
     }
 
     public void ClosedTapped()
@@ -115,6 +115,7 @@ public class LoginView
                 if (response.Role != null)
                 {
                     Context.IsLogin =true;
+                    Context.DriversId = response.DriversId;
                     if (response.Role.Contains("Admin"))
                     {
                         SceneManager.LoadScene("DashBoard");
@@ -149,7 +150,7 @@ public class LoginView
         }
     }
 
-    IEnumerator Registation()
+    IEnumerator Registration()
     {
         WWWForm form = new WWWForm();
         form.AddField("username", newusername.text);
