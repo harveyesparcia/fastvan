@@ -46,6 +46,10 @@ public class LoginView
 
     }
 
+    public void Show() { 
+    
+    }
+
     public void LoggindTapped()
     {
         if (string.IsNullOrEmpty(input.text) || string.IsNullOrEmpty(password.text))
@@ -110,6 +114,7 @@ public class LoginView
                 Debug.Log("Response: " + jsonResponse);
                 if (response.Role != null)
                 {
+                    Context.IsLogin =true;
                     if (response.Role.Contains("Admin"))
                     {
                         SceneManager.LoadScene("DashBoard");
@@ -118,21 +123,25 @@ public class LoginView
                     if (response.Role.Contains("Driver"))
                     {
                         SceneManager.LoadScene("Driver");
+
                     }
 
                     if (response.Role.Contains("Passenger"))
                     {
-                        SceneManager.LoadScene("Passenger");
+
+                        SceneManager.LoadScene("Driver");
                     }
                 }
                 else
                 {
+                    Context.IsLogin = false;
                     message.text = "User is not registered";
                     Modal.gameObject.SetActive(true);
                 }
             }
             catch (Exception ex)
             {
+                Context.IsLogin = false;
                 message.text = ex.Message;
                 Modal.gameObject.SetActive(true);
             }
