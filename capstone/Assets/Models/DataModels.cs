@@ -3,6 +3,7 @@ using UnityEngine.Networking;
 using UnityEngine;
 using System.Collections;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 public class DataModels : MonoBehaviour
 {
@@ -93,6 +94,7 @@ public class DataModels : MonoBehaviour
                     if (response.status.Contains("success"))
                     {
                         currentQueue = response.data.Count;
+                        Context.Queues = response.data;
                     }
                 }
             }

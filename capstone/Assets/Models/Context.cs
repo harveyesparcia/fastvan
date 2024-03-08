@@ -1,4 +1,5 @@
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 public static class Context {
     [JsonIgnore]
@@ -10,5 +11,7 @@ public static class Context {
     public static string role { get; set; }
     public static string DriversId { get; set; }
     public static string VanPlateNumber { get; set; }
+
+    public static List<QueuesModel> Queues { get; set; }
 
 }
