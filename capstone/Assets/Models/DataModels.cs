@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public class DataModels : MonoBehaviour
 {
     public Action<bool> OnAddSchedule;
+    public Action OnUpdateSchedule;
     private int currentQueue;
 
     public int CurrentQueue
@@ -15,6 +16,15 @@ public class DataModels : MonoBehaviour
         get { return currentQueue; }
         set { currentQueue = value; }
     }
+
+    private List<QueuesModel> queue = new List<QueuesModel>();
+
+    public List<QueuesModel> Queue
+    {
+        get { return queue; }
+        set { queue = value; }
+    }
+
 
     private static DataModels _instance;
 
@@ -94,7 +104,9 @@ public class DataModels : MonoBehaviour
                     if (response.status.Contains("success"))
                     {
                         currentQueue = response.data.Count;
-                        Context.Queues = response.data;
+                        Queue = response.data;
+
+                        OnUpdateSchedule?.Invoke();
                     }
                 }
             }
