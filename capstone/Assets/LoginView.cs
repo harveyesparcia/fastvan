@@ -31,8 +31,6 @@ public class LoginView
     [SerializeField] private TMP_InputField email;
     [SerializeField] private TMP_Text date;
 
-    [SerializeField] private DataModels dataModels;
-
     private bool isScene1Active = true;
 
     void Start()
@@ -40,7 +38,6 @@ public class LoginView
         Login.gameObject.SetActive(true);
         Register.gameObject.SetActive(false);
         Modal.gameObject.SetActive(false);
-        dataModels = new DataModels();
     }
 
     // Update is called once per frame
