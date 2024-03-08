@@ -45,9 +45,9 @@ public class DataModels : MonoBehaviour
     }
 
 
-    public void CreateQueues()
+    public void CreateQueues(string count)
     {
-        StartCoroutine(Create_Queues());
+        StartCoroutine(Create_Queues(int.Parse(count)));
     }
 
     public void GetQueues()
@@ -127,14 +127,14 @@ public class DataModels : MonoBehaviour
         }
     }
 
-    private IEnumerator Create_Queues()
+    private IEnumerator Create_Queues(int count)
     {
         WWWForm form = new WWWForm();
         form.AddField("VanPlateNumber", string.Empty);
         form.AddField("DepartureDateTime", string.Empty);
         form.AddField("ArrivalDateTime", string.Empty);
         form.AddField("DriversId", Context.DriversId);
-
+        form.AddField("Id", count);
 
         using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/create_queues.php", form);
 

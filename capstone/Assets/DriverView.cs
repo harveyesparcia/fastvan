@@ -93,7 +93,7 @@ public class DriverView : MonoBehaviour
 
     public void SaveTapped()
     {
-        DataModels.Instance.CreateQueues();
+        DataModels.Instance.CreateQueues(count.text);
         DataModels.Instance.ProcessScheduleTransactions();
     }
 
