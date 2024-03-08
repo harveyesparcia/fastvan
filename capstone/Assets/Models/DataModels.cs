@@ -205,7 +205,6 @@ public class DataModels : MonoBehaviour
             }
             catch (Exception ex)
             {
-                OnAddSchedule?.Invoke(false);
             }
 
         }

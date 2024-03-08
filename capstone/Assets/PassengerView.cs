@@ -7,8 +7,20 @@ using UnityEngine.SceneManagement;
 public class PassengerView : MonoBehaviour
 {
 
+    [SerializeField] private GameObject canvasMenu;
+
     void Start()
     {
+        if (Context.IsLogin)
+        {
+            show();
+        }
+    }
+
+    private void show()
+    {
+        canvasMenu.gameObject.SetActive(true);
+        DataModels.Instance.GetQueues();
     }
 
     // Update is called once per frame

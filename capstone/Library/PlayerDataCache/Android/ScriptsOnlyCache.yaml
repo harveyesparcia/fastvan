@@ -1,10 +1,15 @@
 ScriptsOnlyBuild:
   usedScripts:
+    Assembly-CSharp-Editor.dll:
+    - ReadmeEditor
     Assembly-CSharp.dll:
     - DashboardView
+    - DataController
+    - DataModels
     - DriverView
     - LoginView
     - PassengerView
+    - Readme
     - TableUIExample
     - UI.Dates.DatePicker
     - UI.Dates.DatePicker_Animator
@@ -22,6 +27,8 @@ ScriptsOnlyBuild:
     - UI.Tables.TableRow
     SimpleSideMenu.dll:
     - DanielLochner.Assets.SimpleSideMenu.SimpleSideMenu
+    SimpleSideMenuEditor.dll:
+    - DanielLochner.Assets.SimpleSideMenu.SSMCopyrightEditor
     SimpleTableUI.dll:
     - UnityEngine.UI.TableUI.TableUI
     - UnityEngine.UI.TableUI.TextProperties
@@ -31,9 +38,13 @@ ScriptsOnlyBuild:
     Unity.AdaptivePerformance.Samsung.Android.dll:
     - UnityEngine.AdaptivePerformance.Samsung.Android.SamsungAndroidProviderLoader
     - UnityEngine.AdaptivePerformance.Samsung.Android.SamsungAndroidProviderSettings
+    Unity.AdaptivePerformance.Simulator.Editor.dll:
+    - UnityEditor.AdaptivePerformance.Simulator.Editor.SimulatorProviderSettings
     Unity.AdaptivePerformance.dll:
     - UnityEngine.AdaptivePerformance.AdaptivePerformanceGeneralSettings
     - UnityEngine.AdaptivePerformance.AdaptivePerformanceManagerSettings
+    Unity.Mobile.AndroidLogcat.Editor.dll:
+    - Unity.Android.Logcat.AndroidLogcatManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -54,6 +65,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
     - UnityEngine.UI.InputField
@@ -61,6 +73,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Outline
     - UnityEngine.UI.RawImage
     - UnityEngine.UI.RectMask2D
+    - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Text
     - UnityEngine.UI.VerticalLayoutGroup
   serializedClasses:
@@ -141,20 +154,27 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.InputField/SubmitEvent
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
+    - UnityEngine.UI.ScrollRect/ScrollRectEvent
     - UnityEngine.UI.SpriteState
   methodsToPreserve:
-  - assembly: Assembly-CSharp
-    fullTypeName: LoginView
-    methodName: SaveTapped
-  - assembly: Assembly-CSharp
-    fullTypeName: LoginView
-    methodName: GobackTapped
   - assembly: Assembly-CSharp
     fullTypeName: LoginView
     methodName: LoggindTapped
   - assembly: Assembly-CSharp
     fullTypeName: LoginView
+    methodName: GobackTapped
+  - assembly: Assembly-CSharp
+    fullTypeName: LoginView
+    methodName: GobackTapped
+  - assembly: Assembly-CSharp
+    fullTypeName: LoginView
+    methodName: SaveTapped
+  - assembly: Assembly-CSharp
+    fullTypeName: LoginView
     methodName: ClosedTapped
+  - assembly: Assembly-CSharp
+    fullTypeName: LoginView
+    methodName: SaveTapped
   - assembly: Assembly-CSharp
     fullTypeName: LoginView
     methodName: RegisterTapped
@@ -184,7 +204,22 @@ ScriptsOnlyBuild:
     methodName: SaveTapped
   - assembly: Assembly-CSharp
     fullTypeName: DriverView
+    methodName: AddTapped
+  - assembly: Assembly-CSharp
+    fullTypeName: DriverView
     methodName: LogoutTapped
+  - assembly: Assembly-CSharp
+    fullTypeName: DriverView
+    methodName: NoTapped
+  - assembly: Assembly-CSharp
+    fullTypeName: DriverView
+    methodName: AddBookingsTapped
+  - assembly: Assembly-CSharp
+    fullTypeName: DriverView
+    methodName: AddBookingsTapped
+  - assembly: Assembly-CSharp
+    fullTypeName: DriverView
+    methodName: SaveTapped
   - assembly: Assembly-CSharp
     fullTypeName: TableUIExample
     methodName: OnAddNewRowClick
@@ -194,6 +229,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: TableUIExample
     methodName: OnRemoveLastRow
+  - assembly: Assembly-CSharp
+    fullTypeName: DriverView
+    methodName: NoTapped
   - assembly: Assembly-CSharp
     fullTypeName: TableUIExample
     methodName: OnRemoveLastRow
@@ -247,59 +285,59 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3008}
     - Class: 114
-      Script: {instanceID: 3072}
+      Script: {instanceID: 3074}
     - Class: 114
-      Script: {instanceID: 3094}
+      Script: {instanceID: 3096}
     - Class: 114
-      Script: {instanceID: 3112}
+      Script: {instanceID: 3114}
     - Class: 114
-      Script: {instanceID: 3334}
+      Script: {instanceID: 3338}
     - Class: 114
-      Script: {instanceID: 3352}
+      Script: {instanceID: 3356}
     - Class: 114
-      Script: {instanceID: 3398}
+      Script: {instanceID: 3402}
     - Class: 114
-      Script: {instanceID: 3552}
+      Script: {instanceID: 3556}
     - Class: 114
-      Script: {instanceID: 4478}
+      Script: {instanceID: 4482}
     - Class: 114
-      Script: {instanceID: 4758}
+      Script: {instanceID: 4762}
     - Class: 114
-      Script: {instanceID: 5014}
+      Script: {instanceID: 5018}
     - Class: 114
-      Script: {instanceID: 5364}
+      Script: {instanceID: 5370}
     - Class: 114
-      Script: {instanceID: 5502}
+      Script: {instanceID: 5508}
     - Class: 114
-      Script: {instanceID: 5584}
+      Script: {instanceID: 5590}
     - Class: 114
-      Script: {instanceID: 5790}
+      Script: {instanceID: 5796}
     - Class: 114
-      Script: {instanceID: 6250}
+      Script: {instanceID: 6256}
     - Class: 114
-      Script: {instanceID: 6268}
+      Script: {instanceID: 6274}
     - Class: 114
-      Script: {instanceID: 6418}
+      Script: {instanceID: 6424}
     - Class: 114
-      Script: {instanceID: 6760}
+      Script: {instanceID: 6766}
     - Class: 114
-      Script: {instanceID: 6794}
+      Script: {instanceID: 6800}
     - Class: 114
-      Script: {instanceID: 6860}
+      Script: {instanceID: 6866}
     - Class: 114
-      Script: {instanceID: 7186}
+      Script: {instanceID: 7192}
     - Class: 114
-      Script: {instanceID: 7276}
+      Script: {instanceID: 7282}
     - Class: 114
-      Script: {instanceID: 7590}
+      Script: {instanceID: 7596}
     - Class: 114
-      Script: {instanceID: 7618}
+      Script: {instanceID: 7624}
     - Class: 114
-      Script: {instanceID: 8558}
+      Script: {instanceID: 8566}
     - Class: 114
-      Script: {instanceID: 8578}
+      Script: {instanceID: 8586}
     - Class: 114
-      Script: {instanceID: 8680}
+      Script: {instanceID: 8688}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -352,33 +390,39 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3008}
     - Class: 114
-      Script: {instanceID: 3072}
+      Script: {instanceID: 3074}
     - Class: 114
-      Script: {instanceID: 3334}
+      Script: {instanceID: 3338}
     - Class: 114
-      Script: {instanceID: 3352}
+      Script: {instanceID: 3356}
     - Class: 114
-      Script: {instanceID: 4288}
+      Script: {instanceID: 4292}
     - Class: 114
-      Script: {instanceID: 4478}
+      Script: {instanceID: 4482}
     - Class: 114
-      Script: {instanceID: 5502}
+      Script: {instanceID: 5198}
     - Class: 114
-      Script: {instanceID: 5584}
+      Script: {instanceID: 5508}
     - Class: 114
-      Script: {instanceID: 6250}
+      Script: {instanceID: 5590}
     - Class: 114
-      Script: {instanceID: 6418}
+      Script: {instanceID: 6256}
     - Class: 114
-      Script: {instanceID: 6760}
+      Script: {instanceID: 6424}
     - Class: 114
-      Script: {instanceID: 6794}
+      Script: {instanceID: 6766}
     - Class: 114
-      Script: {instanceID: 7276}
+      Script: {instanceID: 6800}
     - Class: 114
-      Script: {instanceID: 8558}
+      Script: {instanceID: 7282}
     - Class: 114
-      Script: {instanceID: 8680}
+      Script: {instanceID: 7768}
+    - Class: 114
+      Script: {instanceID: 8008}
+    - Class: 114
+      Script: {instanceID: 8566}
+    - Class: 114
+      Script: {instanceID: 8688}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -435,53 +479,57 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3008}
     - Class: 114
-      Script: {instanceID: 3094}
+      Script: {instanceID: 3096}
     - Class: 114
-      Script: {instanceID: 3112}
+      Script: {instanceID: 3114}
     - Class: 114
-      Script: {instanceID: 3352}
+      Script: {instanceID: 3356}
     - Class: 114
-      Script: {instanceID: 3398}
+      Script: {instanceID: 3402}
     - Class: 114
-      Script: {instanceID: 3948}
+      Script: {instanceID: 3952}
     - Class: 114
-      Script: {instanceID: 3976}
+      Script: {instanceID: 3980}
     - Class: 114
-      Script: {instanceID: 4478}
+      Script: {instanceID: 4482}
     - Class: 114
-      Script: {instanceID: 4494}
+      Script: {instanceID: 4498}
     - Class: 114
-      Script: {instanceID: 4758}
+      Script: {instanceID: 4762}
     - Class: 114
-      Script: {instanceID: 4784}
+      Script: {instanceID: 4788}
     - Class: 114
-      Script: {instanceID: 5014}
+      Script: {instanceID: 5018}
     - Class: 114
-      Script: {instanceID: 5364}
+      Script: {instanceID: 5174}
     - Class: 114
-      Script: {instanceID: 5584}
+      Script: {instanceID: 5370}
     - Class: 114
-      Script: {instanceID: 5790}
+      Script: {instanceID: 5590}
     - Class: 114
-      Script: {instanceID: 6206}
+      Script: {instanceID: 5796}
     - Class: 114
-      Script: {instanceID: 6250}
+      Script: {instanceID: 6212}
     - Class: 114
-      Script: {instanceID: 6268}
+      Script: {instanceID: 6256}
     - Class: 114
-      Script: {instanceID: 6418}
+      Script: {instanceID: 6274}
     - Class: 114
-      Script: {instanceID: 6794}
+      Script: {instanceID: 6424}
     - Class: 114
-      Script: {instanceID: 6860}
+      Script: {instanceID: 6800}
     - Class: 114
-      Script: {instanceID: 7186}
+      Script: {instanceID: 6866}
     - Class: 114
-      Script: {instanceID: 7590}
+      Script: {instanceID: 7192}
     - Class: 114
-      Script: {instanceID: 7618}
+      Script: {instanceID: 7596}
     - Class: 114
-      Script: {instanceID: 8578}
+      Script: {instanceID: 7624}
+    - Class: 114
+      Script: {instanceID: 7768}
+    - Class: 114
+      Script: {instanceID: 8586}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -534,33 +582,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 3008}
     - Class: 114
-      Script: {instanceID: 3072}
+      Script: {instanceID: 3074}
     - Class: 114
-      Script: {instanceID: 3334}
+      Script: {instanceID: 3338}
     - Class: 114
-      Script: {instanceID: 3352}
+      Script: {instanceID: 3356}
     - Class: 114
-      Script: {instanceID: 4450}
+      Script: {instanceID: 4454}
     - Class: 114
-      Script: {instanceID: 4478}
+      Script: {instanceID: 4482}
     - Class: 114
-      Script: {instanceID: 5502}
+      Script: {instanceID: 5508}
     - Class: 114
-      Script: {instanceID: 5584}
+      Script: {instanceID: 5590}
     - Class: 114
-      Script: {instanceID: 6250}
+      Script: {instanceID: 6256}
     - Class: 114
-      Script: {instanceID: 6418}
+      Script: {instanceID: 6424}
     - Class: 114
-      Script: {instanceID: 6760}
+      Script: {instanceID: 6766}
     - Class: 114
-      Script: {instanceID: 6794}
+      Script: {instanceID: 6800}
     - Class: 114
-      Script: {instanceID: 7276}
+      Script: {instanceID: 7282}
     - Class: 114
-      Script: {instanceID: 8558}
+      Script: {instanceID: 8566}
     - Class: 114
-      Script: {instanceID: 8680}
+      Script: {instanceID: 8688}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1037,7 +1085,7 @@ ScriptsOnlyBuild:
     className: DatePicker_DateRange
   - hash:
       serializedVersion: 2
-      Hash: abef87d89a3a3a49a9a9438544431886
+      Hash: aed1970784c3780f7737035167238ff4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LoginView
@@ -1079,7 +1127,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: e7a23c00ff6b1fe22d33b587c6f40cc5
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DriverView
@@ -1209,6 +1257,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DataController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1613,6 +1667,12 @@ ScriptsOnlyBuild:
     className: Dropdown
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DataModels
+  - hash:
+      serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1768,4 +1828,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Driver.unity
   - Assets/Scenes/Passenger.unity
   - Assets/Scenes/RegistrationScene.unity
-  playerPath: C:/Users/Harvey/Desktop/capstone/FastVanv6.apk
+  playerPath: C:/Users/Harvey/Desktop/capstone/FastVanv100.apk
