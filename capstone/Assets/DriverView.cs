@@ -12,49 +12,30 @@ public class DriverView : MonoBehaviour
     [SerializeField] private GameObject ModalAddSchedule;
     [SerializeField] private GameObject canvasMenu;
     [SerializeField] private GameObject ModalMEssage;
-
-    public TMP_Dropdown hourDropdown;
-    public TMP_Dropdown minuteDropdown;
-    public TMP_Dropdown amPMDropdown;
-
-    private List<TMP_Text> hoursList = new List<TMP_Text>();
-    private List<TMP_Text> minutesList = new List<TMP_Text>();
-    private List<TMP_Text> amPMList = new List<TMP_Text>();
+    [SerializeField] private TMP_Text count;
+    [SerializeField] private GameObject ModalMessage2;
+    [SerializeField] private TMP_Text message2;
 
     void Start()
     {
         if (Context.IsLogin)
         {
             show();
-
-            for (int i = 0; i < 24; i++)
-            {
-                TMP_Text text = new GameObject().AddComponent<TextMeshProUGUI>();
-                text.text = i.ToString("00");
-                hoursList.Add(text);
-            }
-
-            for (int i = 0; i < 60; i++)
-            {
-                TMP_Text text = new GameObject().AddComponent<TextMeshProUGUI>();
-                text.text = i.ToString("00");
-                minutesList.Add(text);
-            }
-
-            amPMList.Add(CreateTMPText("AM"));
-            amPMList.Add(CreateTMPText("PM"));
-
-            // Add TMP_Text options to TMP_Dropdowns
-            hourDropdown.AddOptions(hoursList.ConvertAll(option => new TMP_Dropdown.OptionData(option.text)));
-            minuteDropdown.AddOptions(minutesList.ConvertAll(option => new TMP_Dropdown.OptionData(option.text)));
+            DataModels.Instance.OnAddSchedule += OnsheduleChanged;
         }
     }
 
-    private TMP_Text CreateTMPText(string text)
+    private void OnsheduleChanged(bool obj)
     {
-        TMP_Text tmpText = new GameObject().AddComponent<TextMeshProUGUI>();
-        tmpText.text = text;
-        return tmpText;
+        ModalMessage2.gameObject.SetActive(true);
+        if (obj)
+        {
+            message2.text = "Succesfully added a scheduled.";
+        }
+        else
+        {
+            message2.text = "Failed to add a scheduled.";
+        }
     }
 
     public void AddTapped()
@@ -62,13 +43,16 @@ public class DriverView : MonoBehaviour
         ModalMEssage.gameObject.SetActive(true);
     }
 
-    public void OnDropdownValueChanged()
+    public void NoTapped()
     {
-        int selectedHour = int.Parse(hoursList[hourDropdown.value].text);
-        int selectedMinute = int.Parse(minutesList[minuteDropdown.value].text);
-        string selectedAmPm = amPMList[amPMDropdown.value].text;
+        show();
+        ModalMEssage.gameObject.SetActive(false);
+        ModalAddSchedule.gameObject.SetActive(false);
+        ModalMessage2.gameObject.SetActive(false);
+    }
 
-        Debug.Log("Selected Time: " + selectedHour + ":" + selectedMinute + " " + selectedAmPm);
+    public void YesTapped()
+    {
     }
 
 
@@ -82,11 +66,23 @@ public class DriverView : MonoBehaviour
     {
         ModalAddSchedule.gameObject.SetActive(false);
         canvasMenu.gameObject.SetActive(true);
+        DataModels.Instance.GetQueues();
     }
 
     public void AddBookingsTapped()
     {
+        ModalMessage2.gameObject.SetActive(false);
         ModalAddSchedule.gameObject.SetActive(true);
+        var total = DataModels.Instance.CurrentQueue + 1;
+        count.text = total.ToString();
+    }
+
+    private void OnDestroy()
+    {
+        if (Context.IsLogin && DataModels.Instance != null)
+        {
+            DataModels.Instance.OnAddSchedule -= OnsheduleChanged;
+        }
     }
 
     public void LogoutTapped()
@@ -97,10 +93,10 @@ public class DriverView : MonoBehaviour
 
     public void SaveTapped()
     {
-        var model = new DataModels();
-        model.ProcessScheduleTransactions();
+        DataModels.Instance.CreateQueues();
+        DataModels.Instance.ProcessScheduleTransactions();
     }
 
-   
+
 
 }

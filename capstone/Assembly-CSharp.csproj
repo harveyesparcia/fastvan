@@ -80,6 +80,7 @@
     <Compile Include="Assets\WoLfulus\UI\Modal\Scripts\ModalDialog.cs" />
     <Compile Include="Assets\UI\TableLayout\TableRow.cs" />
     <Compile Include="Assets\UI\TableLayout\TableCell.cs" />
+    <Compile Include="Assets\Controllers\DataController.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePickerTimerComponent.cs" />
     <Compile Include="Assets\WoLfulus\UI\Modal\Demos\Scripts\ShowDialogAndRetrieveData.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePicker_HoldButton.cs" />
@@ -103,6 +104,7 @@
     <Compile Include="Assets\UI\DatePicker\TextMesh Pro\DatePicker_TextMeshProDefaults.cs" />
     <Compile Include="Assets\UI\TableLayout\TableLayoutUtilities.cs" />
     <Compile Include="Assets\UIModal\Scripts\Modal.cs" />
+    <Compile Include="Assets\Models\DataModels.cs" />
     <Compile Include="Assets\UI\DatePicker\TextMesh Pro\DatePicker_TextMeshProUtilities.cs" />
     <Compile Include="Assets\UI\DatePicker\Example\ExampleController.cs" />
     <Compile Include="Assets\WoLfulus\UI\Modal\Scripts\ModalControl.cs" />
@@ -111,8 +113,7 @@
     <Compile Include="Assets\UI\TableLayout\TableLayout.cs" />
     <Compile Include="Assets\SimpleTableUI\Example\TableUIExample.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePickerCache.cs" />
-    <Compile Include="Assets\Controllers\DataController.cs" />
-    <Compile Include="Assets\Models\DataModels.cs" />
+    <Compile Include="Assets\Models\QueuesModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

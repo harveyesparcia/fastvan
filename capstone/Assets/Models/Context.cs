@@ -9,5 +9,6 @@ public static class Context {
     public static string username { get; set; }
     public static string role { get; set; }
     public static string DriversId { get; set; }
+    public static string VanPlateNumber { get; set; }
 
 }
