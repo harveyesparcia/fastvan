@@ -74,7 +74,7 @@ public class DataModels : MonoBehaviour
     {
         WWWForm form = new WWWForm();
 
-        using UnityWebRequest request = UnityWebRequest.Get("http://www.aasimudin.cctc-ccs.net/Api/select_queues.php");
+        using UnityWebRequest request = UnityWebRequest.Get("http://www.aasimudin.cctc-ccs.net/Api/queuelist.php");
 
         yield return request.SendWebRequest();
         if (request.isNetworkError || request.isHttpError)
