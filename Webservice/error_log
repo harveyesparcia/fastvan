@@ -1,0 +1,218 @@
+[20-Feb-2024 18:29:11 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 31
+[20-Feb-2024 18:30:32 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 31
+[20-Feb-2024 18:31:28 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 31
+[20-Feb-2024 18:32:54 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 31
+[20-Feb-2024 18:33:46 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 31
+[20-Feb-2024 18:34:16 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 31
+[20-Feb-2024 18:34:24 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 31
+[20-Feb-2024 18:35:32 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 31
+[20-Feb-2024 18:35:45 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 31
+[20-Feb-2024 18:36:21 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 31
+[20-Feb-2024 18:36:35 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php:31
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 31
+[20-Feb-2024 18:37:12 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 31
+[20-Feb-2024 18:37:21 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 31
+[20-Feb-2024 20:08:52 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 32
+[20-Feb-2024 21:13:26 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/scheduledtransactions.php:50
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/scheduledtransactions.php on line 50
+[20-Feb-2024 21:17:02 Asia/Manila] PHP Parse error:  syntax error, unexpected 'sssiiiiiiiiiiiiiiiiiiiiiii' (T_STRING), expecting ')' in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/scheduledtransactions.php on line 50
+[20-Feb-2024 21:19:19 Asia/Manila] PHP Parse error:  syntax error, unexpected 'sssiiiiiiiiiiiiiiiiiiiiiii' (T_STRING), expecting ')' in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/scheduledtransactions.php on line 50
+[20-Feb-2024 21:19:31 Asia/Manila] PHP Parse error:  syntax error, unexpected 'sssiiiiiiiiiiiiiiiiiiiiiii' (T_STRING), expecting ')' in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/scheduledtransactions.php on line 50
+[20-Feb-2024 21:20:11 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/scheduledtransactions.php on line 48
+[21-Feb-2024 16:16:27 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/create_driverstransactions.php:28
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/create_driverstransactions.php on line 28
+[21-Feb-2024 16:18:03 Asia/Manila] PHP Parse error:  syntax error, unexpected '", )"' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/create_driverstransactions.php on line 25
+[21-Feb-2024 16:21:30 Asia/Manila] PHP Parse error:  syntax error, unexpected '", ?, ?, ?, ?, ? )"' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/create_driverstransactions.php on line 25
+[21-Feb-2024 16:21:34 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 113
+[21-Feb-2024 16:44:19 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 113
+[21-Feb-2024 16:51:07 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 113
+[21-Feb-2024 17:40:18 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/create_queues.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/create_queues.php on line 26
+[21-Feb-2024 17:46:19 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/create_queues.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/create_queues.php on line 26
+[21-Feb-2024 18:20:21 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_passengertransactions.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_passengertransactions.php on line 23
+[21-Feb-2024 18:21:15 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_passengertransactions.php:23
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_passengertransactions.php on line 23
+[21-Feb-2024 18:25:15 Asia/Manila] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_passengertransactions.php on line 49
+[21-Feb-2024 18:25:39 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_passengertransactions.php:45
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_passengertransactions.php on line 45
+[21-Feb-2024 18:33:01 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_passengertransactions.php on line 31
+[21-Feb-2024 20:17:34 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_passengertransactions.php on line 31
+[21-Feb-2024 20:21:01 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 113
+[21-Feb-2024 20:22:19 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 113
+[21-Feb-2024 20:22:34 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 113
+[22-Feb-2024 01:20:13 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 44
+[22-Feb-2024 01:21:33 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 44
+[22-Feb-2024 01:22:06 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 44
+[22-Feb-2024 01:23:03 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 60
+[22-Feb-2024 01:24:02 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 60
+[22-Feb-2024 01:25:06 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php:60
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 60
+[22-Feb-2024 01:28:09 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 44
+[22-Feb-2024 01:29:20 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 44
+[22-Feb-2024 01:30:01 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 44
+[22-Feb-2024 01:30:20 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 44
+[22-Feb-2024 01:32:42 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 53
+[22-Feb-2024 01:33:06 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 53
+[22-Feb-2024 01:34:17 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 53
+[22-Feb-2024 01:35:01 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 53
+[22-Feb-2024 01:35:09 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 53
+[22-Feb-2024 01:35:40 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of elements in type definition string doesn't match number of bind variables in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/register.php on line 53
+[24-Feb-2024 10:00:05 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_passengertransactions.php on line 29
+[24-Feb-2024 10:24:39 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_passengertransactions.php on line 29
+[24-Feb-2024 10:44:45 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/list_ofqueues.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/list_ofqueues.php on line 26
+[24-Feb-2024 10:45:36 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/list_ofqueues.php:26
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/list_ofqueues.php on line 26
+[24-Feb-2024 12:22:30 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of variables doesn't match number of parameters in prepared statement in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/list_ofdrivers.php on line 26
+[08-Mar-2024 11:03:45 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php on line 113
+[08-Mar-2024 11:51:14 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php on line 113
+[08-Mar-2024 12:58:12 Asia/Manila] PHP Warning:  mysqli::query(): Empty query in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php on line 58
+[08-Mar-2024 12:59:54 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php on line 113
+[08-Mar-2024 13:18:01 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php on line 98
+[08-Mar-2024 13:19:18 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php on line 98
+[08-Mar-2024 13:22:12 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php on line 98
+[08-Mar-2024 13:22:58 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues2.php on line 98
+[08-Mar-2024 13:23:09 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues2.php on line 98
+[08-Mar-2024 13:23:10 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues2.php on line 98
+[08-Mar-2024 13:23:32 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues2.php on line 98
+[08-Mar-2024 13:23:36 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues2.php on line 98
+[08-Mar-2024 13:23:42 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php on line 98
+[08-Mar-2024 13:24:08 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php on line 98
+[08-Mar-2024 13:24:09 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php on line 98
+[08-Mar-2024 13:25:54 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues2.php on line 99
+[08-Mar-2024 13:26:15 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues2.php on line 99
+[08-Mar-2024 13:27:07 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues2.php on line 99
+[08-Mar-2024 13:27:08 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues2.php on line 99
+[08-Mar-2024 13:30:48 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of variables doesn't match number of parameters in prepared statement in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/list_ofqueues.php on line 26
+[08-Mar-2024 16:45:48 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/create_queues.php:27
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/create_queues.php on line 27
+[09-Mar-2024 23:30:02 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php:133
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php on line 133
+[09-Mar-2024 23:30:07 Asia/Manila] PHP Warning:  mysqli_stmt::bind_param(): Number of variables doesn't match number of parameters in prepared statement in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues.php on line 26
+[09-Mar-2024 23:36:39 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues2.php on line 99
+[09-Mar-2024 23:36:42 Asia/Manila] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_queues2.php on line 99
+[09-Mar-2024 23:58:09 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 113
+[09-Mar-2024 23:58:24 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 113
+[10-Mar-2024 00:09:08 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 113
+[10-Mar-2024 00:09:25 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:113
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 113
+[10-Mar-2024 00:11:58 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 24
+[10-Mar-2024 00:12:11 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 24
+[10-Mar-2024 00:21:21 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 34
+[10-Mar-2024 00:21:28 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php on line 34
+[10-Mar-2024 01:03:06 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_scheduledtransactions.php:45
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_scheduledtransactions.php on line 45
+[10-Mar-2024 01:03:21 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_scheduledtransactions.php:45
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_scheduledtransactions.php on line 45
+[10-Mar-2024 01:03:38 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_scheduledtransactions.php:45
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_scheduledtransactions.php on line 45
+[10-Mar-2024 01:27:38 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_scheduledtransactions.php:45
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_scheduledtransactions.php on line 45
+[10-Mar-2024 01:28:49 Asia/Manila] PHP Fatal error:  Uncaught Error: Call to a member function bind_param() on bool in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_scheduledtransactions.php:45
+Stack trace:
+#0 {main}
+  thrown in /home/cctcccsn/aasimudin.cctc-ccs.net/Api/update_scheduledtransactions.php on line 45
