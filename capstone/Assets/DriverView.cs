@@ -43,15 +43,58 @@ public class DriverView : MonoBehaviour
 
         foreach (var data in DataModels.Instance.Queue)
         {
-
             GameObject listItem = Instantiate(listItemPrefab, contentTransform);
 
             TMP_Text itemText = listItem.GetComponentInChildren<TMP_Text>();
 
-            itemText.text = data.DriversId.ToString() + " "+  data.ArrivalDateTime.ToString() + " " + data.VanPlateNumber.ToString();
+            Transform driverIdTransform = listItem.transform.Find("DriversNameValue");
+            Transform plateNumberTransform = listItem.transform.Find("PlateNumber");
+            Transform totalPassengerform = listItem.transform.Find("TotalPassenger");
+            Transform maxCapacityform = listItem.transform.Find("MaxCapacity");
+
+            if (driverIdTransform != null)
+            {
+                TMP_Text driverIdText = driverIdTransform.GetComponent<TMP_Text>();
+                if (driverIdText != null)
+                {
+                    driverIdText.text = data.DriversId.ToString();
+                }
+            }
+
+            if (maxCapacityform != null)
+            {
+                TMP_Text maxCapacityText = maxCapacityform.GetComponent<TMP_Text>();
+                if (maxCapacityText != null)
+                {
+                    maxCapacityText.text = "24";
+                }
+            }
+
+            if (plateNumberTransform != null)
+            {
+                TMP_Text plateNumberText = plateNumberTransform.GetComponent<TMP_Text>();
+                if (plateNumberText != null)
+                {
+                    plateNumberText.text = "JKK 445";
+                }
+            }
+
+            if (totalPassengerform != null)
+            {
+                TMP_Text totalPassengerText = totalPassengerform.GetComponent<TMP_Text>();
+                if (totalPassengerText != null)
+                {
+                    totalPassengerText.text = "10";
+                }
+            }
+
             LayoutRebuilder.ForceRebuildLayoutImmediate(contentTransform);
         }
+
+        GameObject templateObject = contentTransform.Find("Image").gameObject;
+        templateObject.SetActive(false);
     }
+
 
 
     public void ScheduleTapped()
