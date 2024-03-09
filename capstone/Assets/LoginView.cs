@@ -19,6 +19,7 @@ public class LoginView
     [SerializeField] private Button ButtonClosed;
     [SerializeField] private GameObject Register;
     [SerializeField] private GameObject Login;
+    [SerializeField] private GameObject modalMessage2;
     [SerializeField] private TMP_Text message;
 
 
@@ -29,7 +30,7 @@ public class LoginView
     [SerializeField] private TMP_InputField newpassword;
     [SerializeField] private TMP_InputField contactnumber;
     [SerializeField] private TMP_InputField email;
-    [SerializeField] private TMP_Text date;
+    [SerializeField] private TMP_InputField date;
 
     private bool isScene1Active = true;
 
@@ -38,6 +39,7 @@ public class LoginView
         Login.gameObject.SetActive(true);
         Register.gameObject.SetActive(false);
         Modal.gameObject.SetActive(false);
+        modalMessage2.SetActive(false);
     }
 
     // Update is called once per frame
@@ -48,6 +50,13 @@ public class LoginView
 
     public void Show() { 
     
+    }
+
+    public void NoTapped()
+    {
+        Login.gameObject.SetActive(false);
+        Register.gameObject.SetActive(true);
+        modalMessage2.gameObject.SetActive(false);
     }
 
     public void LoggindTapped()
@@ -62,16 +71,23 @@ public class LoginView
         StartCoroutine(Authentication(input.text, password.text));
     }
 
+    public void confirmationTapped()
+    {
+        modalMessage2.SetActive(true);
+    }
     public void SaveTapped()
     {
+       
         if (string.IsNullOrEmpty(address.text) || string.IsNullOrEmpty(firstname.text) || string.IsNullOrEmpty(lastname.text))
         {
             message.text = "address, firstname or lastname is empty.";
             Modal.gameObject.SetActive(true);
+            modalMessage2.gameObject.SetActive(false);
             return;
         }
 
         StartCoroutine(Registration());
+        modalMessage2.gameObject.SetActive(false);
     }
 
     public void ClosedTapped()
@@ -116,6 +132,9 @@ public class LoginView
                 {
                     Context.IsLogin =true;
                     Context.DriversId = response.DriversId;
+
+                    Context.lastname = response.LastName;
+                    Context.firstname = response.FirstName;
                     DataModels.Instance.GetQueues();
                     if (response.Role.Contains("Admin"))
                     {

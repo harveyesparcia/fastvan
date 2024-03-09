@@ -23,11 +23,13 @@ public class DashboardView : MonoBehaviour
     [SerializeField] private TMP_Text date;
     [SerializeField] private TMP_InputField PlateNumber;
     [SerializeField] private TMP_InputField DriversLicenseNumber;
+    [SerializeField] private TMP_Text name;
 
     void Start()
     {
         Register.gameObject.SetActive(false);
         menu.gameObject.SetActive(true);
+        name.text = Context.firstname + "  " + Context.lastname;
     }
 
     // Update is called once per frame

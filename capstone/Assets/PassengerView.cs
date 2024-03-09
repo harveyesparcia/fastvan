@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,7 @@ public class PassengerView : MonoBehaviour
 {
 
     [SerializeField] private GameObject canvasMenu;
+    [SerializeField] private TMP_Text name;
 
     void Start()
     {
@@ -19,6 +21,7 @@ public class PassengerView : MonoBehaviour
 
     private void show()
     {
+        name.text = Context.firstname + "  " + Context.lastname;
         canvasMenu.gameObject.SetActive(true);
         DataModels.Instance.GetQueues();
     }

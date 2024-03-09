@@ -17,6 +17,7 @@ public class DriverView : MonoBehaviour
     [SerializeField] private GameObject ModalMessage2;
     [SerializeField] private TMP_Text message2;
     [SerializeField] private GameObject scheduleGameObject;
+    [SerializeField] private TMP_Text name;
 
     public ScrollRect scrollView;
     public GameObject listItemPrefab;
@@ -28,11 +29,21 @@ public class DriverView : MonoBehaviour
             show();
             DataModels.Instance.OnAddSchedule += OnsheduleChanged;
             DataModels.Instance.OnUpdateSchedule += OnUpdateScheduleChanged;
+            DataModels.Instance.OnCountSchedule += OnCountScheduleChanged;
         }
+    }
+
+    private void OnCountScheduleChanged(int obj)
+    {
+        ModalMessage2.gameObject.SetActive(false);
+        ModalAddSchedule.gameObject.SetActive(true);
+        var total = obj + 1;
+        count.text = total.ToString();
     }
 
     private void OnUpdateScheduleChanged()
     {
+        scheduleGameObject.gameObject.SetActive(true);
         PopulateList();
         DataModels.Instance.OnUpdateSchedule -= OnUpdateScheduleChanged;
     }
@@ -95,13 +106,16 @@ public class DriverView : MonoBehaviour
         templateObject.SetActive(false);
     }
 
-
+    public void scheduleBack()
+    {
+        scheduleGameObject.gameObject.SetActive(false);
+    }
 
     public void ScheduleTapped()
     {
-        scheduleGameObject.gameObject.SetActive(true);
-
+       DataModels.Instance.GetQueues();
     }
+
     private void OnsheduleChanged(bool obj)
     {
         ModalMessage2.gameObject.SetActive(true);
@@ -141,17 +155,14 @@ public class DriverView : MonoBehaviour
 
     private void show()
     {
+        name.text = Context.firstname + "  " + Context.lastname;
         ModalAddSchedule.gameObject.SetActive(false);
         canvasMenu.gameObject.SetActive(true);
-        DataModels.Instance.GetQueues();
     }
 
     public void AddBookingsTapped()
     {
-        ModalMessage2.gameObject.SetActive(false);
-        ModalAddSchedule.gameObject.SetActive(true);
-        var total = DataModels.Instance.CurrentQueue + 1;
-        count.text = total.ToString();
+        DataModels.Instance.GetCountQueues();
     }
 
     private void OnDestroy()
@@ -160,6 +171,7 @@ public class DriverView : MonoBehaviour
         {
             DataModels.Instance.OnAddSchedule -= OnsheduleChanged;
             DataModels.Instance.OnUpdateSchedule -= OnUpdateScheduleChanged;
+            DataModels.Instance.OnCountSchedule -= OnCountScheduleChanged;
         }
     }
 
@@ -174,7 +186,4 @@ public class DriverView : MonoBehaviour
         DataModels.Instance.CreateQueues(count.text);
         DataModels.Instance.ProcessScheduleTransactions();
     }
-
-
-
 }

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 public class DataModels : MonoBehaviour
 {
     public Action<bool> OnAddSchedule;
+    public Action<int> OnCountSchedule;
     public Action OnUpdateSchedule;
     private int currentQueue;
 
@@ -66,6 +67,11 @@ public class DataModels : MonoBehaviour
         StartCoroutine(Get_Queues());
     }
 
+    public void GetCountQueues()
+    {
+        StartCoroutine(Get_CountQueues());
+    }
+
     public void UpdateQueues()
     {
         StartCoroutine(Update_Queues());
@@ -79,6 +85,41 @@ public class DataModels : MonoBehaviour
     public void ProcessQueues()
     {
         StartCoroutine(Create_ScheduledTransactions());
+    }
+
+    private IEnumerator Get_CountQueues()
+    {
+        WWWForm form = new WWWForm();
+
+        using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/queuelist.php", form);
+
+        yield return request.SendWebRequest();
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.LogError("Error: " + request.error);
+        }
+        else
+        {
+            try
+            {
+                string jsonResponse = request.downloadHandler.text;
+                var response = JsonConvert.DeserializeObject<ResponseQueue>(jsonResponse);
+
+                if (response != null)
+                {
+                    if (response.status.Contains("success"))
+                    {
+                        currentQueue = response.data.Count;
+                        Queue = response.data;
+                        OnCountSchedule.Invoke(currentQueue);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
     }
 
     private IEnumerator Get_Queues()
