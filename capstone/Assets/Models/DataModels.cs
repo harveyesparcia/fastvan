@@ -4,12 +4,15 @@ using UnityEngine;
 using System.Collections;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Linq;
 
 public class DataModels : MonoBehaviour
 {
     public Action<bool> OnAddSchedule;
     public Action<int> OnCountSchedule;
     public Action OnUpdateSchedule;
+    public Action<QueuesModel> OnDriverUpdateSchedule;
+    public Action<List<ScheduledTransaction>> OnDriverGetSchedule;
     private int currentQueue;
 
     public int CurrentQueue
@@ -24,6 +27,14 @@ public class DataModels : MonoBehaviour
     {
         get { return queue; }
         set { queue = value; }
+    }
+
+    private int currentQueueId;
+
+    public int CurrentQueueId
+    {
+        get { return currentQueueId; }
+        set { currentQueueId = value; }
     }
 
 
@@ -56,6 +67,10 @@ public class DataModels : MonoBehaviour
         // Initialization code here
     }
 
+    public void GetDriverSchedule(string driversId, string QueuesId)
+    {
+        StartCoroutine(Get_DriverSchedule(driversId, int.Parse(QueuesId)));
+    }
 
     public void CreateQueues(string count)
     {
@@ -67,24 +82,24 @@ public class DataModels : MonoBehaviour
         StartCoroutine(Get_Queues());
     }
 
+    public void GetQueues(string driversId)
+    {
+        StartCoroutine(Get_Queues(driversId));
+    }
+
     public void GetCountQueues()
     {
         StartCoroutine(Get_CountQueues());
     }
 
-    public void UpdateQueues()
+    public void UpdateQueues(string driversId, Dictionary<string, int> parameters)
     {
-        StartCoroutine(Update_Queues());
+        StartCoroutine(Update_Schedule(driversId, parameters));
     }
 
-    public void ProcessScheduleTransactions()
+    public void ProcessScheduleTransactions(string queuesId)
     {
-        StartCoroutine(Create_ScheduledTransactions());
-    }
-
-    public void ProcessQueues()
-    {
-        StartCoroutine(Create_ScheduledTransactions());
+        StartCoroutine(Create_ScheduledTransactions(queuesId));
     }
 
     private IEnumerator Get_CountQueues()
@@ -158,11 +173,14 @@ public class DataModels : MonoBehaviour
         }
     }
 
-    private IEnumerator Update_Queues()
+    private IEnumerator Get_DriverSchedule(string driversId, int queueId)
     {
         WWWForm form = new WWWForm();
+        form.AddField("DriversId", driversId);
+        form.AddField("QueueId", queueId);
+        CurrentQueueId = queueId;
 
-        using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/create_scheduledtransactions.php", form);
+        using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php", form);
 
         yield return request.SendWebRequest();
         if (request.isNetworkError || request.isHttpError)
@@ -174,6 +192,20 @@ public class DataModels : MonoBehaviour
             try
             {
                 string jsonResponse = request.downloadHandler.text;
+                var response = JsonConvert.DeserializeObject<ApiResponse>(jsonResponse);
+
+                if (response != null)
+                {
+                    if (response.Status.Contains("success"))
+                    {
+                        if (response.Data.Any())
+                        {
+                            var data = response.Data;
+                            OnDriverGetSchedule?.Invoke(data);
+                        }
+
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -181,6 +213,88 @@ public class DataModels : MonoBehaviour
 
         }
     }
+
+    private IEnumerator Get_Queues(string driversId)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("DriversId", Context.DriversId);
+
+        using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/select_queues2.php", form);
+
+        yield return request.SendWebRequest();
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.LogError("Error: " + request.error);
+        }
+        else
+        {
+            try
+            {
+                string jsonResponse = request.downloadHandler.text;
+                var response = JsonConvert.DeserializeObject<ResponseQueue>(jsonResponse);
+
+                if (response != null)
+                {
+                    if (response.status.Contains("success"))
+                    {
+                        // OnDriverUpdateSchedule?.Invoke();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+    }
+
+    private IEnumerator Update_Schedule(string driversId, Dictionary<string, int> parameters)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("DriversId", driversId);
+        form.AddField("QueuesId", currentQueueId);
+
+        foreach (var param in parameters)
+        {
+            form.AddField(param.Key, param.Value);
+        }
+
+        using (UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/update_scheduledtransactions.php", form))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.isNetworkError || request.isHttpError)
+            {
+                Debug.LogError("Error: " + request.error);
+            }
+            else
+            {
+                try
+                {
+                    string jsonResponse = request.downloadHandler.text;
+                    var response = JsonConvert.DeserializeObject<ApiUpdateResponse>(jsonResponse);
+
+                    if (response != null)
+                    {
+                        if (response.Status.Contains("success"))
+                        {
+                            if (response.Data != null)
+                            {
+                                var data = response.Data;
+                                OnDriverGetSchedule?.Invoke(new List<ScheduledTransaction> { data });
+                            }
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError("Exception: " + ex.Message);
+                }
+            }
+        }
+    }
+
 
     private IEnumerator Create_Queues(int count)
     {
@@ -212,10 +326,11 @@ public class DataModels : MonoBehaviour
         }
     }
 
-    private IEnumerator Create_ScheduledTransactions()
+    private IEnumerator Create_ScheduledTransactions(string queuesId)
     {
         WWWForm form = new WWWForm();
         form.AddField("DriversId", Context.DriversId);
+        form.AddField("QueuesId", int.Parse(queuesId));
         form.AddField("ArrivalDateTime", string.Empty);
         form.AddField("DepartureDateTime", string.Empty);
         form.AddField("FrontSeat1", 0);

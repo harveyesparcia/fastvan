@@ -6,13 +6,15 @@ public class QueuesModel
     public string DepartureDateTime { get; set; }
     public string ArrivalDateTime { get; set; }
     public string DriversId { get; set; }
+    public string Id { get; set; }
 
-    public QueuesModel(string vanPlateNumber, string departureDateTime, string arivalDateTime, string driversId)
+    public QueuesModel(string vanPlateNumber, string departureDateTime, string arivalDateTime, string driversId, string id)
     {
         VanPlateNumber = vanPlateNumber;
         DepartureDateTime = departureDateTime;
         ArrivalDateTime = arivalDateTime;
         DriversId = driversId;
+        Id = id;
     }
 }
 

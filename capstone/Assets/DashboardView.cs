@@ -130,7 +130,7 @@ public class DashboardView : MonoBehaviour
 
     public void AddBookingTapped()
     {
-        var model = new DataModels();
-        model.ProcessScheduleTransactions();
+        //var model = new DataModels();
+        //model.ProcessScheduleTransactions();
     }
 }
