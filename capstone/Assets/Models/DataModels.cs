@@ -5,6 +5,7 @@ using System.Collections;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 
 public class DataModels : MonoBehaviour
 {
@@ -20,6 +21,15 @@ public class DataModels : MonoBehaviour
         get { return currentQueue; }
         set { currentQueue = value; }
     }
+
+    private string driversId;
+
+    public string DriversId
+    {
+        get { return driversId; }
+        set { driversId = value; }
+    }
+
 
     private List<QueuesModel> queue = new List<QueuesModel>();
 
@@ -281,11 +291,56 @@ public class DataModels : MonoBehaviour
                             if (response.Data != null)
                             {
                                 var data = response.Data;
+
+                                UpdateCompleted(response.Data, driversId, currentQueue);
+
                                 OnDriverGetSchedule?.Invoke(new List<ScheduledTransaction> { data });
                             }
 
                         }
                     }
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError("Exception: " + ex.Message);
+                }
+            }
+        }
+    }
+
+    private void UpdateCompleted(ScheduledTransaction scheduledTransaction, string driversId, int currentQueue)
+    {
+
+        if (scheduledTransaction.FrontSeat1 == 1 && scheduledTransaction.FrontSeat2 == 1 &&
+            scheduledTransaction.FirstSeat1 == 1 && scheduledTransaction.FirstSeat2 == 1 && scheduledTransaction.FirstSeat3 == 1 && scheduledTransaction.FirstSeat4 == 1 &&
+            scheduledTransaction.SecondSeat1 == 1 && scheduledTransaction.SecondSeat2 == 1 && scheduledTransaction.SecondSeat3 == 1 && scheduledTransaction.SecondSeat4 == 1 &&
+            scheduledTransaction.ThirdSeat1 == 1 && scheduledTransaction.ThirdSeat2 == 1 && scheduledTransaction.ThirdSeat3 == 1 && scheduledTransaction.ThirdSeat4 == 1 &&
+            scheduledTransaction.FourthSeat1 == 1 && scheduledTransaction.FourthSeat2 == 1 && scheduledTransaction.FourthSeat3 == 1 && scheduledTransaction.FourthSeat4 == 1)
+        {
+            StartCoroutine(Update_Completed(driversId, currentQueue));
+        }
+    }
+
+    private IEnumerator Update_Completed(string driversId, int currentQueue)
+    {
+
+        WWWForm form = new WWWForm();
+        form.AddField("DriversId", driversId);
+        form.AddField("Status", 0);
+
+        using (UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/update_queues.php", form))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.isNetworkError || request.isHttpError)
+            {
+                Debug.LogError("Error: " + request.error);
+            }
+            else
+            {
+                try
+                {
+                    string jsonResponse = request.downloadHandler.text;
                 }
                 catch (Exception ex)
                 {

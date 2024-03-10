@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -20,6 +16,7 @@ public class DriverView : MonoBehaviour
     [SerializeField] private GameObject scheduleGameObject;
     [SerializeField] private TMP_Text name;
     [SerializeField] private GameObject seat;
+    [SerializeField] private GameObject seatstatus;
     [SerializeField] private TMP_Text message3;
     [SerializeField] private GameObject bookedobjt;
 
@@ -67,10 +64,14 @@ public class DriverView : MonoBehaviour
         {
             UpdateSeat(model.FirstOrDefault());
             seat.gameObject.SetActive(true);
+            seatstatus.gameObject.SetActive(false);
             bookedobjt.gameObject.SetActive(false);
             seats.Clear();
         }
+    }
 
+    public void SeatStatusTapped() {
+        seatstatus.gameObject.SetActive(true);
     }
 
     public void AddtoUpdateSeats(string seatNumber)
@@ -147,8 +148,7 @@ public class DriverView : MonoBehaviour
     void PopulateList()
     {
         RectTransform contentTransform = scrollView.content;
-
-        foreach (var data in DataModels.Instance.Queue.Where(x => x.DriversId == Context.DriversId))
+        foreach (var data in DataModels.Instance.Queue.Where(x => x.DriversId == Context.DriversId && x.Status==1))
         {
             GameObject listItem = Instantiate(listItemPrefab, contentTransform);
 
@@ -193,7 +193,7 @@ public class DriverView : MonoBehaviour
                 TMP_Text maxCapacityText = maxCapacityform.GetComponent<TMP_Text>();
                 if (maxCapacityText != null)
                 {
-                    maxCapacityText.text = "24";
+                    maxCapacityText.text = "18";
                 }
             }
 
@@ -202,7 +202,7 @@ public class DriverView : MonoBehaviour
                 TMP_Text plateNumberText = plateNumberTransform.GetComponent<TMP_Text>();
                 if (plateNumberText != null)
                 {
-                    plateNumberText.text = "JKK 445";
+                    plateNumberText.text = data.VanPlateNumber.ToString();
                 }
             }
 
@@ -211,7 +211,7 @@ public class DriverView : MonoBehaviour
                 TMP_Text totalPassengerText = totalPassengerform.GetComponent<TMP_Text>();
                 if (totalPassengerText != null)
                 {
-                    totalPassengerText.text = "10";
+                    totalPassengerText.text = "N/A";
                 }
             }
 
@@ -220,6 +220,7 @@ public class DriverView : MonoBehaviour
 
         GameObject templateObject = contentTransform.Find("Image").gameObject;
         templateObject.SetActive(false);
+        
     }
 
     public void scheduleBack()
@@ -257,6 +258,7 @@ public class DriverView : MonoBehaviour
         ModalAddSchedule.gameObject.SetActive(false);
         ModalMessage2.gameObject.SetActive(false);
         seat.gameObject.SetActive(false);
+        seatstatus.gameObject.SetActive(false);
     }
 
     public void YesTapped()
@@ -276,6 +278,7 @@ public class DriverView : MonoBehaviour
         ModalAddSchedule.gameObject.SetActive(false);
         canvasMenu.gameObject.SetActive(true);
         seat.gameObject.SetActive(false);
+        seatstatus.gameObject.SetActive(false);
         bookedobjt.gameObject.SetActive(false);
     }
 

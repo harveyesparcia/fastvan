@@ -73,6 +73,7 @@
     <Compile Include="Assets\DashboardView.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePicker_DateRange.cs" />
     <Compile Include="Assets\LoginView.cs" />
+    <Compile Include="Assets\Models\ScheduleModel.cs" />
     <Compile Include="Assets\UIModal\Scripts\ModalButton.cs" />
     <Compile Include="Assets\DriverView.cs" />
     <Compile Include="Assets\PassengerView.cs" />
@@ -114,7 +115,6 @@
     <Compile Include="Assets\UI\TableLayout\TableLayout.cs" />
     <Compile Include="Assets\SimpleTableUI\Example\TableUIExample.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePickerCache.cs" />
-    <Compile Include="Assets\Models\ScheduleModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

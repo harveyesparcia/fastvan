@@ -7,14 +7,16 @@ public class QueuesModel
     public string ArrivalDateTime { get; set; }
     public string DriversId { get; set; }
     public string Id { get; set; }
+    public int Status { get; set; }
 
-    public QueuesModel(string vanPlateNumber, string departureDateTime, string arivalDateTime, string driversId, string id)
+    public QueuesModel(string vanPlateNumber, string departureDateTime, string arivalDateTime, string driversId, string id, int status)
     {
         VanPlateNumber = vanPlateNumber;
         DepartureDateTime = departureDateTime;
         ArrivalDateTime = arivalDateTime;
         DriversId = driversId;
         Id = id;
+        Status = status;
     }
 }
 

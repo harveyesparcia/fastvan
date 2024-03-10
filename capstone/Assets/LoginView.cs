@@ -150,7 +150,7 @@ public class LoginView
                     if (response.Role.Contains("Passenger"))
                     {
 
-                        SceneManager.LoadScene("Driver");
+                        SceneManager.LoadScene("Passenger");
                     }
                 }
                 else
