@@ -1,12 +1,11 @@
-using System;
-using UnityEngine.Networking;
-using UnityEngine;
-using System.Collections;
+using Gravitons.UI.Modal;
 using Newtonsoft.Json;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using Unity.VisualScripting.Dependencies.Sqlite;
+using UnityEngine;
+using UnityEngine.Networking;
 
 public class DataModels : MonoBehaviour
 {
@@ -17,6 +16,7 @@ public class DataModels : MonoBehaviour
     public Action<QueuesModel> OnDriverUpdateSchedule;
     public Action<List<ScheduledTransaction>> OnDriverGetSchedule;
     public Action<bool> OnCheckExist;
+    public Action<bool, UserModel> OnRegisterChanged;
     private int currentQueue;
 
     public int CurrentQueue
@@ -80,6 +80,11 @@ public class DataModels : MonoBehaviour
         // Initialization code here
     }
 
+    public void RegisterDriver(string firstname, string lastname, string date, string address, string contactnumber, string email, string platenumber, string driverlicenseNumber)
+    {
+        StartCoroutine(Registation(firstname, lastname, date, address, contactnumber, email, platenumber, driverlicenseNumber));
+    }
+
     public void GetDriverSchedule(string driversId, string QueuesId)
     {
         StartCoroutine(Get_DriverSchedule(driversId, int.Parse(QueuesId)));
@@ -114,6 +119,10 @@ public class DataModels : MonoBehaviour
     public void UpdateQueues(string driversId, Dictionary<string, int> parameters)
     {
         StartCoroutine(Update_Schedule(driversId, parameters));
+    }
+
+    public void CreatePassengerTransactions(string driversId, Dictionary<string, int> parameters)
+    {
     }
 
     public void ProcessScheduleTransactions(int queuesId)
@@ -506,6 +515,89 @@ public class DataModels : MonoBehaviour
             }
             catch (Exception ex)
             {
+            }
+
+        }
+    }
+
+    private IEnumerator Create_PassengerTransaction(int count)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("VanPlateNumber", string.Empty);
+        form.AddField("DepartureDateTime", string.Empty);
+        form.AddField("ArrivalDateTime", string.Empty);
+        form.AddField("DriversId", Context.DriversId);
+        form.AddField("Id", count);
+
+        using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/create_queues.php", form);
+
+        yield return request.SendWebRequest();
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.LogError("Error: " + request.error);
+
+        }
+        else
+        {
+            try
+            {
+                string jsonResponse = request.downloadHandler.text;
+                StartCoroutine(Create_ScheduledTransactions(count));
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+    }
+
+    IEnumerator Registation(string firstname, string lastname, string date, string address, string contactnumber, string email, string platenumber, string driverlicenseNumber)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("username", string.Empty);
+        form.AddField("password", string.Empty);
+        form.AddField("firstname", firstname);
+        form.AddField("lastname", lastname);
+        form.AddField("typeofaccount", 2);
+        form.AddField("BirthDate", date);
+        form.AddField("Address", address);
+        form.AddField("IsResign", 0);
+        form.AddField("IsBlocked", 0);
+        form.AddField("ContactNumber", contactnumber);
+        form.AddField("Email", email);
+        form.AddField("isDriver", 1);
+        form.AddField("PlateNumber", platenumber);
+        form.AddField("DriversLicenseNumber", driverlicenseNumber);
+
+        using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/register.php", form);
+
+        yield return request.SendWebRequest();
+
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.LogError("Error: " + request.error);
+        }
+        else
+        {
+            try
+            {
+                string jsonResponse = request.downloadHandler.text;
+                var response = JsonConvert.DeserializeObject<UserModel>(jsonResponse);
+                Debug.Log("Response: " + jsonResponse);
+                if (response.Status.Contains("success"))
+                {
+                    OnRegisterChanged.Invoke(true, response);
+                   
+                }
+                else
+                {
+                    OnRegisterChanged.Invoke(false, null);
+                 
+                }
+            }
+            catch (Exception ex)
+            {
+                OnRegisterChanged.Invoke(false, null);
             }
 
         }

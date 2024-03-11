@@ -19,7 +19,7 @@ public class PassengerView : MonoBehaviour
     [SerializeField] private GameObject seat;
     [SerializeField] private TMP_Text message3;
     [SerializeField] private GameObject bookedobjt;
-
+    [SerializeField] private GameObject changepassView;
 
     [SerializeField] private Button driver;
     [SerializeField] private Button driverarea2;
@@ -40,6 +40,14 @@ public class PassengerView : MonoBehaviour
     [SerializeField] private Button Lastseat2;
     [SerializeField] private Button Lastseat3;
     [SerializeField] private Button Lastseat4;
+
+
+    [SerializeField] private GameObject changepass;
+    [SerializeField] private TMP_Text first;
+    [SerializeField] private TMP_Text last;
+    [SerializeField] private TMP_Text contact;
+    [SerializeField] private TMP_Text address;
+    [SerializeField] private TMP_Text birth;
 
     private static Dictionary<string, int> seats = new Dictionary<string, int>();
 
@@ -64,11 +72,16 @@ public class PassengerView : MonoBehaviour
         DataModels.Instance.ProcessScheduleTransactions(obj);
     }
 
+    public void accountBackTapped()
+    {
+        changepass.gameObject.SetActive(false);
+    }
+
     private void OnDriverGetSchedule(List<ScheduledTransaction> model)
     {
         if (model != null)
         {
-            UpdateSeat(model.FirstOrDefault());
+            UpdateSeat(model.Where(x=>x.Status==1).FirstOrDefault());
             seat.gameObject.SetActive(true);
             bookedobjt.gameObject.SetActive(false);
             seats.Clear();
@@ -110,15 +123,41 @@ public class PassengerView : MonoBehaviour
         bookedobjt.gameObject.SetActive(false);
     }
 
+    public void cancelChangepasswordTapped()
+    {
+        changepass.gameObject.SetActive(false);
+        changepassView.gameObject.SetActive(false);
+    }
+
+
+    public void changepasswordTapped()
+    {
+        changepass.gameObject.SetActive(true);
+    }
+
+    public void changepasswordFromTapped()
+    {
+        changepassView.gameObject.SetActive(true);
+    }
+
     public void UpdateSeat(ScheduledTransaction model)
     {
         if (model != null)
         {
             driver.interactable = false;
 
+            DataModels.Instance.DriversId = model.DriversId;
             if (model.FrontSeat1 == 1)
             {
-                driverarea2.interactable = false;
+                if (Context.firstname.Equals(model.FrontSeat1Name))
+                {
+                    driverarea2.interactable = true;
+                }
+                else
+                {
+                    driverarea2.interactable = false;
+                }
+               
                 UpdateButtonText(driverarea2, model.FrontSeat1Name);
             }
             else
@@ -129,7 +168,15 @@ public class PassengerView : MonoBehaviour
 
             if (model.FrontSeat2 == 1)
             {
-                driverarea3.interactable = false;
+                if (Context.firstname.Equals(model.FrontSeat2Name))
+                {
+                    driverarea3.interactable = true;
+                }
+                else
+                {
+                    driverarea3.interactable = false;
+                }
+
                 UpdateButtonText(driverarea3, model.FrontSeat2Name);
             }
             else
@@ -141,7 +188,15 @@ public class PassengerView : MonoBehaviour
 
             if (model.FirstSeat1 == 1)
             {
-                firstseat1.interactable = false;
+                if (Context.firstname.Equals(model.FirstSeat1Name))
+                {
+                    firstseat1.interactable = true;
+                }
+                else
+                {
+                    firstseat1.interactable = false;
+                }
+
                 UpdateButtonText(firstseat1, model.FirstSeat1Name);
             }
             else
@@ -152,7 +207,14 @@ public class PassengerView : MonoBehaviour
 
             if (model.FirstSeat2 == 1)
             {
-                firstseat2.interactable = false;
+                if (Context.firstname.Equals(model.FirstSeat2Name))
+                {
+                    firstseat2.interactable = true;
+                }
+                else
+                {
+                    firstseat2.interactable = false;
+                }
                 UpdateButtonText(firstseat2, model.FirstSeat2Name);
             }
             else
@@ -163,7 +225,14 @@ public class PassengerView : MonoBehaviour
 
             if (model.FirstSeat3 == 1)
             {
-                firstseat3.interactable = false;
+                if (Context.firstname.Equals(model.FirstSeat2Name))
+                {
+                    firstseat2.interactable = true;
+                }
+                else
+                {
+                    firstseat2.interactable = false;
+                }
                 UpdateButtonText(firstseat3, model.FirstSeat3Name);
             }
             else
@@ -174,7 +243,14 @@ public class PassengerView : MonoBehaviour
 
             if (model.FirstSeat4 == 1)
             {
-                firstseat4.interactable = false;
+                if (Context.firstname.Equals(model.FirstSeat4Name))
+                {
+                    firstseat4.interactable = true;
+                }
+                else
+                {
+                    firstseat4.interactable = false;
+                }
                 UpdateButtonText(firstseat4, model.FirstSeat4Name);
             }
             else
@@ -185,7 +261,15 @@ public class PassengerView : MonoBehaviour
 
             if (model.SecondSeat1 == 1)
             {
-                secondseat1.interactable = false;
+                if (Context.firstname.Equals(model.SecondSeat1Name))
+                {
+                    secondseat1.interactable = true;
+                }
+                else
+                {
+                    secondseat1.interactable = false;
+                }
+
                 UpdateButtonText(secondseat1, model.SecondSeat1Name);
             }
             else
@@ -196,7 +280,14 @@ public class PassengerView : MonoBehaviour
 
             if (model.SecondSeat2 == 1)
             {
-                secondseat2.interactable = false;
+                if (Context.firstname.Equals(model.SecondSeat2Name))
+                {
+                    secondseat2.interactable = true;
+                }
+                else
+                {
+                    secondseat2.interactable = false;
+                }
                 UpdateButtonText(secondseat2, model.SecondSeat2Name);
             }
             else
@@ -207,7 +298,14 @@ public class PassengerView : MonoBehaviour
 
             if (model.SecondSeat3 == 1)
             {
-                secondseat3.interactable = false;
+                if (Context.firstname.Equals(model.SecondSeat3Name))
+                {
+                    secondseat3.interactable = true;
+                }
+                else
+                {
+                    secondseat3.interactable = false;
+                }
                 UpdateButtonText(secondseat3, model.SecondSeat3Name);
             }
             else
@@ -218,7 +316,14 @@ public class PassengerView : MonoBehaviour
 
             if (model.SecondSeat4 == 1)
             {
-                secondseat4.interactable = false;
+                if (Context.firstname.Equals(model.SecondSeat4Name))
+                {
+                    secondseat4.interactable = true;
+                }
+                else
+                {
+                    secondseat4.interactable = false;
+                }
                 UpdateButtonText(secondseat4, model.SecondSeat4Name);
             }
             else
@@ -229,7 +334,15 @@ public class PassengerView : MonoBehaviour
 
             if (model.ThirdSeat1 == 1)
             {
-                thirdseat1.interactable = false;
+                if (Context.firstname.Equals(model.ThirdSeat1Name))
+                {
+                    thirdseat1.interactable = true;
+                }
+                else
+                {
+                    thirdseat1.interactable = false;
+                }
+
                 UpdateButtonText(thirdseat1, model.ThirdSeat1Name);
             }
             else
@@ -240,7 +353,14 @@ public class PassengerView : MonoBehaviour
 
             if (model.ThirdSeat2 == 1)
             {
-                thirdseat2.interactable = false;
+                if (Context.firstname.Equals(model.ThirdSeat2Name))
+                {
+                    thirdseat2.interactable = true;
+                }
+                else
+                {
+                    thirdseat2.interactable = false;
+                }
                 UpdateButtonText(thirdseat2, model.ThirdSeat2Name);
             }
             else
@@ -251,7 +371,14 @@ public class PassengerView : MonoBehaviour
 
             if (model.ThirdSeat3 == 1)
             {
-                thirdseat3.interactable = false;
+                if (Context.firstname.Equals(model.ThirdSeat3Name))
+                {
+                    thirdseat3.interactable = true;
+                }
+                else
+                {
+                    thirdseat3.interactable = false;
+                }
                 UpdateButtonText(thirdseat3, model.ThirdSeat3Name);
             }
             else
@@ -262,7 +389,14 @@ public class PassengerView : MonoBehaviour
 
             if (model.ThirdSeat4 == 1)
             {
-                thirdseat4.interactable = false;
+                if (Context.firstname.Equals(model.ThirdSeat4Name))
+                {
+                    thirdseat4.interactable = true;
+                }
+                else
+                {
+                    thirdseat4.interactable = false;
+                }
                 UpdateButtonText(thirdseat4, model.ThirdSeat4Name);
             }
             else
@@ -274,7 +408,14 @@ public class PassengerView : MonoBehaviour
 
             if (model.FourthSeat1 == 1)
             {
-                Lastseat1.interactable = false;
+                if (Context.firstname.Equals(model.FourthSeat1Name))
+                {
+                    Lastseat1.interactable = true;
+                }
+                else
+                {
+                    Lastseat1.interactable = false;
+                }
                 UpdateButtonText(Lastseat1, model.FourthSeat1Name);
             }
             else
@@ -285,7 +426,14 @@ public class PassengerView : MonoBehaviour
 
             if (model.FourthSeat2 == 1)
             {
-                Lastseat2.interactable = false;
+                if (Context.firstname.Equals(model.FourthSeat2Name))
+                {
+                    Lastseat2.interactable = true;
+                }
+                else
+                {
+                    Lastseat2.interactable = false;
+                }
                 UpdateButtonText(Lastseat2, model.FourthSeat2Name);
             }
             else
@@ -296,7 +444,14 @@ public class PassengerView : MonoBehaviour
 
             if (model.FourthSeat3 == 1)
             {
-                Lastseat3.interactable = false;
+                if (Context.firstname.Equals(model.FourthSeat3Name))
+                {
+                    Lastseat3.interactable = true;
+                }
+                else
+                {
+                    Lastseat3.interactable = false;
+                }
                 UpdateButtonText(Lastseat3, model.FourthSeat3Name);
             }
             else
@@ -307,7 +462,14 @@ public class PassengerView : MonoBehaviour
 
             if (model.FourthSeat4 == 1)
             {
-                Lastseat4.interactable = false;
+                if (Context.firstname.Equals(model.FourthSeat4Name))
+                {
+                    Lastseat4.interactable = true;
+                }
+                else
+                {
+                    Lastseat4.interactable = false;
+                }
                 UpdateButtonText(Lastseat4, model.FourthSeat4Name);
             }
             else
@@ -351,11 +513,29 @@ public class PassengerView : MonoBehaviour
 
     void PopulateList()
     {
+        int count = 0;
+
         RectTransform contentTransform = scrollView.content;
-        foreach (var data in DataModels.Instance.Queue.Where(x => x.Status == 1))
+
+        GameObject templateObject = contentTransform.Find("Image").gameObject;
+        templateObject.SetActive(false);
+
+        var queueList = DataModels.Instance.Queue.Where(x => x.Status == 1);
+        bool isFirstItem = true;
+
+        foreach (var data in queueList)
         {
-            DataModels.Instance.DriversId = data.DriversId;
-            GameObject listItem = Instantiate(listItemPrefab, contentTransform);
+            GameObject listItem;
+
+            if (isFirstItem)
+            {
+                listItem = listItemPrefab;
+                isFirstItem = false;
+            }
+            else
+            {
+                listItem = Instantiate(listItemPrefab, contentTransform);
+            }
 
             TMP_Text itemText = listItem.GetComponentInChildren<TMP_Text>();
 
@@ -371,7 +551,7 @@ public class PassengerView : MonoBehaviour
                 TMP_Text queuesIdText = driversIdform.GetComponent<TMP_Text>();
                 if (queuesIdText != null)
                 {
-                    queuesIdText.text = data.Id.ToString();
+                    queuesIdText.text = data.Id.ToString() +";"+ data.DriversId.ToString();
                 }
             }
 
@@ -421,10 +601,9 @@ public class PassengerView : MonoBehaviour
             }
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(contentTransform);
-        }
 
-        GameObject templateObject = contentTransform.Find("Image").gameObject;
-        templateObject.SetActive(false);
+            listItem.SetActive(true);
+        }
 
     }
 
@@ -483,6 +662,13 @@ public class PassengerView : MonoBehaviour
         canvasMenu.gameObject.SetActive(true);
         seat.gameObject.SetActive(false);
         bookedobjt.gameObject.SetActive(false);
+        changepassView.gameObject.SetActive(false);
+
+        first.text = Context.firstname;
+        last.text = Context.lastname;
+        address.text = Context.Address;
+        birth.text = Context.Birth;
+        contact.text = Context.ContactNumber;
     }
 
     public void AddBookingsTapped()

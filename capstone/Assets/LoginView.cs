@@ -135,6 +135,9 @@ public class LoginView
 
                     Context.lastname = response.LastName;
                     Context.firstname = response.FirstName;
+                    Context.Address = response.Address;
+                    Context.Birth = response.BirthDate;
+
                     DataModels.Instance.GetQueues(false);
                     if (response.Role.Contains("Admin"))
                     {

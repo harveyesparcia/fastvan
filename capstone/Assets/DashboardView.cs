@@ -1,36 +1,592 @@
-using Newtonsoft.Json;
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditorInternal.VersionControl;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DashboardView : MonoBehaviour
 {
+
     [SerializeField] private GameObject Register;
     [SerializeField] private GameObject menu;
     [SerializeField] private GameObject Modal;
     [SerializeField] private TMP_Text message;
-    [SerializeField] private TMP_Text message3;
-    [SerializeField] private TMP_Text message2;
+    [SerializeField] private TMP_Text messageold3;
+    [SerializeField] private TMP_Text messageold2;
 
     [SerializeField] private TMP_InputField firstname;
     [SerializeField] private TMP_InputField lastname;
     [SerializeField] private TMP_InputField address;
     [SerializeField] private TMP_InputField contactnumber;
     [SerializeField] private TMP_InputField email;
-    [SerializeField] private TMP_Text date;
+    [SerializeField] private TMP_InputField date;
     [SerializeField] private TMP_InputField PlateNumber;
     [SerializeField] private TMP_InputField DriversLicenseNumber;
+    [SerializeField] private TMP_Text nameold;
+
+
+    [SerializeField] private GameObject ModalAddSchedule;
+    [SerializeField] private GameObject canvasMenu;
+    [SerializeField] private GameObject ModalMEssage;
+    [SerializeField] private TMP_Text count;
+    [SerializeField] private GameObject ModalMessage2;
+    [SerializeField] private TMP_Text message2;
+    [SerializeField] private GameObject scheduleGameObject;
     [SerializeField] private TMP_Text name;
+    [SerializeField] private GameObject seat;
+    [SerializeField] private GameObject seatstatus;
+    [SerializeField] private TMP_Text message3;
+    [SerializeField] private GameObject bookedobjt;
+    [SerializeField] private GameObject messageExist;
+    [SerializeField] private GameObject modalCOnfimrationTapped;
+
+    [SerializeField] private Button driver;
+    [SerializeField] private Button driverarea2;
+    [SerializeField] private Button driverarea3;
+    [SerializeField] private Button firstseat1;
+    [SerializeField] private Button firstseat2;
+    [SerializeField] private Button firstseat3;
+    [SerializeField] private Button firstseat4;
+    [SerializeField] private Button secondseat1;
+    [SerializeField] private Button secondseat2;
+    [SerializeField] private Button secondseat3;
+    [SerializeField] private Button secondseat4;
+    [SerializeField] private Button thirdseat1;
+    [SerializeField] private Button thirdseat2;
+    [SerializeField] private Button thirdseat3;
+    [SerializeField] private Button thirdseat4;
+    [SerializeField] private Button Lastseat1;
+    [SerializeField] private Button Lastseat2;
+    [SerializeField] private Button Lastseat3;
+    [SerializeField] private Button Lastseat4;
+
+    private static Dictionary<string, int> seats = new Dictionary<string, int>();
+
+    public ScrollRect scrollView;
+    public GameObject listItemPrefab;
 
     void Start()
     {
-        Register.gameObject.SetActive(false);
-        menu.gameObject.SetActive(true);
-        name.text = Context.firstname + "  " + Context.lastname;
+        if (Context.IsLogin)
+        {
+            show();
+            DataModels.Instance.OnAddSchedule += OnsheduleChanged;
+            DataModels.Instance.OnUpdateSchedule += OnUpdateScheduleChanged;
+            DataModels.Instance.OnCountSchedule += OnCountScheduleChanged;
+            DataModels.Instance.OnDriverGetSchedule += OnDriverGetSchedule;
+            DataModels.Instance.OnAddQueue += OnAddQueue;
+            DataModels.Instance.OnCheckExist += OnCheckExist;
+            DataModels.Instance.OnRegisterChanged += OnRegisterChanged;
+        }
     }
+
+
+    private void OnRegisterChanged(bool obj, UserModel data)
+    {
+        if (obj)
+        {
+            message.text = "User successfully registered.";
+            messageold2.text = $"User Name:  {data.Username}";
+            messageold3.text = $"Password :  {data.Password}";
+            Modal.gameObject.SetActive(true);
+
+            firstname.text = string.Empty;
+            lastname.text = string.Empty;
+            address.text = string.Empty;
+        }
+        else
+        {
+            message.text = "Failed to register driver.";
+            Modal.gameObject.SetActive(true);
+        }
+    }
+
+    public void AddDriverTapped()
+    {
+        Register.gameObject.SetActive(true);
+
+    }
+
+    public void registerBackTapped()
+    {
+        modalCOnfimrationTapped.gameObject.SetActive(false);
+        Register.gameObject.SetActive(false);
+        Modal.gameObject.SetActive(false);
+    }
+
+
+    public void registerTapped()
+    {
+        DataModels.Instance.RegisterDriver(firstname.text, lastname.text, date.text, address.text, contactnumber.text, email.text, PlateNumber.text, DriversLicenseNumber.text);
+    }
+
+    public void confirmationTapped()
+    {
+        modalCOnfimrationTapped.gameObject.SetActive(true);
+    }
+
+    private void OnCheckExist(bool obj)
+    {
+        if (obj)
+        {
+            messageExist.gameObject.SetActive(true);
+        }
+        else
+        {
+            DataModels.Instance.GetCountQueues();
+        }
+
+    }
+
+    private void UpdateButtonText(Button button, string name)
+    {
+        if (button != null)
+        {
+            TMP_Text buttonText = button.GetComponentInChildren<TMP_Text>();
+
+            if (buttonText != null)
+            {
+                buttonText.text = name;
+                Debug.Log($"Button text updated to '{buttonText.text}'");
+            }
+        }
+    }
+
+    private void OnAddQueue(int obj)
+    {
+        DataModels.Instance.ProcessScheduleTransactions(obj);
+    }
+
+    private void OnDriverGetSchedule(List<ScheduledTransaction> model)
+    {
+        if (model != null)
+        {
+            UpdateSeat(model.FirstOrDefault());
+            seat.gameObject.SetActive(true);
+            seatstatus.gameObject.SetActive(false);
+            bookedobjt.gameObject.SetActive(false);
+            seats.Clear();
+        }
+    }
+
+    public void SeatStatusTapped()
+    {
+        var queueId = DataModels.Instance.Queue.Where(x => x.DriversId.Equals(Context.DriversId))?.FirstOrDefault();
+        if (queueId != null)
+        {
+            DataModels.Instance.GetDriverSchedule(Context.DriversId, queueId.Id);
+            seatstatus.gameObject.SetActive(true);
+        }
+
+    }
+
+    public void AddtoUpdateSeats(string seatNumber)
+    {
+        if (!seats.ContainsKey(seatNumber))
+        {
+            seats.Add(seatNumber, 1);
+        }
+        else
+        {
+            seats.Remove(seatNumber);
+        }
+    }
+
+    public void bookedTap()
+    {
+        string formattedSeats = string.Join(", ", seats.Keys);
+        message3.text = $"Your about to book on seat {formattedSeats}";
+        bookedobjt.gameObject.SetActive(true);
+    }
+
+    public void bookedYesTap()
+    {
+        bookedobjt.gameObject.SetActive(true);
+
+        DataModels.Instance.UpdateQueues(Context.DriversId, seats);
+    }
+
+    public void bookedNoTap()
+    {
+        bookedobjt.gameObject.SetActive(false);
+    }
+
+    public void UpdateSeat(ScheduledTransaction model)
+    {
+        if (model != null)
+        {
+            driver.interactable = false;
+            DataModels.Instance.DriversId = model.DriversId;
+
+            if (model.FrontSeat1 == 1)
+            {
+                driverarea2.interactable = false;
+                UpdateButtonText(driverarea2, model.FrontSeat1Name);
+            }
+            else
+            {
+                driverarea2.interactable = true;
+                UpdateButtonText(driverarea2, Contants.Seat3);
+            }
+
+            if (model.FrontSeat2 == 1)
+            {
+                driverarea3.interactable = false;
+                UpdateButtonText(driverarea3, model.FrontSeat2Name);
+            }
+            else
+            {
+                driverarea3.interactable = true;
+                UpdateButtonText(driverarea3, Contants.Seat4);
+
+            }
+
+            if (model.FirstSeat1 == 1)
+            {
+                firstseat1.interactable = false;
+                UpdateButtonText(firstseat1, model.FirstSeat1Name);
+            }
+            else
+            {
+                firstseat1.interactable = true;
+                UpdateButtonText(firstseat1, Contants.Seat1);
+            }
+
+            if (model.FirstSeat2 == 1)
+            {
+                firstseat2.interactable = false;
+                UpdateButtonText(firstseat2, model.FirstSeat2Name);
+            }
+            else
+            {
+                firstseat2.interactable = true;
+                UpdateButtonText(firstseat2, Contants.Seat2);
+            }
+
+            if (model.FirstSeat3 == 1)
+            {
+                firstseat3.interactable = false;
+                UpdateButtonText(firstseat3, model.FirstSeat3Name);
+            }
+            else
+            {
+                firstseat3.interactable = true;
+                UpdateButtonText(firstseat3, Contants.Seat3);
+            }
+
+            if (model.FirstSeat4 == 1)
+            {
+                firstseat4.interactable = false;
+                UpdateButtonText(firstseat4, model.FirstSeat4Name);
+            }
+            else
+            {
+                firstseat4.interactable = true;
+                UpdateButtonText(firstseat4, Contants.Seat4);
+            }
+
+            if (model.SecondSeat1 == 1)
+            {
+                secondseat1.interactable = false;
+                UpdateButtonText(secondseat1, model.SecondSeat1Name);
+            }
+            else
+            {
+                secondseat1.interactable = true;
+                UpdateButtonText(secondseat1, Contants.Seat1);
+            }
+
+            if (model.SecondSeat2 == 1)
+            {
+                secondseat2.interactable = false;
+                UpdateButtonText(secondseat2, model.SecondSeat2Name);
+            }
+            else
+            {
+                secondseat2.interactable = true;
+                UpdateButtonText(secondseat2, Contants.Seat2);
+            }
+
+            if (model.SecondSeat3 == 1)
+            {
+                secondseat3.interactable = false;
+                UpdateButtonText(secondseat3, model.SecondSeat3Name);
+            }
+            else
+            {
+                secondseat3.interactable = true;
+                UpdateButtonText(secondseat3, Contants.Seat3);
+            }
+
+            if (model.SecondSeat4 == 1)
+            {
+                secondseat4.interactable = false;
+                UpdateButtonText(secondseat4, model.SecondSeat4Name);
+            }
+            else
+            {
+                secondseat4.interactable = true;
+                UpdateButtonText(secondseat4, Contants.Seat4);
+            }
+
+            if (model.ThirdSeat1 == 1)
+            {
+                thirdseat1.interactable = false;
+                UpdateButtonText(thirdseat1, model.ThirdSeat1Name);
+            }
+            else
+            {
+                thirdseat1.interactable = true;
+                UpdateButtonText(thirdseat1, Contants.Seat1);
+            }
+
+            if (model.ThirdSeat2 == 1)
+            {
+                thirdseat2.interactable = false;
+                UpdateButtonText(thirdseat2, model.ThirdSeat2Name);
+            }
+            else
+            {
+                thirdseat2.interactable = true;
+                UpdateButtonText(thirdseat2, Contants.Seat2);
+            }
+
+            if (model.ThirdSeat3 == 1)
+            {
+                thirdseat3.interactable = false;
+                UpdateButtonText(thirdseat3, model.ThirdSeat3Name);
+            }
+            else
+            {
+                thirdseat3.interactable = true;
+                UpdateButtonText(thirdseat3, Contants.Seat3);
+            }
+
+            if (model.ThirdSeat4 == 1)
+            {
+                thirdseat4.interactable = false;
+                UpdateButtonText(thirdseat4, model.ThirdSeat4Name);
+            }
+            else
+            {
+                thirdseat4.interactable = true;
+                UpdateButtonText(thirdseat4, Contants.Seat4);
+            }
+
+
+            if (model.FourthSeat1 == 1)
+            {
+                Lastseat1.interactable = false;
+                UpdateButtonText(Lastseat1, model.FourthSeat1Name);
+            }
+            else
+            {
+                Lastseat1.interactable = true;
+                UpdateButtonText(Lastseat1, Contants.Seat1);
+            }
+
+            if (model.FourthSeat2 == 1)
+            {
+                Lastseat2.interactable = false;
+                UpdateButtonText(Lastseat2, model.FourthSeat2Name);
+            }
+            else
+            {
+                Lastseat2.interactable = true;
+                UpdateButtonText(Lastseat2, Contants.Seat2);
+            }
+
+            if (model.FourthSeat3 == 1)
+            {
+                Lastseat3.interactable = false;
+                UpdateButtonText(Lastseat3, model.FourthSeat3Name);
+            }
+            else
+            {
+                Lastseat3.interactable = true;
+                UpdateButtonText(Lastseat3, Contants.Seat3);
+            }
+
+            if (model.FourthSeat4 == 1)
+            {
+                Lastseat4.interactable = false;
+                UpdateButtonText(Lastseat4, model.FourthSeat4Name);
+            }
+            else
+            {
+                Lastseat4.interactable = true;
+                UpdateButtonText(Lastseat4, Contants.Seat4);
+            }
+        }
+    }
+
+    private void OnCountScheduleChanged(int obj)
+    {
+        ModalMessage2.gameObject.SetActive(false);
+        ModalAddSchedule.gameObject.SetActive(true);
+        var total = obj + 1;
+        count.text = total.ToString();
+    }
+
+    private void OnUpdateScheduleChanged(bool onupdate)
+    {
+        if (onupdate)
+        {
+            scheduleGameObject.gameObject.SetActive(true);
+        }
+
+        PopulateList();
+    }
+
+    void PopulateList()
+    {
+        int count = 0;
+
+        RectTransform contentTransform = scrollView.content;
+
+        GameObject templateObject = contentTransform.Find("Image").gameObject;
+        templateObject.SetActive(false);
+       
+        var queueList = DataModels.Instance.Queue.Where(x => x.Status == 1);
+        bool isFirstItem = true;
+
+        foreach (var data in queueList)
+        {
+            GameObject listItem;
+
+            if (isFirstItem)
+            {
+                listItem = listItemPrefab;
+                isFirstItem = false;
+            }
+            else
+            {
+                listItem = Instantiate(listItemPrefab, contentTransform);
+            }
+
+            TMP_Text itemText = listItem.GetComponentInChildren<TMP_Text>();
+
+            Transform driverNameTransform = listItem.transform.Find("DriversNameValue");
+            Transform plateNumberTransform = listItem.transform.Find("PlateNumber");
+            Transform totalPassengerform = listItem.transform.Find("TotalPassenger");
+            Transform maxCapacityform = listItem.transform.Find("MaxCapacity");
+            Transform driversIdform = listItem.transform.Find("DriversId");
+            Transform QueuesIdform = listItem.transform.Find("QueuesId");
+
+            if (QueuesIdform != null)
+            {
+                TMP_Text queuesIdText = driversIdform.GetComponent<TMP_Text>();
+                if (queuesIdText != null)
+                {
+                    queuesIdText.text = data.Id.ToString() + ";" + data.DriversId.ToString();
+                }
+            }
+
+            if (driversIdform != null)
+            {
+                TMP_Text driverIdText = driversIdform.GetComponent<TMP_Text>();
+                if (driverIdText != null)
+                {
+                    driverIdText.text = data.Id.ToString() + ";" + data.DriversId.ToString();
+                }
+            }
+
+            if (driverNameTransform != null)
+            {
+                TMP_Text driverNameText = driverNameTransform.GetComponent<TMP_Text>();
+                if (driverNameText != null)
+                {
+                    driverNameText.text = data.DriversId.ToString();
+                }
+            }
+
+            if (maxCapacityform != null)
+            {
+                TMP_Text maxCapacityText = maxCapacityform.GetComponent<TMP_Text>();
+                if (maxCapacityText != null)
+                {
+                    maxCapacityText.text = "18";
+                }
+            }
+
+            if (plateNumberTransform != null)
+            {
+                TMP_Text plateNumberText = plateNumberTransform.GetComponent<TMP_Text>();
+                if (plateNumberText != null)
+                {
+                    plateNumberText.text = data.VanPlateNumber.ToString();
+                }
+            }
+
+            if (totalPassengerform != null)
+            {
+                TMP_Text totalPassengerText = totalPassengerform.GetComponent<TMP_Text>();
+                if (totalPassengerText != null)
+                {
+                    totalPassengerText.text = "N/A";
+                }
+            }
+
+            LayoutRebuilder.ForceRebuildLayoutImmediate(contentTransform);
+
+            listItem.SetActive(true);
+        }
+
+    }
+
+    public void CheckIfExistNoTapped()
+    {
+        messageExist.gameObject.SetActive(false);
+    }
+
+    public void scheduleBack()
+    {
+        scheduleGameObject.gameObject.SetActive(false);
+    }
+
+    public void ScheduleTapped()
+    {
+        DataModels.Instance.GetQueues(true);
+    }
+
+    private void OnsheduleChanged(bool obj)
+    {
+        DataModels.Instance.GetQueues(false);
+        ModalMessage2.gameObject.SetActive(true);
+        if (obj)
+        {
+            message2.text = "Succesfully added a scheduled.";
+        }
+        else
+        {
+            message2.text = "Failed to add a scheduled.";
+        }
+    }
+
+    public void AddTapped()
+    {
+        ModalMEssage.gameObject.SetActive(true);
+    }
+
+    public void NoTapped()
+    {
+        show();
+        ModalMEssage.gameObject.SetActive(false);
+        ModalAddSchedule.gameObject.SetActive(false);
+        ModalMessage2.gameObject.SetActive(false);
+        seat.gameObject.SetActive(false);
+        seatstatus.gameObject.SetActive(false);
+    }
+
+    public void YesTapped()
+    {
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -38,16 +594,49 @@ public class DashboardView : MonoBehaviour
 
     }
 
-    public void SaveTapped()
+    private void show()
     {
-        if (string.IsNullOrEmpty(address.text) || string.IsNullOrEmpty(firstname.text) || string.IsNullOrEmpty(lastname.text))
-        {
-            message.text = "address, firstname or lastname is empty.";
-            Modal.gameObject.SetActive(true);
-            return;
-        }
+        name.text = Context.firstname + "  " + Context.lastname;
+        ModalAddSchedule.gameObject.SetActive(false);
+        canvasMenu.gameObject.SetActive(true);
+        seat.gameObject.SetActive(false);
+        seatstatus.gameObject.SetActive(false);
+        bookedobjt.gameObject.SetActive(false);
+    }
 
-        StartCoroutine(Registation());
+    public void AddBookingsTapped()
+    {
+        DataModels.Instance.CheckIfQueuesExist(Context.DriversId);
+    }
+
+    public void GotoSeat(TMP_Text QueueId)
+    {
+        var data = QueueId.text.ToString().Split(';');
+        DataModels.Instance.GetDriverSchedule(data[1], data[0]);
+    }
+
+    public void SeatBack()
+    {
+        show();
+        seats.Clear();
+        ModalMEssage.gameObject.SetActive(false);
+        ModalAddSchedule.gameObject.SetActive(false);
+        ModalMessage2.gameObject.SetActive(false);
+        seat.gameObject.SetActive(false);
+    }
+
+
+    private void OnDestroy()
+    {
+        if (Context.IsLogin && DataModels.Instance != null)
+        {
+            DataModels.Instance.OnAddSchedule -= OnsheduleChanged;
+            DataModels.Instance.OnUpdateSchedule -= OnUpdateScheduleChanged;
+            DataModels.Instance.OnCountSchedule -= OnCountScheduleChanged;
+            DataModels.Instance.OnDriverGetSchedule -= OnDriverGetSchedule;
+            DataModels.Instance.OnAddQueue -= OnAddQueue;
+            DataModels.Instance.OnCheckExist -= OnCheckExist;
+        }
     }
 
     public void LogoutTapped()
@@ -56,81 +645,8 @@ public class DashboardView : MonoBehaviour
         SceneManager.UnloadSceneAsync("Dashboard");
     }
 
-    public void AddDriverTapped()
+    public void SaveTapped()
     {
-        Register.gameObject.SetActive(true);
-        menu.gameObject.SetActive(false);
-    }
-
-    public void BackTapped()
-    {
-        Register.gameObject.SetActive(false);
-        menu.gameObject.SetActive(true);
-    }
-
-    IEnumerator Registation()
-    {
-        WWWForm form = new WWWForm();
-        form.AddField("username", string.Empty);
-        form.AddField("password", string.Empty);
-        form.AddField("firstname", firstname.text);
-        form.AddField("lastname", lastname.text);
-        form.AddField("typeofaccount", 2);
-        form.AddField("BirthDate", date.text);
-        form.AddField("Address", address.text);
-        form.AddField("IsResign", 0);
-        form.AddField("IsBlocked", 0);
-        form.AddField("ContactNumber", contactnumber.text);
-        form.AddField("Email", email.text);
-        form.AddField("isDriver", 1);
-        form.AddField("PlateNumber", PlateNumber.text);
-        form.AddField("DriversLicenseNumber", DriversLicenseNumber.text);
-
-        using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/register.php", form);
-
-        yield return request.SendWebRequest();
-
-        if (request.isNetworkError || request.isHttpError)
-        {
-            Debug.LogError("Error: " + request.error);
-        }
-        else
-        {
-            try
-            {
-                string jsonResponse = request.downloadHandler.text;
-                var response = JsonConvert.DeserializeObject<UserModel>(jsonResponse);
-                Debug.Log("Response: " + jsonResponse);
-                if (response.Status.Contains("success"))
-                {
-                    message.text = "User successfully registered.";
-                    message2.text = $"User Name:  {response.Username}";
-                    message3.text = $"Password :  {response.Password}";
-                    Modal.gameObject.SetActive(true);
-
-
-                    firstname.text = string.Empty;
-                    lastname.text = string.Empty;
-                    address.text = string.Empty;
-                }
-                else
-                {
-                    message.text = "User registration failed.";
-                    Modal.gameObject.SetActive(true);
-                }
-            }
-            catch (Exception ex)
-            {
-                message.text = ex.Message;
-                Modal.gameObject.SetActive(true);
-            }
-
-        }
-    }
-
-    public void AddBookingTapped()
-    {
-        //var model = new DataModels();
-        //model.ProcessScheduleTransactions();
+        DataModels.Instance.CreateQueues(count.text);
     }
 }

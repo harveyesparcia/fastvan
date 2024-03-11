@@ -10,12 +10,13 @@ public class UserModel
     public string PlateNumber { get; set; }
     public string Avatar { get; set; }
     public string BirthDate { get; set; }
+    public string Address { get; set; }
     public string DriversLicenseNumber { get; set; }
 
     public string Status { get; set; }
 
 
-    public UserModel(string role, string username, string firstName, string lastName, string password, string status,string driversId )
+    public UserModel(string role, string username, string firstName, string lastName, string password, string status,string driversId , string address)
     {
         Role = role;
         Username = username;
@@ -24,6 +25,7 @@ public class UserModel
         Password = password;
         Status = status;
         DriversId = driversId;
+        Address = address;
     }
 }
 

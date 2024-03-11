@@ -11,6 +11,9 @@ public static class Context {
     public static string role { get; set; }
     public static string DriversId { get; set; }
     public static string VanPlateNumber { get; set; }
+    public static string Address { get; set; }
+    public static string ContactNumber { get; set; }
+    public static string Birth { get; set; }
 
     public static List<QueuesModel> Queues { get; set; }
 

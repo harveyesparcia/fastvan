@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEditorInternal.VersionControl;
@@ -24,6 +25,7 @@ public class DriverView : MonoBehaviour
     [SerializeField] private TMP_Text message3;
     [SerializeField] private GameObject bookedobjt;
     [SerializeField] private GameObject messageExist;
+    [SerializeField] private GameObject changepassView;
 
     [SerializeField] private Button driver;
     [SerializeField] private Button driverarea2;
@@ -158,201 +160,165 @@ public class DriverView : MonoBehaviour
 
             if (model.FrontSeat1 == 1)
             {
-                driverarea2.interactable = false;
                 UpdateButtonText(driverarea2, model.FrontSeat1Name);
             }
             else
             {
-                driverarea2.interactable = true;
                 UpdateButtonText(driverarea2, Contants.Seat3);
             }
 
             if (model.FrontSeat2 == 1)
             {
-                driverarea3.interactable = false;
                 UpdateButtonText(driverarea3, model.FrontSeat2Name);
             }
             else
             {
-                driverarea3.interactable = true;
                 UpdateButtonText(driverarea3, Contants.Seat4);
 
             }
 
             if (model.FirstSeat1 == 1)
             {
-                firstseat1.interactable = false;
                 UpdateButtonText(firstseat1, model.FirstSeat1Name);
             }
             else
             {
-                firstseat1.interactable = true;
                 UpdateButtonText(firstseat1, Contants.Seat1);
             }
 
             if (model.FirstSeat2 == 1)
             {
-                firstseat2.interactable = false;
                 UpdateButtonText(firstseat2, model.FirstSeat2Name);
             }
             else
             {
-                firstseat2.interactable = true;
                 UpdateButtonText(firstseat2, Contants.Seat2);
             }
 
             if (model.FirstSeat3 == 1)
             {
-                firstseat3.interactable = false;
                 UpdateButtonText(firstseat3, model.FirstSeat3Name);
             }
             else
             {
-                firstseat3.interactable = true;
                 UpdateButtonText(firstseat3, Contants.Seat3);
             }
 
             if (model.FirstSeat4 == 1)
             {
-                firstseat4.interactable = false;
                 UpdateButtonText(firstseat4, model.FirstSeat4Name);
             }
             else
             {
-                firstseat4.interactable = true;
                 UpdateButtonText(firstseat4, Contants.Seat4);
             }
 
             if (model.SecondSeat1 == 1)
             {
-                secondseat1.interactable = false;
                 UpdateButtonText(secondseat1, model.SecondSeat1Name);
             }
             else
             {
-                secondseat1.interactable = true;
                 UpdateButtonText(secondseat1, Contants.Seat1);
             }
 
             if (model.SecondSeat2 == 1)
             {
-                secondseat2.interactable = false;
                 UpdateButtonText(secondseat2, model.SecondSeat2Name);
             }
             else
             {
-                secondseat2.interactable = true;
                 UpdateButtonText(secondseat2, Contants.Seat2);
             }
 
             if (model.SecondSeat3 == 1)
             {
-                secondseat3.interactable = false;
                 UpdateButtonText(secondseat3, model.SecondSeat3Name);
             }
             else
             {
-                secondseat3.interactable = true;
                 UpdateButtonText(secondseat3, Contants.Seat3);
             }
 
             if (model.SecondSeat4 == 1)
             {
-                secondseat4.interactable = false;
                 UpdateButtonText(secondseat4, model.SecondSeat4Name);
             }
             else
             {
-                secondseat4.interactable = true;
                 UpdateButtonText(secondseat4, Contants.Seat4);
             }
 
             if (model.ThirdSeat1 == 1)
             {
-                thirdseat1.interactable = false;
                 UpdateButtonText(thirdseat1, model.ThirdSeat1Name);
             }
             else
             {
-                thirdseat1.interactable = true;
                 UpdateButtonText(thirdseat1, Contants.Seat1);
             }
 
             if (model.ThirdSeat2 == 1)
             {
-                thirdseat2.interactable = false;
                 UpdateButtonText(thirdseat2, model.ThirdSeat2Name);
             }
             else
             {
-                thirdseat2.interactable = true;
                 UpdateButtonText(thirdseat2, Contants.Seat2);
             }
 
             if (model.ThirdSeat3 == 1)
             {
-                thirdseat3.interactable = false;
                 UpdateButtonText(thirdseat3, model.ThirdSeat3Name);
             }
             else
             {
-                thirdseat3.interactable = true;
                 UpdateButtonText(thirdseat3, Contants.Seat3);
             }
 
             if (model.ThirdSeat4 == 1)
             {
-                thirdseat4.interactable = false;
                 UpdateButtonText(thirdseat4, model.ThirdSeat4Name);
             }
             else
             {
-                thirdseat4.interactable = true;
                 UpdateButtonText(thirdseat4, Contants.Seat4);
             }
 
 
             if (model.FourthSeat1 == 1)
             {
-                Lastseat1.interactable = false;
                 UpdateButtonText(Lastseat1, model.FourthSeat1Name);
             }
             else
             {
-                Lastseat1.interactable = true;
                 UpdateButtonText(Lastseat1, Contants.Seat1);
             }
 
             if (model.FourthSeat2 == 1)
             {
-                Lastseat2.interactable = false;
                 UpdateButtonText(Lastseat2, model.FourthSeat2Name);
             }
             else
             {
-                Lastseat2.interactable = true;
                 UpdateButtonText(Lastseat2, Contants.Seat2);
             }
 
             if (model.FourthSeat3 == 1)
             {
-                Lastseat3.interactable = false;
                 UpdateButtonText(Lastseat3, model.FourthSeat3Name);
             }
             else
             {
-                Lastseat3.interactable = true;
                 UpdateButtonText(Lastseat3, Contants.Seat3);
             }
 
             if (model.FourthSeat4 == 1)
             {
-                Lastseat4.interactable = false;
                 UpdateButtonText(Lastseat4, model.FourthSeat4Name);
             }
             else
             {
-                Lastseat4.interactable = true;
                 UpdateButtonText(Lastseat4, Contants.Seat4);
             }
         }
@@ -385,7 +351,7 @@ public class DriverView : MonoBehaviour
         GameObject templateObject = contentTransform.Find("Image").gameObject;
         templateObject.SetActive(false);
 
-        var queueList = DataModels.Instance.Queue.Where(x => x.DriversId == Context.DriversId && x.Status == 1);
+        var queueList = DataModels.Instance.Queue.Where(x => x.DriversId==Context.DriversId &&  x.Status == 1);
         bool isFirstItem = true;
 
         foreach (var data in queueList)
@@ -520,6 +486,11 @@ public class DriverView : MonoBehaviour
     {
     }
 
+    public void cancelChangepasswordTapped()
+    {
+        changepassView.gameObject.SetActive(false);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -535,6 +506,12 @@ public class DriverView : MonoBehaviour
         seat.gameObject.SetActive(false);
         seatstatus.gameObject.SetActive(false);
         bookedobjt.gameObject.SetActive(false);
+        changepassView.gameObject.SetActive(false);
+    }
+
+    public void changepasswordTapped()
+    {
+        changepassView.gameObject.SetActive(true);
     }
 
     public void AddBookingsTapped()
