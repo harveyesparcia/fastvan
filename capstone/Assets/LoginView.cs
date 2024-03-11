@@ -135,7 +135,7 @@ public class LoginView
 
                     Context.lastname = response.LastName;
                     Context.firstname = response.FirstName;
-                    DataModels.Instance.GetQueues();
+                    DataModels.Instance.GetQueues(false);
                     if (response.Role.Contains("Admin"))
                     {
                         SceneManager.LoadScene("DashBoard");

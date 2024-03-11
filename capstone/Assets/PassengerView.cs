@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -54,7 +55,13 @@ public class PassengerView : MonoBehaviour
             DataModels.Instance.OnUpdateSchedule += OnUpdateScheduleChanged;
             DataModels.Instance.OnCountSchedule += OnCountScheduleChanged;
             DataModels.Instance.OnDriverGetSchedule += OnDriverGetSchedule;
+            DataModels.Instance.OnAddQueue += OnAddQueue;
         }
+    }
+
+    private void OnAddQueue(int obj)
+    {
+        DataModels.Instance.ProcessScheduleTransactions(obj);
     }
 
     private void OnDriverGetSchedule(List<ScheduledTransaction> model)
@@ -108,24 +115,220 @@ public class PassengerView : MonoBehaviour
         if (model != null)
         {
             driver.interactable = false;
-            driverarea2.interactable = model.FrontSeat1 == 1 ? false : true;
-            driverarea3.interactable = model.FrontSeat2 == 1 ? false : true;
-            firstseat1.interactable = model.FirstSeat1 == 1 ? false : true;
-            firstseat2.interactable = model.FirstSeat2 == 1 ? false : true;
-            firstseat3.interactable = model.FirstSeat3 == 1 ? false : true;
-            firstseat4.interactable = model.FirstSeat4 == 1 ? false : true;
-            secondseat1.interactable = model.SecondSeat1 == 1 ? false : true;
-            secondseat2.interactable = model.SecondSeat2 == 1 ? false : true;
-            secondseat3.interactable = model.SecondSeat2 == 1 ? false : true;
-            secondseat4.interactable = model.SecondSeat2 == 1 ? false : true;
-            thirdseat1.interactable = model.ThirdSeat1 == 1 ? false : true;
-            thirdseat2.interactable = model.ThirdSeat2 == 1 ? false : true;
-            thirdseat3.interactable = model.ThirdSeat3 == 1 ? false : true;
-            thirdseat4.interactable = model.ThirdSeat4 == 1 ? false : true;
-            Lastseat1.interactable = model.FourthSeat1 == 1 ? false : true;
-            Lastseat2.interactable = model.FourthSeat2 == 1 ? false : true;
-            Lastseat3.interactable = model.FourthSeat3 == 1 ? false : true;
-            Lastseat4.interactable = model.FourthSeat4 == 1 ? false : true;
+
+            if (model.FrontSeat1 == 1)
+            {
+                driverarea2.interactable = false;
+                UpdateButtonText(driverarea2, model.FrontSeat1Name);
+            }
+            else
+            {
+                driverarea2.interactable = true;
+                UpdateButtonText(driverarea2, Contants.Seat3);
+            }
+
+            if (model.FrontSeat2 == 1)
+            {
+                driverarea3.interactable = false;
+                UpdateButtonText(driverarea3, model.FrontSeat2Name);
+            }
+            else
+            {
+                driverarea3.interactable = true;
+                UpdateButtonText(driverarea3, Contants.Seat4);
+
+            }
+
+            if (model.FirstSeat1 == 1)
+            {
+                firstseat1.interactable = false;
+                UpdateButtonText(firstseat1, model.FirstSeat1Name);
+            }
+            else
+            {
+                firstseat1.interactable = true;
+                UpdateButtonText(firstseat1, Contants.Seat1);
+            }
+
+            if (model.FirstSeat2 == 1)
+            {
+                firstseat2.interactable = false;
+                UpdateButtonText(firstseat2, model.FirstSeat2Name);
+            }
+            else
+            {
+                firstseat2.interactable = true;
+                UpdateButtonText(firstseat2, Contants.Seat2);
+            }
+
+            if (model.FirstSeat3 == 1)
+            {
+                firstseat3.interactable = false;
+                UpdateButtonText(firstseat3, model.FirstSeat3Name);
+            }
+            else
+            {
+                firstseat3.interactable = true;
+                UpdateButtonText(firstseat3, Contants.Seat3);
+            }
+
+            if (model.FirstSeat4 == 1)
+            {
+                firstseat4.interactable = false;
+                UpdateButtonText(firstseat4, model.FirstSeat4Name);
+            }
+            else
+            {
+                firstseat4.interactable = true;
+                UpdateButtonText(firstseat4, Contants.Seat4);
+            }
+
+            if (model.SecondSeat1 == 1)
+            {
+                secondseat1.interactable = false;
+                UpdateButtonText(secondseat1, model.SecondSeat1Name);
+            }
+            else
+            {
+                secondseat1.interactable = true;
+                UpdateButtonText(secondseat1, Contants.Seat1);
+            }
+
+            if (model.SecondSeat2 == 1)
+            {
+                secondseat2.interactable = false;
+                UpdateButtonText(secondseat2, model.SecondSeat2Name);
+            }
+            else
+            {
+                secondseat2.interactable = true;
+                UpdateButtonText(secondseat2, Contants.Seat2);
+            }
+
+            if (model.SecondSeat3 == 1)
+            {
+                secondseat3.interactable = false;
+                UpdateButtonText(secondseat3, model.SecondSeat3Name);
+            }
+            else
+            {
+                secondseat3.interactable = true;
+                UpdateButtonText(secondseat3, Contants.Seat3);
+            }
+
+            if (model.SecondSeat4 == 1)
+            {
+                secondseat4.interactable = false;
+                UpdateButtonText(secondseat4, model.SecondSeat4Name);
+            }
+            else
+            {
+                secondseat4.interactable = true;
+                UpdateButtonText(secondseat4, Contants.Seat4);
+            }
+
+            if (model.ThirdSeat1 == 1)
+            {
+                thirdseat1.interactable = false;
+                UpdateButtonText(thirdseat1, model.ThirdSeat1Name);
+            }
+            else
+            {
+                thirdseat1.interactable = true;
+                UpdateButtonText(thirdseat1, Contants.Seat1);
+            }
+
+            if (model.ThirdSeat2 == 1)
+            {
+                thirdseat2.interactable = false;
+                UpdateButtonText(thirdseat2, model.ThirdSeat2Name);
+            }
+            else
+            {
+                thirdseat2.interactable = true;
+                UpdateButtonText(thirdseat2, Contants.Seat2);
+            }
+
+            if (model.ThirdSeat3 == 1)
+            {
+                thirdseat3.interactable = false;
+                UpdateButtonText(thirdseat3, model.ThirdSeat3Name);
+            }
+            else
+            {
+                thirdseat3.interactable = true;
+                UpdateButtonText(thirdseat3, Contants.Seat3);
+            }
+
+            if (model.ThirdSeat4 == 1)
+            {
+                thirdseat4.interactable = false;
+                UpdateButtonText(thirdseat4, model.ThirdSeat4Name);
+            }
+            else
+            {
+                thirdseat4.interactable = true;
+                UpdateButtonText(thirdseat4, Contants.Seat4);
+            }
+
+
+            if (model.FourthSeat1 == 1)
+            {
+                Lastseat1.interactable = false;
+                UpdateButtonText(Lastseat1, model.FourthSeat1Name);
+            }
+            else
+            {
+                Lastseat1.interactable = true;
+                UpdateButtonText(Lastseat1, Contants.Seat1);
+            }
+
+            if (model.FourthSeat2 == 1)
+            {
+                Lastseat2.interactable = false;
+                UpdateButtonText(Lastseat2, model.FourthSeat2Name);
+            }
+            else
+            {
+                Lastseat2.interactable = true;
+                UpdateButtonText(Lastseat2, Contants.Seat2);
+            }
+
+            if (model.FourthSeat3 == 1)
+            {
+                Lastseat3.interactable = false;
+                UpdateButtonText(Lastseat3, model.FourthSeat3Name);
+            }
+            else
+            {
+                Lastseat3.interactable = true;
+                UpdateButtonText(Lastseat3, Contants.Seat3);
+            }
+
+            if (model.FourthSeat4 == 1)
+            {
+                Lastseat4.interactable = false;
+                UpdateButtonText(Lastseat4, model.FourthSeat4Name);
+            }
+            else
+            {
+                Lastseat4.interactable = true;
+                UpdateButtonText(Lastseat4, Contants.Seat4);
+            }
+        }
+    }
+
+    private void UpdateButtonText(Button button, string name)
+    {
+        if (button != null)
+        {
+            TMP_Text buttonText = button.GetComponentInChildren<TMP_Text>();
+
+            if (buttonText != null)
+            {
+                buttonText.text = name;
+                Debug.Log($"Button text updated to '{buttonText.text}'");
+            }
         }
     }
 
@@ -137,9 +340,12 @@ public class PassengerView : MonoBehaviour
         count.text = total.ToString();
     }
 
-    private void OnUpdateScheduleChanged()
+    private void OnUpdateScheduleChanged(bool onupdate)
     {
-        scheduleGameObject.gameObject.SetActive(true);
+        if (onupdate)
+        {
+            scheduleGameObject.gameObject.SetActive(true);
+        }
         PopulateList();
     }
 
@@ -174,7 +380,7 @@ public class PassengerView : MonoBehaviour
                 TMP_Text driverIdText = driversIdform.GetComponent<TMP_Text>();
                 if (driverIdText != null)
                 {
-                    driverIdText.text = data.Id.ToString() +";"+ data.DriversId.ToString();
+                    driverIdText.text = data.Id.ToString() + ";" + data.DriversId.ToString();
                 }
             }
 
@@ -229,7 +435,7 @@ public class PassengerView : MonoBehaviour
 
     public void ScheduleTapped()
     {
-        DataModels.Instance.GetQueues();
+        DataModels.Instance.GetQueues(true);
     }
 
     private void OnsheduleChanged(bool obj)
@@ -320,6 +526,5 @@ public class PassengerView : MonoBehaviour
     public void SaveTapped()
     {
         DataModels.Instance.CreateQueues(count.text);
-        DataModels.Instance.ProcessScheduleTransactions(count.text);
     }
 }

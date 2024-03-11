@@ -103,6 +103,7 @@
     <Compile Include="Assets\UI\DatePicker\DatePicker_DayHeader.cs" />
     <Compile Include="Assets\UIModal\Scripts\ModalDatabase.cs" />
     <Compile Include="Assets\UIModal\Scripts\Demo\DemoManager.cs" />
+    <Compile Include="Assets\Constants.cs" />
     <Compile Include="Assets\UI\DatePicker\TextMesh Pro\DatePicker_TextMeshProDefaults.cs" />
     <Compile Include="Assets\UI\TableLayout\TableLayoutUtilities.cs" />
     <Compile Include="Assets\UIModal\Scripts\Modal.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Assets\UI\TableLayout\TableLayout.cs" />
     <Compile Include="Assets\SimpleTableUI\Example\TableUIExample.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePickerCache.cs" />
+    <Compile Include="Assets\Response\CheckExistResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

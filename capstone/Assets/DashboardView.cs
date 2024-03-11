@@ -75,7 +75,7 @@ public class DashboardView : MonoBehaviour
         form.AddField("password", string.Empty);
         form.AddField("firstname", firstname.text);
         form.AddField("lastname", lastname.text);
-        form.AddField("typeofaccount", 3);
+        form.AddField("typeofaccount", 2);
         form.AddField("BirthDate", date.text);
         form.AddField("Address", address.text);
         form.AddField("IsResign", 0);
