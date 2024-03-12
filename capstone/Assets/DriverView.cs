@@ -26,7 +26,7 @@ public class DriverView : MonoBehaviour
     [SerializeField] private GameObject bookedobjt;
     [SerializeField] private GameObject messageExist;
     [SerializeField] private GameObject changepassView;
-    
+
 
     [SerializeField] private Button driver;
     [SerializeField] private Button driverarea2;
@@ -64,7 +64,14 @@ public class DriverView : MonoBehaviour
             DataModels.Instance.OnDriverGetSchedule += OnDriverGetSchedule;
             DataModels.Instance.OnAddQueue += OnAddQueue;
             DataModels.Instance.OnCheckExist += OnCheckExist;
+            DataModels.Instance.OnGetSeatSchedule += OnGetSeatSchedule;
+            
         }
+    }
+
+    private void OnGetSeatSchedule(ScheduledTransaction transaction)
+    {
+        seatstatus.gameObject.SetActive(true);
     }
 
     private void OnCheckExist(bool obj)
@@ -113,12 +120,8 @@ public class DriverView : MonoBehaviour
 
     public void SeatStatusTapped()
     {
-        var queueId = DataModels.Instance.Queue.Where(x => x.DriversId.Equals(Context.DriversId))?.FirstOrDefault();
-        if (queueId != null)
-        {
-            DataModels.Instance.GetDriverSchedule(Context.DriversId, queueId.Id);
-            seatstatus.gameObject.SetActive(true);
-        }
+        DataModels.Instance.GetSeatSchedule(Context.DriversId);
+       
 
     }
 
@@ -352,7 +355,7 @@ public class DriverView : MonoBehaviour
         GameObject templateObject = contentTransform.Find("Image").gameObject;
         templateObject.SetActive(false);
 
-        var queueList = DataModels.Instance.Queue.Where(x => x.DriversId==Context.DriversId &&  x.Status == 1);
+        var queueList = DataModels.Instance.Queue.Where(x => x.DriversId == Context.DriversId && x.Status == 1);
         bool isFirstItem = true;
 
         foreach (var data in queueList)
@@ -544,7 +547,8 @@ public class DriverView : MonoBehaviour
             DataModels.Instance.OnDriverGetSchedule -= OnDriverGetSchedule;
             DataModels.Instance.OnAddQueue -= OnAddQueue;
             DataModels.Instance.OnCheckExist -= OnCheckExist;
-           
+            DataModels.Instance.OnGetSeatSchedule -= OnGetSeatSchedule;
+
         }
     }
 

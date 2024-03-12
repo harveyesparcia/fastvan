@@ -15,6 +15,7 @@ public class DataModels : MonoBehaviour
     public Action<bool> OnUpdateSchedule;
     public Action<QueuesModel> OnDriverUpdateSchedule;
     public Action<List<ScheduledTransaction>> OnDriverGetSchedule;
+    public Action<ScheduledTransaction> OnGetSeatSchedule;
     public Action<bool> OnCheckExist;
     public Action<bool, UserModel> OnRegisterChanged;
     public Action<bool, List<UserModel>> OnListOfDriversChanged;
@@ -90,6 +91,12 @@ public class DataModels : MonoBehaviour
     {
         StartCoroutine(Get_DriverSchedule(driversId, int.Parse(QueuesId)));
     }
+
+    public void GetSeatSchedule(string driversId)
+    {
+        StartCoroutine(Get_SeatSchedule(driversId));
+    }
+    
 
     public void CreateQueues(string count)
     {
@@ -237,6 +244,44 @@ public class DataModels : MonoBehaviour
                         {
                             var data = response.Data;
                             OnDriverGetSchedule?.Invoke(data);
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+    }
+
+    private IEnumerator Get_SeatSchedule(string driversId)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("DriversId", driversId.Trim());
+
+        using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php", form);
+
+        yield return request.SendWebRequest();
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.LogError("Error: " + request.error);
+        }
+        else
+        {
+            try
+            {
+                string jsonResponse = request.downloadHandler.text;
+                var response = JsonConvert.DeserializeObject<ApiResponse>(jsonResponse);
+
+                if (response != null)
+                {
+                    if (response.Status.Contains("success"))
+                    {
+                        if (response.Data.Any())
+                        {
+                            OnGetSeatSchedule?.Invoke(response.Data.FirstOrDefault());
                         }
 
                     }
