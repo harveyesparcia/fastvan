@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 public class UserModel
 {
     public string Role { get; set; }
@@ -36,5 +38,16 @@ public class Response
     public Response(string _status)
     {
         status = _status;
+    }
+}
+
+public class DriverResponse
+{
+    public string status { get; set; }
+    public List<UserModel> data { get; set; }
+    public DriverResponse(string _status, List<UserModel> _data)
+    {
+        status = _status;
+        data = _data;
     }
 }

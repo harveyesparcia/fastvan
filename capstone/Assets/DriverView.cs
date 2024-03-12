@@ -26,6 +26,7 @@ public class DriverView : MonoBehaviour
     [SerializeField] private GameObject bookedobjt;
     [SerializeField] private GameObject messageExist;
     [SerializeField] private GameObject changepassView;
+    
 
     [SerializeField] private Button driver;
     [SerializeField] private Button driverarea2;
@@ -543,6 +544,7 @@ public class DriverView : MonoBehaviour
             DataModels.Instance.OnDriverGetSchedule -= OnDriverGetSchedule;
             DataModels.Instance.OnAddQueue -= OnAddQueue;
             DataModels.Instance.OnCheckExist -= OnCheckExist;
+           
         }
     }
 

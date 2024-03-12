@@ -28,7 +28,7 @@ public class DashboardView : MonoBehaviour
     [SerializeField] private TMP_InputField PlateNumber;
     [SerializeField] private TMP_InputField DriversLicenseNumber;
     [SerializeField] private TMP_Text nameold;
-
+    [SerializeField] private GameObject driverslistView;
 
     [SerializeField] private GameObject ModalAddSchedule;
     [SerializeField] private GameObject canvasMenu;
@@ -70,6 +70,9 @@ public class DashboardView : MonoBehaviour
     public ScrollRect scrollView;
     public GameObject listItemPrefab;
 
+    public ScrollRect driverscrollView;
+    public GameObject driverlistItemPrefab;
+
     void Start()
     {
         if (Context.IsLogin)
@@ -82,9 +85,26 @@ public class DashboardView : MonoBehaviour
             DataModels.Instance.OnAddQueue += OnAddQueue;
             DataModels.Instance.OnCheckExist += OnCheckExist;
             DataModels.Instance.OnRegisterChanged += OnRegisterChanged;
+            DataModels.Instance.OnListOfDriversChanged += OnListOfDriversChanged;
         }
     }
 
+
+    private void OnListOfDriversChanged(bool arg1, List<UserModel> model)
+    {
+        driverslistView.gameObject.SetActive(true);
+        PopulateDriversList(model);
+    }
+
+    public void BackDriversTapped()
+    {
+        driverslistView.gameObject.SetActive(false);
+    }
+
+    public void GetDriversTapped()
+    {
+        DataModels.Instance.GetListOfDrivers();
+    }
 
     private void OnRegisterChanged(bool obj, UserModel data)
     {
@@ -539,6 +559,64 @@ public class DashboardView : MonoBehaviour
 
     }
 
+    void PopulateDriversList(List<UserModel> model)
+    {
+        int count = 0;
+
+        RectTransform contentTransform = driverscrollView.content;
+
+        GameObject templateObject = contentTransform.Find("Image").gameObject;
+        templateObject.SetActive(false);
+
+        bool isFirstItem = true;
+
+        foreach (var data in model)
+        {
+            GameObject listItem;
+
+            if (isFirstItem)
+            {
+                listItem = driverlistItemPrefab;
+                isFirstItem = false;
+            }
+            else
+            {
+                listItem = Instantiate(driverlistItemPrefab, contentTransform);
+            }
+
+            TMP_Text itemText = listItem.GetComponentInChildren<TMP_Text>();
+
+            Transform driverNameTransform = listItem.transform.Find("DriversNameValue");
+            Transform plateNumberTransform = listItem.transform.Find("PlateNumber");
+            Transform driversIdform = listItem.transform.Find("DriversId");
+            Transform QueuesIdform = listItem.transform.Find("QueuesId");
+
+
+            if (driverNameTransform != null)
+            {
+                TMP_Text driverNameText = driverNameTransform.GetComponent<TMP_Text>();
+                if (driverNameText != null)
+                {
+                    driverNameText.text = data.FirstName + " "+ data.LastName;
+                }
+            }
+
+            if (plateNumberTransform != null)
+            {
+                TMP_Text plateNumberText = plateNumberTransform.GetComponent<TMP_Text>();
+                if (plateNumberText != null)
+                {
+                    plateNumberText.text = data.PlateNumber.ToString();
+                }
+            }
+
+            LayoutRebuilder.ForceRebuildLayoutImmediate(contentTransform);
+
+            listItem.SetActive(true);
+        }
+
+    }
+
     public void CheckIfExistNoTapped()
     {
         messageExist.gameObject.SetActive(false);
@@ -636,6 +714,7 @@ public class DashboardView : MonoBehaviour
             DataModels.Instance.OnDriverGetSchedule -= OnDriverGetSchedule;
             DataModels.Instance.OnAddQueue -= OnAddQueue;
             DataModels.Instance.OnCheckExist -= OnCheckExist;
+            DataModels.Instance.OnListOfDriversChanged -= OnListOfDriversChanged;
         }
     }
 

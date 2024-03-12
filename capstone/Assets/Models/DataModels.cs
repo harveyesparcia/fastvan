@@ -17,6 +17,7 @@ public class DataModels : MonoBehaviour
     public Action<List<ScheduledTransaction>> OnDriverGetSchedule;
     public Action<bool> OnCheckExist;
     public Action<bool, UserModel> OnRegisterChanged;
+    public Action<bool, List<UserModel>> OnListOfDriversChanged;
     private int currentQueue;
 
     public int CurrentQueue
@@ -95,6 +96,11 @@ public class DataModels : MonoBehaviour
         StartCoroutine(Create_Queues(int.Parse(count)));
     }
 
+    public void GetListOfDrivers()
+    {
+        StartCoroutine(Get_List_Of_Drivers());
+    }
+
     public void GetQueues(bool onupdate)
     {
         StartCoroutine(Get_Queues(onupdate));
@@ -109,7 +115,7 @@ public class DataModels : MonoBehaviour
     {
         StartCoroutine(Check_If_Queues_Exist(driversId));
     }
-    
+
 
     public void GetCountQueues()
     {
@@ -201,7 +207,7 @@ public class DataModels : MonoBehaviour
         }
     }
 
-    
+
     private IEnumerator Get_DriverSchedule(string driversId, int queueId)
     {
         WWWForm form = new WWWForm();
@@ -450,7 +456,7 @@ public class DataModels : MonoBehaviour
         if (request.isNetworkError || request.isHttpError)
         {
             Debug.LogError("Error: " + request.error);
-          
+
         }
         else
         {
@@ -587,17 +593,58 @@ public class DataModels : MonoBehaviour
                 if (response.Status.Contains("success"))
                 {
                     OnRegisterChanged.Invoke(true, response);
-                   
+
                 }
                 else
                 {
                     OnRegisterChanged.Invoke(false, null);
-                 
+
                 }
             }
             catch (Exception ex)
             {
                 OnRegisterChanged.Invoke(false, null);
+            }
+
+        }
+    }
+
+
+    IEnumerator Get_List_Of_Drivers()
+    {
+        WWWForm form = new WWWForm();
+        //form.AddField("DriversId", string.Empty);
+
+
+        using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/list_ofdrivers.php", form);
+
+        yield return request.SendWebRequest();
+
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.LogError("Error: " + request.error);
+        }
+        else
+        {
+            try
+            {
+                string jsonResponse = request.downloadHandler.text;
+                var response = JsonConvert.DeserializeObject<DriverResponse>(jsonResponse);
+                Debug.Log("Response: " + jsonResponse);
+                if (response.status.Contains("success"))
+                {
+                    OnListOfDriversChanged.Invoke(true, response.data);
+
+                }
+                else
+                {
+                    OnListOfDriversChanged.Invoke(false, null);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                OnListOfDriversChanged.Invoke(false, null);
             }
 
         }
