@@ -86,6 +86,7 @@
     <Compile Include="Assets\UI\DatePicker\DatePickerTimerComponent.cs" />
     <Compile Include="Assets\WoLfulus\UI\Modal\Demos\Scripts\ShowDialogAndRetrieveData.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePicker_HoldButton.cs" />
+    <Compile Include="Assets\spinner.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePickerTimer.cs" />
     <Compile Include="Assets\UI\DatePicker\DatePicker_DayButton.cs" />
     <Compile Include="Assets\Models\usermodel.cs" />

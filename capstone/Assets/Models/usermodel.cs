@@ -14,11 +14,13 @@ public class UserModel
     public string BirthDate { get; set; }
     public string Address { get; set; }
     public string DriversLicenseNumber { get; set; }
+    public string Contactnumber { get; set; }
+    
 
     public string Status { get; set; }
 
 
-    public UserModel(string role, string username, string firstName, string lastName, string password, string status,string driversId , string address)
+    public UserModel(string role, string username, string firstName, string lastName, string password, string status,string driversId , string address, string ContactNumber)
     {
         Role = role;
         Username = username;
@@ -28,6 +30,7 @@ public class UserModel
         Status = status;
         DriversId = driversId;
         Address = address;
+        Contactnumber = ContactNumber;
     }
 }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -20,6 +21,10 @@ public class PassengerView : MonoBehaviour
     [SerializeField] private TMP_Text message3;
     [SerializeField] private GameObject bookedobjt;
     [SerializeField] private GameObject changepassView;
+    [SerializeField] private GameObject cancelBooking;
+
+    [SerializeField] private GameObject accountSettingsVIew;
+    [SerializeField] private TMP_Text headerMessage;
 
     [SerializeField] private Button driver;
     [SerializeField] private Button driverarea2;
@@ -40,7 +45,7 @@ public class PassengerView : MonoBehaviour
     [SerializeField] private Button Lastseat2;
     [SerializeField] private Button Lastseat3;
     [SerializeField] private Button Lastseat4;
-
+    [SerializeField] private GameObject templateObject;
 
     [SerializeField] private GameObject changepass;
     [SerializeField] private TMP_Text first;
@@ -48,11 +53,15 @@ public class PassengerView : MonoBehaviour
     [SerializeField] private TMP_Text contact;
     [SerializeField] private TMP_Text address;
     [SerializeField] private TMP_Text birth;
+    [SerializeField] private TMP_Text username;
+    [SerializeField] private TMP_Text password;
 
     private static Dictionary<string, int> seats = new Dictionary<string, int>();
 
     public ScrollRect scrollView;
     public GameObject listItemPrefab;
+
+    [SerializeField] private GameObject modalspinner;
 
     void Start()
     {
@@ -67,8 +76,23 @@ public class PassengerView : MonoBehaviour
         }
     }
 
+    public void EditBackTapped()
+    {
+        accountSettingsVIew.gameObject.SetActive(false);
+        changepassView.gameObject.SetActive(false);
+       
+    }
+
+    public void EditTapped(string type)
+    {
+
+        headerMessage.text = $"Edit {type}";
+        accountSettingsVIew.gameObject.SetActive(true);
+    }
+
     private void OnAddQueue(int obj)
     {
+        modalspinner.gameObject.SetActive(true);
         DataModels.Instance.ProcessScheduleTransactions(obj);
     }
 
@@ -79,6 +103,8 @@ public class PassengerView : MonoBehaviour
 
     private void OnDriverGetSchedule(List<ScheduledTransaction> model)
     {
+        modalspinner.gameObject.SetActive(false);
+
         if (model != null)
         {
             UpdateSeat(model.Where(x=>x.Status==1).FirstOrDefault());
@@ -114,7 +140,7 @@ public class PassengerView : MonoBehaviour
     public void bookedYesTap()
     {
         bookedobjt.gameObject.SetActive(true);
-
+        modalspinner.gameObject.SetActive(true);
         DataModels.Instance.UpdateQueues(DataModels.Instance.DriversId, seats);
     }
 
@@ -496,6 +522,7 @@ public class PassengerView : MonoBehaviour
 
     private void OnCountScheduleChanged(int obj)
     {
+        modalspinner.gameObject.SetActive(false);
         ModalMessage2.gameObject.SetActive(false);
         ModalAddSchedule.gameObject.SetActive(true);
         var total = obj + 1;
@@ -504,6 +531,8 @@ public class PassengerView : MonoBehaviour
 
     private void OnUpdateScheduleChanged(bool onupdate)
     {
+        modalspinner.gameObject.SetActive(false);
+
         if (onupdate)
         {
             scheduleGameObject.gameObject.SetActive(true);
@@ -513,12 +542,24 @@ public class PassengerView : MonoBehaviour
 
     void PopulateList()
     {
+        RectTransform contentTransform = scrollView.content;
+
+       
+
         int count = 0;
 
-        RectTransform contentTransform = scrollView.content;
+       
 
         GameObject templateObject = contentTransform.Find("Image").gameObject;
         templateObject.SetActive(false);
+
+        foreach (Transform child in contentTransform)
+        {
+            if (child.gameObject != templateObject)
+            {
+                Destroy(child.gameObject);
+            }
+        }
 
         var queueList = DataModels.Instance.Queue.Where(x => x.Status == 1);
         bool isFirstItem = true;
@@ -614,11 +655,13 @@ public class PassengerView : MonoBehaviour
 
     public void ScheduleTapped()
     {
+        modalspinner.gameObject.SetActive(true);
         DataModels.Instance.GetQueues(true);
     }
 
     private void OnsheduleChanged(bool obj)
     {
+        modalspinner.gameObject.SetActive(false);
         ModalMessage2.gameObject.SetActive(true);
         if (obj)
         {
@@ -669,15 +712,20 @@ public class PassengerView : MonoBehaviour
         address.text = Context.Address;
         birth.text = Context.Birth;
         contact.text = Context.ContactNumber;
+
+        username.text = Context.username;
+        password.text = Context.Password;
     }
 
     public void AddBookingsTapped()
     {
+        modalspinner.gameObject.SetActive(true);
         DataModels.Instance.GetCountQueues();
     }
 
     public void GotoSeat(TMP_Text QueueId)
     {
+        modalspinner.gameObject.SetActive(true);
         var data = QueueId.text.ToString().Split(';');
         DataModels.Instance.GetDriverSchedule(data[1], data[0]);
 
@@ -705,12 +753,19 @@ public class PassengerView : MonoBehaviour
 
     public void LogoutTapped()
     {
+        modalspinner.gameObject.SetActive(true);
         SceneManager.LoadScene("LoginScene");
         SceneManager.UnloadSceneAsync("Passenger");
     }
 
     public void SaveTapped()
     {
+        modalspinner.gameObject.SetActive(true);
         DataModels.Instance.CreateQueues(count.text);
+    }
+
+    public void BackCancelBookingTapped() { 
+    
+
     }
 }

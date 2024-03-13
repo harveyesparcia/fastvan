@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
-using UnityEditorInternal.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -65,6 +64,15 @@ public class DashboardView : MonoBehaviour
     [SerializeField] private Button Lastseat3;
     [SerializeField] private Button Lastseat4;
 
+    [SerializeField] private GameObject changepass;
+    [SerializeField] private TMP_Text firstField;
+    [SerializeField] private TMP_Text lastField;
+    [SerializeField] private TMP_Text contactField;
+    [SerializeField] private TMP_Text addressField;
+    [SerializeField] private TMP_Text birthField;
+    [SerializeField] private TMP_Text usernameField;
+    [SerializeField] private TMP_Text passwordField;
+
     private static Dictionary<string, int> seats = new Dictionary<string, int>();
 
     public ScrollRect scrollView;
@@ -72,6 +80,8 @@ public class DashboardView : MonoBehaviour
 
     public ScrollRect driverscrollView;
     public GameObject driverlistItemPrefab;
+
+    [SerializeField] private GameObject modalspinner;
 
     void Start()
     {
@@ -470,6 +480,15 @@ public class DashboardView : MonoBehaviour
         RectTransform contentTransform = scrollView.content;
 
         GameObject templateObject = contentTransform.Find("Image").gameObject;
+
+        foreach (Transform child in contentTransform)
+        {
+            if (child.gameObject != templateObject)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
         templateObject.SetActive(false);
        
         var queueList = DataModels.Instance.Queue.Where(x => x.Status == 1);
@@ -566,6 +585,15 @@ public class DashboardView : MonoBehaviour
         RectTransform contentTransform = driverscrollView.content;
 
         GameObject templateObject = contentTransform.Find("Image").gameObject;
+
+        foreach (Transform child in contentTransform)
+        {
+            if (child.gameObject != templateObject)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
         templateObject.SetActive(false);
 
         bool isFirstItem = true;
@@ -588,9 +616,19 @@ public class DashboardView : MonoBehaviour
 
             Transform driverNameTransform = listItem.transform.Find("DriversNameValue");
             Transform plateNumberTransform = listItem.transform.Find("PlateNumber");
+            Transform addressTransform = listItem.transform.Find("DriversAddressValue");
             Transform driversIdform = listItem.transform.Find("DriversId");
             Transform QueuesIdform = listItem.transform.Find("QueuesId");
 
+
+            if (addressTransform != null)
+            {
+                TMP_Text addressText = addressTransform.GetComponent<TMP_Text>();
+                if (addressText != null)
+                {
+                    addressText.text = data.Address;
+                }
+            }
 
             if (driverNameTransform != null)
             {

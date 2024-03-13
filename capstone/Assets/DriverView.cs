@@ -1,14 +1,13 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+using System.Net;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditorInternal.VersionControl;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static UnityEngine.ParticleSystem;
 
 public class DriverView : MonoBehaviour
 {
@@ -26,6 +25,8 @@ public class DriverView : MonoBehaviour
     [SerializeField] private GameObject bookedobjt;
     [SerializeField] private GameObject messageExist;
     [SerializeField] private GameObject changepassView;
+    [SerializeField] private GameObject accountSettingsVIew;
+    [SerializeField] private TMP_Text headerMessage;
 
 
     [SerializeField] private Button driver;
@@ -48,10 +49,22 @@ public class DriverView : MonoBehaviour
     [SerializeField] private Button Lastseat3;
     [SerializeField] private Button Lastseat4;
 
+    [SerializeField] private GameObject changepass;
+    [SerializeField] private TMP_Text first;
+    [SerializeField] private TMP_Text last;
+    [SerializeField] private TMP_Text contact;
+    [SerializeField] private TMP_Text address;
+    [SerializeField] private TMP_Text birth;
+    [SerializeField] private TMP_Text username;
+    [SerializeField] private TMP_Text password;
+
+
     private static Dictionary<string, int> seats = new Dictionary<string, int>();
 
     public ScrollRect scrollView;
     public GameObject listItemPrefab;
+
+    [SerializeField] private GameObject modalspinner;
 
     void Start()
     {
@@ -69,13 +82,27 @@ public class DriverView : MonoBehaviour
         }
     }
 
+    public void accountBackTapped()
+    {
+        changepass.gameObject.SetActive(false);
+    }
+
+    public void EditBackTapped()
+    {
+        accountSettingsVIew.gameObject.SetActive(false);
+        changepassView.gameObject.SetActive(false);
+    }
+
+
     private void OnGetSeatSchedule(ScheduledTransaction transaction)
     {
+        modalspinner.gameObject.SetActive(false);
         seatstatus.gameObject.SetActive(true);
     }
 
     private void OnCheckExist(bool obj)
     {
+        modalspinner.gameObject.SetActive(false);
         if (obj)
         {
             messageExist.gameObject.SetActive(true);
@@ -85,6 +112,13 @@ public class DriverView : MonoBehaviour
             DataModels.Instance.GetCountQueues();
         }
 
+    }
+
+    public void EditTapped(string type)
+    {
+
+        headerMessage.text = $"{type}";
+        accountSettingsVIew.gameObject.SetActive(true);
     }
 
     private void UpdateButtonText(Button button, string name)
@@ -103,11 +137,13 @@ public class DriverView : MonoBehaviour
 
     private void OnAddQueue(int obj)
     {
+        modalspinner.gameObject.SetActive(false);
         DataModels.Instance.ProcessScheduleTransactions(obj);
     }
 
     private void OnDriverGetSchedule(List<ScheduledTransaction> model)
     {
+        modalspinner.gameObject.SetActive(false);
         if (model != null)
         {
             UpdateSeat(model.FirstOrDefault());
@@ -120,9 +156,8 @@ public class DriverView : MonoBehaviour
 
     public void SeatStatusTapped()
     {
+        modalspinner.gameObject.SetActive(true);
         DataModels.Instance.GetSeatSchedule(Context.DriversId);
-       
-
     }
 
     public void AddtoUpdateSeats(string seatNumber)
@@ -147,7 +182,7 @@ public class DriverView : MonoBehaviour
     public void bookedYesTap()
     {
         bookedobjt.gameObject.SetActive(true);
-
+        modalspinner.gameObject.SetActive(true);
         DataModels.Instance.UpdateQueues(Context.DriversId, seats);
     }
 
@@ -330,6 +365,7 @@ public class DriverView : MonoBehaviour
 
     private void OnCountScheduleChanged(int obj)
     {
+        modalspinner.gameObject.SetActive(false);
         ModalMessage2.gameObject.SetActive(false);
         ModalAddSchedule.gameObject.SetActive(true);
         var total = obj + 1;
@@ -338,6 +374,7 @@ public class DriverView : MonoBehaviour
 
     private void OnUpdateScheduleChanged(bool onupdate)
     {
+        modalspinner.gameObject.SetActive(false);
         if (onupdate)
         {
             scheduleGameObject.gameObject.SetActive(true);
@@ -454,11 +491,13 @@ public class DriverView : MonoBehaviour
 
     public void ScheduleTapped()
     {
+        modalspinner.gameObject.SetActive(true);
         DataModels.Instance.GetQueues(true);
     }
 
     private void OnsheduleChanged(bool obj)
     {
+        modalspinner.gameObject.SetActive(false);
         DataModels.Instance.GetQueues(false);
         ModalMessage2.gameObject.SetActive(true);
         if (obj)
@@ -511,20 +550,36 @@ public class DriverView : MonoBehaviour
         seatstatus.gameObject.SetActive(false);
         bookedobjt.gameObject.SetActive(false);
         changepassView.gameObject.SetActive(false);
+
+        first.text = Context.firstname;
+        last.text = Context.lastname;
+        address.text = Context.Address;
+        birth.text = Context.Birth;
+        contact.text = Context.ContactNumber;
+
+        username.text = Context.username;
+        password.text = Context.Password;
     }
 
     public void changepasswordTapped()
     {
+        changepass.gameObject.SetActive(true);
+    }
+
+    public void AccountChangepasswordTapped() {
         changepassView.gameObject.SetActive(true);
+
     }
 
     public void AddBookingsTapped()
     {
+        modalspinner.gameObject.SetActive(true);
         DataModels.Instance.CheckIfQueuesExist(Context.DriversId);
     }
 
     public void GotoSeat(TMP_Text QueueId)
     {
+        modalspinner.gameObject.SetActive(true);
         DataModels.Instance.GetDriverSchedule(Context.DriversId, QueueId.text);
     }
 

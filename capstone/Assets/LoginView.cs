@@ -31,6 +31,8 @@ public class LoginView
     [SerializeField] private TMP_InputField contactnumber;
     [SerializeField] private TMP_InputField email;
     [SerializeField] private TMP_InputField date;
+    [SerializeField] private GameObject modalspinner;
+
 
     private bool isScene1Active = true;
 
@@ -48,8 +50,9 @@ public class LoginView
 
     }
 
-    public void Show() { 
-    
+    public void Show()
+    {
+
     }
 
     public void NoTapped()
@@ -68,6 +71,7 @@ public class LoginView
             return;
         }
 
+        modalspinner.gameObject.SetActive(true);
         StartCoroutine(Authentication(input.text, password.text));
     }
 
@@ -77,7 +81,7 @@ public class LoginView
     }
     public void SaveTapped()
     {
-       
+
         if (string.IsNullOrEmpty(address.text) || string.IsNullOrEmpty(firstname.text) || string.IsNullOrEmpty(lastname.text))
         {
             message.text = "address, firstname or lastname is empty.";
@@ -130,13 +134,16 @@ public class LoginView
                 Debug.Log("Response: " + jsonResponse);
                 if (response.Role != null)
                 {
-                    Context.IsLogin =true;
+                    Context.IsLogin = true;
                     Context.DriversId = response.DriversId;
 
                     Context.lastname = response.LastName;
                     Context.firstname = response.FirstName;
                     Context.Address = response.Address;
                     Context.Birth = response.BirthDate;
+                    Context.username = response.Username;
+                    Context.Password = response.Password;
+                    Context.ContactNumber = response.Contactnumber;
 
                     DataModels.Instance.GetQueues(false);
                     if (response.Role.Contains("Admin"))
@@ -169,7 +176,7 @@ public class LoginView
                 message.text = ex.Message;
                 Modal.gameObject.SetActive(true);
             }
-           
+
         }
     }
 
@@ -210,7 +217,7 @@ public class LoginView
                     Modal.gameObject.SetActive(true);
 
 
-                    newusername.text = string.Empty; 
+                    newusername.text = string.Empty;
                     newpassword.text = string.Empty;
                     firstname.text = string.Empty;
                     lastname.text = string.Empty;
