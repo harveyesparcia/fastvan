@@ -168,6 +168,7 @@ public class LoginView
                     Context.IsLogin = false;
                     message.text = "User is not registered";
                     Modal.gameObject.SetActive(true);
+                    modalspinner.gameObject.SetActive(false);
                 }
             }
             catch (Exception ex)
@@ -175,6 +176,7 @@ public class LoginView
                 Context.IsLogin = false;
                 message.text = ex.Message;
                 Modal.gameObject.SetActive(true);
+                modalspinner.gameObject.SetActive(false);
             }
 
         }
