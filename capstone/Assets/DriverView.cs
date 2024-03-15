@@ -81,7 +81,7 @@ public class DriverView : MonoBehaviour
             DataModels.Instance.OnAddQueue += OnAddQueue;
             DataModels.Instance.OnCheckExist += OnCheckExist;
             DataModels.Instance.OnGetSeatSchedule += OnGetSeatSchedule;
-            
+
         }
     }
 
@@ -184,9 +184,13 @@ public class DriverView : MonoBehaviour
 
     public void bookedYesTap()
     {
-        bookedobjt.gameObject.SetActive(true);
-        modalspinner.gameObject.SetActive(true);
-        DataModels.Instance.UpdateQueues(Context.DriversId, seats);
+        if (!isTappped)
+        {
+            isTappped = true;
+            bookedobjt.gameObject.SetActive(true);
+            modalspinner.gameObject.SetActive(true);
+            DataModels.Instance.UpdateQueues(Context.DriversId, seats);
+        }
     }
 
     public void bookedNoTap()
@@ -435,7 +439,7 @@ public class DriverView : MonoBehaviour
                 TMP_Text driverIdText = driversIdform.GetComponent<TMP_Text>();
                 if (driverIdText != null)
                 {
-                    driverIdText.text = data.Id.ToString() +";"+ data.SchedId.ToString();
+                    driverIdText.text = data.Id.ToString() + ";" + data.SchedId.ToString();
                 }
             }
 
@@ -515,12 +519,9 @@ public class DriverView : MonoBehaviour
 
     public void AddTapped()
     {
-        if(!isTappped)
-        {
-            isTappped = true;
-            ModalMEssage.gameObject.SetActive(true);
-        }
-       
+
+        ModalMEssage.gameObject.SetActive(true);
+
     }
 
     public void NoTapped()
@@ -574,7 +575,8 @@ public class DriverView : MonoBehaviour
         changepass.gameObject.SetActive(true);
     }
 
-    public void AccountChangepasswordTapped() {
+    public void AccountChangepasswordTapped()
+    {
         changepassView.gameObject.SetActive(true);
 
     }
