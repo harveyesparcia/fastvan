@@ -57,6 +57,8 @@ public class PassengerView : MonoBehaviour
     [SerializeField] private TMP_Text username;
     [SerializeField] private TMP_Text password;
 
+    [SerializeField] private GameObject modalCheckPassengerExist;
+
     private static Dictionary<string, int> seats = new Dictionary<string, int>();
 
     public ScrollRect scrollView;
@@ -78,13 +80,20 @@ public class PassengerView : MonoBehaviour
         }
     }
 
+    public void okaybuttonTapped()
+    {
+        modalCheckPassengerExist.gameObject.SetActive(false);   
+    }
+
+
     private void OnPassengerCheckExistChanged(CheckPassengerExistResponse obj)
     {
         if(obj != null)
         {
-            if (obj.driversId == DataModels.Instance.DriversId)
+            modalspinner.gameObject.SetActive(false);
+            if (obj.driversId != DataModels.Instance.DriversId)
             {
-
+                modalCheckPassengerExist.gameObject.SetActive(true);
             }
             else
             {
@@ -160,11 +169,8 @@ public class PassengerView : MonoBehaviour
     {
         bookedobjt.gameObject.SetActive(true);
         modalspinner.gameObject.SetActive(true);
-
+       
         DataModels.Instance.CheckIfPassengerhasExistingSeat(Context.PassengerId);
-     
-
-        StartCoroutine(DisableSpinnerAfterDelay(3f)); 
     }
 
     private IEnumerator DisableSpinnerAfterDelay(float delay)

@@ -112,7 +112,11 @@ public class DriverView : MonoBehaviour
         }
         else
         {
-            DataModels.Instance.GetCountQueues();
+            if (!isTappped)
+            {
+                isTappped = true;
+                DataModels.Instance.GetCountQueues();
+            }
         }
 
     }
@@ -184,13 +188,11 @@ public class DriverView : MonoBehaviour
 
     public void bookedYesTap()
     {
-        if (!isTappped)
-        {
-            isTappped = true;
-            bookedobjt.gameObject.SetActive(true);
-            modalspinner.gameObject.SetActive(true);
-            DataModels.Instance.UpdateQueues(Context.DriversId, seats);
-        }
+
+        bookedobjt.gameObject.SetActive(true);
+        modalspinner.gameObject.SetActive(true);
+        DataModels.Instance.UpdateQueues(Context.DriversId, seats);
+
     }
 
     public void bookedNoTap()
