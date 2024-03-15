@@ -16,6 +16,7 @@ public class DataModels : MonoBehaviour
     public Action<List<ScheduledTransaction>> OnDriverGetSchedule;
     public Action<ScheduledTransaction> OnGetSeatSchedule;
     public Action<bool> OnCheckExist;
+    public Action<CheckPassengerExistResponse> OnPassengerCheckExist;
     public Action<bool, UserModel> OnRegisterChanged;
     public Action<bool, List<UserModel>> OnListOfDriversChanged;
     private int currentQueue;
@@ -128,6 +129,10 @@ public class DataModels : MonoBehaviour
         StartCoroutine(Check_If_Queues_Exist(driversId));
     }
 
+    public void CheckIfPassengerhasExistingSeat(string passengersId)
+    {
+        StartCoroutine(Check_If_Passenger_has_ExistingSeat(passengersId));
+    }
 
     public void GetCountQueues()
     {
@@ -358,6 +363,40 @@ public class DataModels : MonoBehaviour
                     if (response.status.Contains("success"))
                     {
                         OnCheckExist.Invoke(response.exists);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+
+        }
+    }
+
+    private IEnumerator Check_If_Passenger_has_ExistingSeat(string passengerId)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("PassengersId", passengerId);
+
+        using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/list_ofpassengers.php", form);
+
+        yield return request.SendWebRequest();
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.LogError("Error: " + request.error);
+        }
+        else
+        {
+            try
+            {
+                string jsonResponse = request.downloadHandler.text;
+                var response = JsonConvert.DeserializeObject<CheckPassengerExistResponse>(jsonResponse);
+
+                if (response != null)
+                {
+                    if (response.status.Contains("success"))
+                    {
+                        OnPassengerCheckExist.Invoke(response);
                     }
                 }
             }

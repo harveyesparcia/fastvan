@@ -5,3 +5,12 @@ public class CheckExistResponse
     public bool exists { get; set; }
 }
 
+
+public class CheckPassengerExistResponse
+{
+
+    public string status { get; set; }
+    public string driversId { get; set; }
+}
+
+

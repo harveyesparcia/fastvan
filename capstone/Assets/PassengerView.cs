@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -73,7 +74,24 @@ public class PassengerView : MonoBehaviour
             DataModels.Instance.OnCountSchedule += OnCountScheduleChanged;
             DataModels.Instance.OnDriverGetSchedule += OnDriverGetSchedule;
             DataModels.Instance.OnAddQueue += OnAddQueue;
+            DataModels.Instance.OnPassengerCheckExist += OnPassengerCheckExistChanged;
         }
+    }
+
+    private void OnPassengerCheckExistChanged(CheckPassengerExistResponse obj)
+    {
+        if(obj != null)
+        {
+            if (obj.driversId == DataModels.Instance.DriversId)
+            {
+
+            }
+            else
+            {
+                DataModels.Instance.UpdateQueues(DataModels.Instance.DriversId, seats);
+            }
+        }
+       
     }
 
     public void EditBackTapped()
@@ -120,6 +138,7 @@ public class PassengerView : MonoBehaviour
 
     public void AddtoUpdateSeats(string seatNumber)
     {
+       
         if (!seats.ContainsKey(seatNumber))
         {
             seats.Add(seatNumber, 1);
@@ -141,7 +160,18 @@ public class PassengerView : MonoBehaviour
     {
         bookedobjt.gameObject.SetActive(true);
         modalspinner.gameObject.SetActive(true);
-        DataModels.Instance.UpdateQueues(DataModels.Instance.DriversId, seats);
+
+        DataModels.Instance.CheckIfPassengerhasExistingSeat(Context.PassengerId);
+     
+
+        StartCoroutine(DisableSpinnerAfterDelay(3f)); 
+    }
+
+    private IEnumerator DisableSpinnerAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        modalspinner.gameObject.SetActive(false);
     }
 
     public void bookedNoTap()
@@ -748,6 +778,7 @@ public class PassengerView : MonoBehaviour
             DataModels.Instance.OnUpdateSchedule -= OnUpdateScheduleChanged;
             DataModels.Instance.OnCountSchedule -= OnCountScheduleChanged;
             DataModels.Instance.OnDriverGetSchedule -= OnDriverGetSchedule;
+            DataModels.Instance.OnPassengerCheckExist -= OnPassengerCheckExistChanged;
         }
     }
 
