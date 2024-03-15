@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
@@ -60,6 +61,7 @@ public class DriverView : MonoBehaviour
 
 
     private static Dictionary<string, int> seats = new Dictionary<string, int>();
+    private bool isTappped = false;
 
     public ScrollRect scrollView;
     public GameObject listItemPrefab;
@@ -70,6 +72,7 @@ public class DriverView : MonoBehaviour
     {
         if (Context.IsLogin)
         {
+            isTappped = false;
             show();
             DataModels.Instance.OnAddSchedule += OnsheduleChanged;
             DataModels.Instance.OnUpdateSchedule += OnUpdateScheduleChanged;
@@ -432,7 +435,7 @@ public class DriverView : MonoBehaviour
                 TMP_Text driverIdText = driversIdform.GetComponent<TMP_Text>();
                 if (driverIdText != null)
                 {
-                    driverIdText.text = data.Id.ToString();
+                    driverIdText.text = data.Id.ToString() +";"+ data.SchedId.ToString();
                 }
             }
 
@@ -512,7 +515,12 @@ public class DriverView : MonoBehaviour
 
     public void AddTapped()
     {
-        ModalMEssage.gameObject.SetActive(true);
+        if(!isTappped)
+        {
+            isTappped = true;
+            ModalMEssage.gameObject.SetActive(true);
+        }
+       
     }
 
     public void NoTapped()
@@ -579,8 +587,9 @@ public class DriverView : MonoBehaviour
 
     public void GotoSeat(TMP_Text QueueId)
     {
+        var data = QueueId.text.ToString().Split(';');
         modalspinner.gameObject.SetActive(true);
-        DataModels.Instance.GetDriverSchedule(Context.DriversId, QueueId.text);
+        DataModels.Instance.GetDriverSchedule(Context.DriversId, data[0], data[1]);
     }
 
     public void SeatBack()

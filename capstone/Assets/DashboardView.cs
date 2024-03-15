@@ -209,7 +209,7 @@ public class DashboardView : MonoBehaviour
         var queueId = DataModels.Instance.Queue.Where(x => x.DriversId.Equals(Context.DriversId))?.FirstOrDefault();
         if (queueId != null)
         {
-            DataModels.Instance.GetDriverSchedule(Context.DriversId, queueId.Id);
+            DataModels.Instance.GetDriverSchedule(Context.DriversId, queueId.Id, queueId.SchedId);
             seatstatus.gameObject.SetActive(true);
         }
 
@@ -522,7 +522,7 @@ public class DashboardView : MonoBehaviour
                 TMP_Text queuesIdText = driversIdform.GetComponent<TMP_Text>();
                 if (queuesIdText != null)
                 {
-                    queuesIdText.text = data.Id.ToString() + ";" + data.DriversId.ToString();
+                    queuesIdText.text = data.Id.ToString() + ";" + data.DriversId.ToString() + ";" + data.SchedId.ToString();
                 }
             }
 
@@ -531,7 +531,7 @@ public class DashboardView : MonoBehaviour
                 TMP_Text driverIdText = driversIdform.GetComponent<TMP_Text>();
                 if (driverIdText != null)
                 {
-                    driverIdText.text = data.Id.ToString() + ";" + data.DriversId.ToString();
+                    driverIdText.text = data.Id.ToString() + ";" + data.DriversId.ToString() +";"+ data.SchedId.ToString();
                 }
             }
 
@@ -728,7 +728,7 @@ public class DashboardView : MonoBehaviour
     public void GotoSeat(TMP_Text QueueId)
     {
         var data = QueueId.text.ToString().Split(';');
-        DataModels.Instance.GetDriverSchedule(data[1], data[0]);
+        DataModels.Instance.GetDriverSchedule(data[1], data[0], data[2]);
     }
 
     public void SeatBack()

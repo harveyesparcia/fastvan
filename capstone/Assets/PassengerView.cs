@@ -543,12 +543,7 @@ public class PassengerView : MonoBehaviour
     void PopulateList()
     {
         RectTransform contentTransform = scrollView.content;
-
-       
-
         int count = 0;
-
-       
 
         GameObject templateObject = contentTransform.Find("Image").gameObject;
         templateObject.SetActive(false);
@@ -564,6 +559,8 @@ public class PassengerView : MonoBehaviour
         var queueList = DataModels.Instance.Queue.Where(x => x.Status == 1);
         bool isFirstItem = true;
 
+        float horizontalMargin = 10f; 
+        float verticalMargin = 10f; 
         foreach (var data in queueList)
         {
             GameObject listItem;
@@ -576,6 +573,9 @@ public class PassengerView : MonoBehaviour
             else
             {
                 listItem = Instantiate(listItemPrefab, contentTransform);
+                RectTransform listItemRectTransform = listItem.GetComponent<RectTransform>();
+                listItemRectTransform.offsetMin += new Vector2(horizontalMargin, verticalMargin);
+                listItemRectTransform.offsetMax -= new Vector2(horizontalMargin, verticalMargin);
             }
 
             TMP_Text itemText = listItem.GetComponentInChildren<TMP_Text>();
@@ -601,7 +601,7 @@ public class PassengerView : MonoBehaviour
                 TMP_Text driverIdText = driversIdform.GetComponent<TMP_Text>();
                 if (driverIdText != null)
                 {
-                    driverIdText.text = data.Id.ToString() + ";" + data.DriversId.ToString();
+                    driverIdText.text = data.Id.ToString() + ";" + data.DriversId.ToString() +";"+ data.SchedId.ToString();
                 }
             }
 
@@ -727,7 +727,7 @@ public class PassengerView : MonoBehaviour
     {
         modalspinner.gameObject.SetActive(true);
         var data = QueueId.text.ToString().Split(';');
-        DataModels.Instance.GetDriverSchedule(data[1], data[0]);
+        DataModels.Instance.GetDriverSchedule(data[1], data[0], data[2]);
 
     }
 

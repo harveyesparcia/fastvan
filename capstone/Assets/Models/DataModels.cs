@@ -1,4 +1,3 @@
-using Gravitons.UI.Modal;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -28,6 +27,7 @@ public class DataModels : MonoBehaviour
     }
 
     private string driversId;
+    private int schedId;
 
     public string DriversId
     {
@@ -35,6 +35,11 @@ public class DataModels : MonoBehaviour
         set { driversId = value; }
     }
 
+    public int SchedId
+    {
+        get { return schedId; }
+        set { schedId = value; }
+    }
 
     private List<QueuesModel> queue = new List<QueuesModel>();
 
@@ -87,9 +92,9 @@ public class DataModels : MonoBehaviour
         StartCoroutine(Registation(firstname, lastname, date, address, contactnumber, email, platenumber, driverlicenseNumber));
     }
 
-    public void GetDriverSchedule(string driversId, string QueuesId)
+    public void GetDriverSchedule(string driversId, string QueuesId, string schedId)
     {
-        StartCoroutine(Get_DriverSchedule(driversId, int.Parse(QueuesId)));
+        StartCoroutine(Get_DriverSchedule(driversId, int.Parse(QueuesId), int.Parse(schedId)) );
     }
 
     public void GetSeatSchedule(string driversId)
@@ -215,11 +220,12 @@ public class DataModels : MonoBehaviour
     }
 
 
-    private IEnumerator Get_DriverSchedule(string driversId, int queueId)
+    private IEnumerator Get_DriverSchedule(string driversId, int queueId, int schedId)
     {
         WWWForm form = new WWWForm();
         form.AddField("DriversId", driversId.Trim());
         form.AddField("QueueId", queueId.ToString().Trim());
+        form.AddField("SchedId", schedId.ToString().Trim());
         CurrentQueueId = queueId;
 
         using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/select_scheduledtransactions.php", form);
