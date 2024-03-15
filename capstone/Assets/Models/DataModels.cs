@@ -95,14 +95,14 @@ public class DataModels : MonoBehaviour
 
     public void GetDriverSchedule(string driversId, string QueuesId, string schedId)
     {
-        StartCoroutine(Get_DriverSchedule(driversId, int.Parse(QueuesId), int.Parse(schedId)) );
+        StartCoroutine(Get_DriverSchedule(driversId, int.Parse(QueuesId), int.Parse(schedId)));
     }
 
     public void GetSeatSchedule(string driversId)
     {
         StartCoroutine(Get_SeatSchedule(driversId));
     }
-    
+
 
     public void CreateQueues(string count)
     {
@@ -394,10 +394,7 @@ public class DataModels : MonoBehaviour
 
                 if (response != null)
                 {
-                    if (response.status.Contains("success"))
-                    {
-                        OnPassengerCheckExist.Invoke(response);
-                    }
+                    OnPassengerCheckExist.Invoke(response);
                 }
             }
             catch (Exception ex)
