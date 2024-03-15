@@ -371,12 +371,14 @@ public class DataModels : MonoBehaviour
     private IEnumerator Update_Schedule(string driversId, Dictionary<string, int> parameters)
     {
         WWWForm form = new WWWForm();
+        var seatList = new List<string>();
         form.AddField("DriversId", driversId);
         form.AddField("QueuesId", currentQueueId);
 
         foreach (var param in parameters)
         {
             form.AddField(param.Key, param.Value);
+            seatList.Add(param.Key);
             form.AddField($"{param.Key}Name", Context.firstname);
         }
 
@@ -402,6 +404,9 @@ public class DataModels : MonoBehaviour
                             if (response.Data != null)
                             {
                                 var data = response.Data;
+
+
+                                StartCoroutine(Create_PassengerTransaction(currentQueue, string.Empty, driversId, String.Join(";", seatList)));
 
                                 UpdateCompleted(response.Data, driversId, currentQueue);
 
@@ -452,6 +457,8 @@ public class DataModels : MonoBehaviour
                 try
                 {
                     string jsonResponse = request.downloadHandler.text;
+
+
                     StartCoroutine(Update_ScheduleCompleted(driversId));
                 }
                 catch (Exception ex)
@@ -577,16 +584,19 @@ public class DataModels : MonoBehaviour
         }
     }
 
-    private IEnumerator Create_PassengerTransaction(int count)
+    private IEnumerator Create_PassengerTransaction(int queuesId, string platenumber, string driversId, string seatNumbers)
     {
         WWWForm form = new WWWForm();
-        form.AddField("VanPlateNumber", string.Empty);
+        form.AddField("VanPlateNumber", platenumber);
         form.AddField("DepartureDateTime", string.Empty);
         form.AddField("ArrivalDateTime", string.Empty);
-        form.AddField("DriversId", Context.DriversId);
-        form.AddField("Id", count);
+        form.AddField("DriversId", driversId);
+        form.AddField("QueuesId", queuesId);
+        form.AddField("PassengersId", Context.PassengerId);
+        form.AddField("SeatNumbers", seatNumbers);
+        form.AddField("Status", 1);
 
-        using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/create_queues.php", form);
+        using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/create_passengertransactions.php", form);
 
         yield return request.SendWebRequest();
         if (request.isNetworkError || request.isHttpError)
@@ -599,7 +609,6 @@ public class DataModels : MonoBehaviour
             try
             {
                 string jsonResponse = request.downloadHandler.text;
-                StartCoroutine(Create_ScheduledTransactions(count));
             }
             catch (Exception ex)
             {

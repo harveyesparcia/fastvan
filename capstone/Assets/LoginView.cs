@@ -143,6 +143,7 @@ public class LoginView
                     Context.username = response.Username;
                     Context.Password = response.Password;
                     Context.ContactNumber = response.Contactnumber;
+                    Context.PassengerId = response.PassengersId;
 
                     DataModels.Instance.GetQueues(false);
                     if (response.Role.Contains("Admin"))

@@ -16,6 +16,7 @@ public static class Context {
     public static string Birth { get; set; }
     public static string Username { get; set; }
     public static string Password { get; set; }
+    public static string PassengerId { get; set; }
 
     public static List<QueuesModel> Queues { get; set; }
 
