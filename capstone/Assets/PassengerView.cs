@@ -88,9 +88,14 @@ public class PassengerView : MonoBehaviour
 
     private void OnPassengerCheckExistChanged(CheckPassengerExistResponse obj)
     {
-        if(obj != null)
+        if (obj != null)
         {
             modalspinner.gameObject.SetActive(false);
+            if (string.IsNullOrEmpty(obj.driversId))
+            {
+                DataModels.Instance.UpdateQueues(DataModels.Instance.DriversId, seats);
+                return;
+            }
             if (obj.driversId != DataModels.Instance.DriversId)
             {
                 modalCheckPassengerExist.gameObject.SetActive(true);
@@ -100,7 +105,7 @@ public class PassengerView : MonoBehaviour
                 DataModels.Instance.UpdateQueues(DataModels.Instance.DriversId, seats);
             }
         }
-       
+
     }
 
     public void EditBackTapped()
