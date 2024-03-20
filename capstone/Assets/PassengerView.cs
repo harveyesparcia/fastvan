@@ -20,7 +20,9 @@ public class PassengerView : MonoBehaviour
     [SerializeField] private TMP_Text name;
     [SerializeField] private GameObject seat;
     [SerializeField] private TMP_Text message3;
+    [SerializeField] private TMP_Text cancelmessage3;
     [SerializeField] private GameObject bookedobjt;
+    [SerializeField] private GameObject cancelbookedobjt;
     [SerializeField] private GameObject changepassView;
     [SerializeField] private GameObject cancelBooking;
 
@@ -60,6 +62,7 @@ public class PassengerView : MonoBehaviour
     [SerializeField] private GameObject modalCheckPassengerExist;
 
     private static Dictionary<string, int> seats = new Dictionary<string, int>();
+    private static Dictionary<string, int> cancelseats = new Dictionary<string, int>();
 
     public ScrollRect scrollView;
     public GameObject listItemPrefab;
@@ -106,6 +109,20 @@ public class PassengerView : MonoBehaviour
         modalCheckPassengerExist.gameObject.SetActive(false);   
     }
 
+    public void cancelMenuTapped()
+    {
+        cancelseatlistView.gameObject.SetActive(true);
+    }
+
+    public void cancelViewBackTapped()
+    {
+        cancelseatlistView.gameObject.SetActive(false);
+    }
+
+    public void cancelViewCancelTapped()
+    {
+        cancelseatlistView.gameObject.SetActive(false);
+    }
 
     private void OnPassengerCheckExistChanged(CheckPassengerExistResponse obj)
     {
@@ -184,11 +201,31 @@ public class PassengerView : MonoBehaviour
         }
     }
 
+    public void AddtoCancelUpdateSeats(string seatNumber)
+    {
+
+        if (!cancelseats.ContainsKey(seatNumber))
+        {
+            cancelseats.Add(seatNumber, 0);
+        }
+        else
+        {
+            cancelseats.Remove(seatNumber);
+        }
+    }
+
     public void bookedTap()
     {
         string formattedSeats = string.Join(", ", seats.Keys);
         message3.text = $"Your about to book on seat {formattedSeats}";
         bookedobjt.gameObject.SetActive(true);
+    }
+
+    public void cancelbookedTap()
+    {
+        string formattedSeats = string.Join(", ", cancelseats.Keys);
+        cancelmessage3.text = $"Your about to cancel a book on seat {formattedSeats}";
+        cancelbookedobjt.gameObject.SetActive(true);
     }
 
     public void bookedYesTap()
@@ -831,4 +868,10 @@ public class PassengerView : MonoBehaviour
     
 
     }
+
+    public void cancelmodalYes()
+    { 
+        cancelbookedobjt.gameObject.SetActive(false);
+    }
+
 }

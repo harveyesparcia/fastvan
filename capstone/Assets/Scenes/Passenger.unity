@@ -795,7 +795,9 @@ MonoBehaviour:
   name: {fileID: 1897270296622405859}
   seat: {fileID: 6154750764076570964}
   message3: {fileID: 4690397503788465346}
+  cancelmessage3: {fileID: 1137957339}
   bookedobjt: {fileID: 1722124825621525355}
+  cancelbookedobjt: {fileID: 1137957338}
   changepassView: {fileID: 5495784829930952588}
   cancelBooking: {fileID: 6703827369607120189}
   accountSettingsVIew: {fileID: 7319293027835498633}
@@ -851,6 +853,303 @@ MonoBehaviour:
   cancelLastseat2: {fileID: 1220988088}
   cancelLastseat3: {fileID: 1220988087}
   cancelLastseat4: {fileID: 1220988086}
+--- !u!1001 &1137957337
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2638631113553975297, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_text
+      value: Do you want to cancel with this Bookings?
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631113553975297, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631113553975297, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631113553975297, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631113553975297, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631113834068587, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.23529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631113834068587, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631113834068587, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.02745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631114829447709, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1100507849}
+    - target: {fileID: 2638631114829447709, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: cancelmodalYes
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631114829447709, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PassengerView, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827826, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827830, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_Name
+      value: cancelBookingMessageView
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827830, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703212376442125847, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1100507849}
+    - target: {fileID: 4703212376442125847, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: cancelmodalYes
+      objectReference: {fileID: 0}
+    - target: {fileID: 4703212376442125847, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PassengerView, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924037892868, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_text
+      value: Do you want to cancel with this Bookings?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924037892868, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924037892868, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924037892868, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924037892868, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924037892871, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924475619615, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924475619615, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924475619615, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924475619615, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924695660840, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924695660840, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924695660841, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_text
+      value: Cancel Booking Seats
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924695660841, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924695660841, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924695660841, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924695660841, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72eea526d40f4ba4985af2a16d86edd8, type: 3}
+--- !u!1 &1137957338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2638631115444827830, guid: 72eea526d40f4ba4985af2a16d86edd8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1137957337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1137957339 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8246048924475619615, guid: 72eea526d40f4ba4985af2a16d86edd8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1137957337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1180883112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,6 +1414,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6544561388495622096, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
+      propertyPath: m_text
+      value: Cancel Booking
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544561388495622096, guid: eaf3d0e135f758048b697dc1237163f9,
+        type: 3}
       propertyPath: m_fontSize
       value: 35
       objectReference: {fileID: 0}
@@ -1161,7 +1465,7 @@ PrefabInstance:
     - target: {fileID: 6544561388527946446, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561388527946446, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1196,12 +1500,22 @@ PrefabInstance:
     - target: {fileID: 6544561388552969639, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561388552969639, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PassengerView, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544561388606777794, guid: eaf3d0e135f758048b697dc1237163f9,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544561388606777794, guid: eaf3d0e135f758048b697dc1237163f9,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6544561388617410512, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1231,7 +1545,7 @@ PrefabInstance:
     - target: {fileID: 6544561388617410513, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561388617410513, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1266,7 +1580,7 @@ PrefabInstance:
     - target: {fileID: 6544561388676815541, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561388676815541, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1301,7 +1615,7 @@ PrefabInstance:
     - target: {fileID: 6544561388901841213, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561388901841213, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1326,7 +1640,7 @@ PrefabInstance:
     - target: {fileID: 6544561388961008779, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SeatBack
+      value: cancelViewBackTapped
       objectReference: {fileID: 0}
     - target: {fileID: 6544561388961008779, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1361,7 +1675,7 @@ PrefabInstance:
     - target: {fileID: 6544561388979413541, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561388979413541, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1376,7 +1690,7 @@ PrefabInstance:
     - target: {fileID: 6544561389061533696, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389061533696, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1431,7 +1745,7 @@ PrefabInstance:
     - target: {fileID: 6544561389113815335, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389113815335, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1466,7 +1780,7 @@ PrefabInstance:
     - target: {fileID: 6544561389187080115, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389187080115, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1481,17 +1795,17 @@ PrefabInstance:
     - target: {fileID: 6544561389252859018, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.25490198
+      value: 0.29411766
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389252859018, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.101960786
+      value: 0.17254902
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389252859018, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.07450981
+      value: 0.05490196
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389384266286, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1526,7 +1840,7 @@ PrefabInstance:
     - target: {fileID: 6544561389384266287, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389384266287, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1541,7 +1855,7 @@ PrefabInstance:
     - target: {fileID: 6544561389394597852, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389394597852, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1596,7 +1910,7 @@ PrefabInstance:
     - target: {fileID: 6544561389432392286, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389432392286, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1611,7 +1925,7 @@ PrefabInstance:
     - target: {fileID: 6544561389476773836, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389476773836, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1646,17 +1960,17 @@ PrefabInstance:
     - target: {fileID: 6544561389549109508, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.103773594
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389549109508, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.103773594
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389549109508, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.06666667
+      value: 0.103773594
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389549109511, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1701,7 +2015,7 @@ PrefabInstance:
     - target: {fileID: 6544561389586824805, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389586824805, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1736,7 +2050,7 @@ PrefabInstance:
     - target: {fileID: 6544561389762902679, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389762902679, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1751,7 +2065,7 @@ PrefabInstance:
     - target: {fileID: 6544561389915758714, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: bookedTap
+      value: cancelbookedTap
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389915758714, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1760,8 +2074,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389915758717, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544561389915758717, guid: eaf3d0e135f758048b697dc1237163f9,
+        type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 300
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389915758717, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1836,7 +2155,7 @@ PrefabInstance:
     - target: {fileID: 6544561390043309444, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561390043309444, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1871,7 +2190,7 @@ PrefabInstance:
     - target: {fileID: 6544561390084200970, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561390084200970, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -1966,7 +2285,7 @@ PrefabInstance:
     - target: {fileID: 6544561390126280680, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddtoUpdateSeats
+      value: AddtoCancelUpdateSeats
       objectReference: {fileID: 0}
     - target: {fileID: 6544561390126280680, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -2244,6 +2563,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PassengerView, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 20333829346334491, guid: 1f2bb46ec0193e34fa5d58612d79e864,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.23529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 20333829346334491, guid: 1f2bb46ec0193e34fa5d58612d79e864,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 20333829346334491, guid: 1f2bb46ec0193e34fa5d58612d79e864,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.02745098
+      objectReference: {fileID: 0}
     - target: {fileID: 20333830899419606, guid: 1f2bb46ec0193e34fa5d58612d79e864,
         type: 3}
       propertyPath: m_text
@@ -2463,7 +2797,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1100507849}
         m_TargetAssemblyTypeName: PassengerView, Assembly-CSharp
-        m_MethodName: ScheduleTapped
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2733,7 +3067,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1100507849}
         m_TargetAssemblyTypeName: PassengerView, Assembly-CSharp
-        m_MethodName: ScheduleTapped
+        m_MethodName: cancelMenuTapped
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2812,6 +3146,130 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1756924882
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5684521007316452659, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_Name
+      value: MessageCancelView
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452659, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e86b0945ad52fc64895ed3a33b2847f6, type: 3}
 --- !u!1001 &1875253686
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3046,7 +3504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1979057276
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3089,9 +3547,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: FastVan
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 59d021d254da35046960fbdbf5c4d44c, type: 2}
-  m_sharedMaterial: {fileID: -8236565761258615900, guid: 59d021d254da35046960fbdbf5c4d44c,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3110,7 +3567,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -3559,7 +4016,9 @@ MonoBehaviour:
   name: {fileID: 1897270296622405859}
   seat: {fileID: 6154750764076570964}
   message3: {fileID: 4690397503788465346}
+  cancelmessage3: {fileID: 1137957339}
   bookedobjt: {fileID: 1722124825621525355}
+  cancelbookedobjt: {fileID: 1137957338}
   changepassView: {fileID: 5495784829930952588}
   cancelBooking: {fileID: 6703827369607120189}
   accountSettingsVIew: {fileID: 7319293027835498633}
@@ -4213,7 +4672,7 @@ RectTransform:
   m_Children:
   - {fileID: 676773851678474201}
   m_Father: {fileID: 676773851338818560}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -4483,8 +4942,8 @@ RectTransform:
   m_Children:
   - {fileID: 1129255349996745858}
   - {fileID: 676773849595296421}
-  - {fileID: 676773851030925709}
   - {fileID: 264600059}
+  - {fileID: 676773851030925709}
   m_Father: {fileID: 676773850077702207}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4533,7 +4992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.07450981, g: 0.101960786, b: 0.25490198, a: 1}
+  m_Color: {r: 0.02745098, g: 0.1254902, b: 0.23529412, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4908,6 +5367,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: AccountSettings
       objectReference: {fileID: 0}
+    - target: {fileID: 834659167638145398, guid: 98b6731885e18ee43b5b223cefc397c6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 834659167638145399, guid: 98b6731885e18ee43b5b223cefc397c6,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.29411766
+      objectReference: {fileID: 0}
+    - target: {fileID: 834659167638145399, guid: 98b6731885e18ee43b5b223cefc397c6,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.17254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 834659167638145399, guid: 98b6731885e18ee43b5b223cefc397c6,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.05490196
+      objectReference: {fileID: 0}
     - target: {fileID: 834659168076821059, guid: 98b6731885e18ee43b5b223cefc397c6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4923,11 +5402,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 676773850077702208}
+    - target: {fileID: 834659168479776711, guid: 98b6731885e18ee43b5b223cefc397c6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 834659168479776729, guid: 98b6731885e18ee43b5b223cefc397c6,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 40c2248c0f153dc4f8af7ba6730489ed,
+      objectReference: {fileID: 21300000, guid: f59282e1893016046a583cd2f60c4362,
         type: 3}
     - target: {fileID: 834659168554175172, guid: 98b6731885e18ee43b5b223cefc397c6,
         type: 3}
@@ -5977,8 +6461,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 2150, y: 3000}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1800, y: 3000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1129255349996745861
 GameObject:
@@ -6011,14 +6495,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
+  m_Color: {r: 0.05490196, g: 0.17254902, b: 0.29411766, a: 0.19607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b4bdfe10a6ad7e84ab3c92c8c2dfb2e5, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6071,17 +6555,17 @@ PrefabInstance:
     - target: {fileID: 3667760330767214742, guid: 42774a1e4f2d335439b19d7266a0c15c,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.25490198
+      value: 0.23529412
       objectReference: {fileID: 0}
     - target: {fileID: 3667760330767214742, guid: 42774a1e4f2d335439b19d7266a0c15c,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.101960786
+      value: 0.1254902
       objectReference: {fileID: 0}
     - target: {fileID: 3667760330767214742, guid: 42774a1e4f2d335439b19d7266a0c15c,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.07450981
+      value: 0.02745098
       objectReference: {fileID: 0}
     - target: {fileID: 3667760330800977569, guid: 42774a1e4f2d335439b19d7266a0c15c,
         type: 3}
@@ -6211,17 +6695,17 @@ PrefabInstance:
     - target: {fileID: 3667760330800977582, guid: 42774a1e4f2d335439b19d7266a0c15c,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.25490198
+      value: 0.23529412
       objectReference: {fileID: 0}
     - target: {fileID: 3667760330800977582, guid: 42774a1e4f2d335439b19d7266a0c15c,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.101960786
+      value: 0.1254902
       objectReference: {fileID: 0}
     - target: {fileID: 3667760330800977582, guid: 42774a1e4f2d335439b19d7266a0c15c,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.07450981
+      value: 0.02745098
       objectReference: {fileID: 0}
     - target: {fileID: 3667760330892893710, guid: 42774a1e4f2d335439b19d7266a0c15c,
         type: 3}
@@ -6834,6 +7318,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2638631113553975297, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631113553975297, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631113553975297, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631113553975297, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631113834068587, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.23529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631113834068587, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 2638631113834068587, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.02745098
+      objectReference: {fileID: 0}
     - target: {fileID: 2638631114829447709, guid: 72eea526d40f4ba4985af2a16d86edd8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6959,6 +7478,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookingMessageView
       objectReference: {fileID: 0}
+    - target: {fileID: 2638631115444827830, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4703212376442125847, guid: 72eea526d40f4ba4985af2a16d86edd8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6973,6 +7497,66 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: PassengerView, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924037892868, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924037892868, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924037892868, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924037892868, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924475619615, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924475619615, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924475619615, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924475619615, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924695660841, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924695660841, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924695660841, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8246048924695660841, guid: 72eea526d40f4ba4985af2a16d86edd8,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72eea526d40f4ba4985af2a16d86edd8, type: 3}
@@ -7127,6 +7711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModalAccountSettingChangeView
+      objectReference: {fileID: 0}
+    - target: {fileID: 6703827368098928760, guid: ff8690f1509512842bb9c0c33887f35c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6703827368098928764, guid: ff8690f1509512842bb9c0c33887f35c,
         type: 3}
@@ -7675,6 +8264,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Message2View
       objectReference: {fileID: 0}
+    - target: {fileID: 5684521007316452659, guid: e86b0945ad52fc64895ed3a33b2847f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5684521007316452687, guid: e86b0945ad52fc64895ed3a33b2847f6,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7831,7 +8425,7 @@ PrefabInstance:
     - target: {fileID: 6038210010054618439, guid: 2f89e1a6e4e30d84a83b43358a3a0fc0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6038210010054618439, guid: 2f89e1a6e4e30d84a83b43358a3a0fc0,
         type: 3}
@@ -8057,6 +8651,61 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 611718105583874368, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 611718105583874368, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 611718105583874368, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 611718105583874368, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489722696715006587, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.23529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489722696715006587, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489722696715006587, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.02745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489722697005535249, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489722697005535249, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489722697005535249, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489722697005535249, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3489722697253797538, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -8166,6 +8815,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ModalAddScheduleView
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489722697253797542, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3489722697879669261, guid: f6dc2829ec838d6429b9ceaa25dcc97e,
         type: 3}
@@ -9564,17 +10218,17 @@ PrefabInstance:
     - target: {fileID: 6544561389252859018, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.25490198
+      value: 0.29411766
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389252859018, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.101960786
+      value: 0.17254902
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389252859018, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.07450981
+      value: 0.05490196
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389384266286, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
