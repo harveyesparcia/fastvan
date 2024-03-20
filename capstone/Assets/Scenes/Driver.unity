@@ -12015,6 +12015,11 @@ PrefabInstance:
       objectReference: {fileID: 1936101458}
     - target: {fileID: 5299808649632096458, guid: bd091824129a72546be73c88707d019e,
         type: 3}
+      propertyPath: cancelLastseat1
+      value: 
+      objectReference: {fileID: 1329897550}
+    - target: {fileID: 5299808649632096458, guid: bd091824129a72546be73c88707d019e,
+        type: 3}
       propertyPath: cancelLastseat2
       value: 
       objectReference: {fileID: 707012613}
@@ -12035,6 +12040,11 @@ PrefabInstance:
       objectReference: {fileID: 4039937969323838956}
     - target: {fileID: 5299808649632096458, guid: bd091824129a72546be73c88707d019e,
         type: 3}
+      propertyPath: cancelfirstseat1
+      value: 
+      objectReference: {fileID: 1329897553}
+    - target: {fileID: 5299808649632096458, guid: bd091824129a72546be73c88707d019e,
+        type: 3}
       propertyPath: cancelfirstseat2
       value: 
       objectReference: {fileID: 661209622}
@@ -12048,6 +12058,11 @@ PrefabInstance:
       propertyPath: cancelfirstseat4
       value: 
       objectReference: {fileID: 1174498468}
+    - target: {fileID: 5299808649632096458, guid: bd091824129a72546be73c88707d019e,
+        type: 3}
+      propertyPath: cancelthirdseat1
+      value: 
+      objectReference: {fileID: 1329897551}
     - target: {fileID: 5299808649632096458, guid: bd091824129a72546be73c88707d019e,
         type: 3}
       propertyPath: cancelthirdseat2
@@ -12073,6 +12088,11 @@ PrefabInstance:
       propertyPath: canceldriverarea3
       value: 
       objectReference: {fileID: 20713075}
+    - target: {fileID: 5299808649632096458, guid: bd091824129a72546be73c88707d019e,
+        type: 3}
+      propertyPath: cancelsecondseat1
+      value: 
+      objectReference: {fileID: 1329897552}
     - target: {fileID: 5299808649632096458, guid: bd091824129a72546be73c88707d019e,
         type: 3}
       propertyPath: cancelsecondseat2

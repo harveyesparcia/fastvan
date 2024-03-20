@@ -1692,10 +1692,10 @@ RectTransform:
   m_Father: {fileID: 1182391767}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 25, y: -350}
+  m_SizeDelta: {x: 850, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &282184119
 MonoBehaviour:
@@ -8911,7 +8911,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1576784501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26048,7 +26048,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &7389169595865135703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26124,24 +26124,24 @@ MonoBehaviour:
   driverlistItemPrefab: {fileID: 282184117}
   modalspinner: {fileID: 832611179}
   cancelseatlistView: {fileID: 0}
-  canceldriverarea2: {fileID: 0}
-  canceldriverarea3: {fileID: 0}
-  cancelfirstseat1: {fileID: 0}
-  cancelfirstseat2: {fileID: 0}
-  cancelfirstseat3: {fileID: 0}
-  cancelfirstseat4: {fileID: 0}
-  cancelsecondseat1: {fileID: 0}
-  cancelsecondseat2: {fileID: 0}
-  cancelsecondseat3: {fileID: 0}
-  cancelsecondseat4: {fileID: 0}
-  cancelthirdseat1: {fileID: 0}
-  cancelthirdseat2: {fileID: 0}
-  cancelthirdseat3: {fileID: 0}
-  cancelthirdseat4: {fileID: 0}
-  cancelLastseat1: {fileID: 0}
-  cancelLastseat2: {fileID: 0}
-  cancelLastseat3: {fileID: 0}
-  cancelLastseat4: {fileID: 0}
+  canceldriverarea2: {fileID: 2119984861}
+  canceldriverarea3: {fileID: 2022734278}
+  cancelfirstseat1: {fileID: 955860382}
+  cancelfirstseat2: {fileID: 1664789327}
+  cancelfirstseat3: {fileID: 27768737}
+  cancelfirstseat4: {fileID: 1253979766}
+  cancelsecondseat1: {fileID: 315015050}
+  cancelsecondseat2: {fileID: 1196891323}
+  cancelsecondseat3: {fileID: 1849564142}
+  cancelsecondseat4: {fileID: 1904785507}
+  cancelthirdseat1: {fileID: 835620278}
+  cancelthirdseat2: {fileID: 1810564073}
+  cancelthirdseat3: {fileID: 1015242920}
+  cancelthirdseat4: {fileID: 1137632752}
+  cancelLastseat1: {fileID: 1644305346}
+  cancelLastseat2: {fileID: 537215916}
+  cancelLastseat3: {fileID: 1629398624}
+  cancelLastseat4: {fileID: 173196893}
 --- !u!222 &7389169596281514281
 CanvasRenderer:
   m_ObjectHideFlags: 0
