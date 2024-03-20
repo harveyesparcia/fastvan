@@ -746,6 +746,10 @@ public class DashboardView : MonoBehaviour
 
     public void GotoSeat(TMP_Text QueueId)
     {
+        if (string.IsNullOrEmpty(QueueId.text))
+        {
+            return;
+        }
         var data = QueueId.text.ToString().Split(';');
         DataModels.Instance.GetDriverSchedule(data[1], data[0], data[2]);
     }
