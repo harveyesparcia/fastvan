@@ -66,6 +66,27 @@ public class PassengerView : MonoBehaviour
 
     [SerializeField] private GameObject modalspinner;
 
+    [SerializeField] private GameObject cancelseatlistView;
+
+    [SerializeField] private Button canceldriverarea2;
+    [SerializeField] private Button canceldriverarea3;
+    [SerializeField] private Button cancelfirstseat1;
+    [SerializeField] private Button cancelfirstseat2;
+    [SerializeField] private Button cancelfirstseat3;
+    [SerializeField] private Button cancelfirstseat4;
+    [SerializeField] private Button cancelsecondseat1;
+    [SerializeField] private Button cancelsecondseat2;
+    [SerializeField] private Button cancelsecondseat3;
+    [SerializeField] private Button cancelsecondseat4;
+    [SerializeField] private Button cancelthirdseat1;
+    [SerializeField] private Button cancelthirdseat2;
+    [SerializeField] private Button cancelthirdseat3;
+    [SerializeField] private Button cancelthirdseat4;
+    [SerializeField] private Button cancelLastseat1;
+    [SerializeField] private Button cancelLastseat2;
+    [SerializeField] private Button cancelLastseat3;
+    [SerializeField] private Button cancelLastseat4;
+
     void Start()
     {
         if (Context.IsLogin)
