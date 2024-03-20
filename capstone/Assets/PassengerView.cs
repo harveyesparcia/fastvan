@@ -294,11 +294,11 @@ public class PassengerView : MonoBehaviour
             {
                 if (Context.firstname.Equals(model.FirstSeat2Name))
                 {
-                    firstseat2.interactable = true;
+                    firstseat3.interactable = true;
                 }
                 else
                 {
-                    firstseat2.interactable = false;
+                    firstseat3.interactable = false;
                 }
                 UpdateButtonText(firstseat3, model.FirstSeat3Name);
             }
