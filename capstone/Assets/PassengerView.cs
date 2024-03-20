@@ -90,6 +90,8 @@ public class PassengerView : MonoBehaviour
     [SerializeField] private Button cancelLastseat3;
     [SerializeField] private Button cancelLastseat4;
 
+
+    [SerializeField] private TMP_Text nameheader;
     void Start()
     {
         if (Context.IsLogin)
@@ -1139,7 +1141,7 @@ public class PassengerView : MonoBehaviour
 
     private void show()
     {
-        name.text = Context.firstname + "  " + Context.lastname;
+        name.text = Context.firstname + " " + Context.lastname;
         ModalAddSchedule.gameObject.SetActive(false);
         canvasMenu.gameObject.SetActive(true);
         seat.gameObject.SetActive(false);
@@ -1154,6 +1156,7 @@ public class PassengerView : MonoBehaviour
 
         username.text = Context.username;
         password.text = Context.Password;
+        nameheader.text = Context.firstname + " " + Context.lastname;
     }
 
     public void AddBookingsTapped()

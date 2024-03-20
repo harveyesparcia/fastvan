@@ -102,6 +102,8 @@ public class DashboardView : MonoBehaviour
     [SerializeField] private Button cancelLastseat3;
     [SerializeField] private Button cancelLastseat4;
 
+    [SerializeField] private TMP_Text nameheader;
+
     void Start()
     {
         if (Context.IsLogin)
@@ -731,12 +733,13 @@ public class DashboardView : MonoBehaviour
 
     private void show()
     {
-        name.text = Context.firstname + "  " + Context.lastname;
+        name.text = Context.firstname + " " + Context.lastname;
         ModalAddSchedule.gameObject.SetActive(false);
         canvasMenu.gameObject.SetActive(true);
         seat.gameObject.SetActive(false);
         seatstatus.gameObject.SetActive(false);
         bookedobjt.gameObject.SetActive(false);
+        nameheader.text = Context.firstname + " " + Context.lastname;
     }
 
     public void AddBookingsTapped()
