@@ -790,22 +790,22 @@ MonoBehaviour:
   cancelseatlistView: {fileID: 1329897549}
   canceldriverarea2: {fileID: 79438674}
   canceldriverarea3: {fileID: 20713075}
-  cancelfirstseat1: {fileID: 0}
+  cancelfirstseat1: {fileID: 1329897553}
   cancelfirstseat2: {fileID: 661209622}
-  cancelfirstseat3: {fileID: 0}
-  cancelfirstseat4: {fileID: 0}
-  cancelsecondseat1: {fileID: 0}
-  cancelsecondseat2: {fileID: 0}
-  cancelsecondseat3: {fileID: 0}
-  cancelsecondseat4: {fileID: 0}
-  cancelthirdseat1: {fileID: 0}
-  cancelthirdseat2: {fileID: 0}
-  cancelthirdseat3: {fileID: 0}
-  cancelthirdseat4: {fileID: 0}
-  cancelLastseat1: {fileID: 0}
-  cancelLastseat2: {fileID: 0}
-  cancelLastseat3: {fileID: 0}
-  cancelLastseat4: {fileID: 0}
+  cancelfirstseat3: {fileID: 1868630745}
+  cancelfirstseat4: {fileID: 1174498468}
+  cancelsecondseat1: {fileID: 1329897552}
+  cancelsecondseat2: {fileID: 1094999532}
+  cancelsecondseat3: {fileID: 1348758023}
+  cancelsecondseat4: {fileID: 716005949}
+  cancelthirdseat1: {fileID: 1329897551}
+  cancelthirdseat2: {fileID: 1537496660}
+  cancelthirdseat3: {fileID: 1039619165}
+  cancelthirdseat4: {fileID: 301288670}
+  cancelLastseat1: {fileID: 1329897550}
+  cancelLastseat2: {fileID: 707012613}
+  cancelLastseat3: {fileID: 1378088803}
+  cancelLastseat4: {fileID: 43854276}
 --- !u!224 &1122422265 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5299808650517826815, guid: bd091824129a72546be73c88707d019e,
@@ -1746,6 +1746,54 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1329897548}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1329897550 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7600710509973654103, guid: 50187c92b19aac6448ddff0b447aae63,
+    type: 3}
+  m_PrefabInstance: {fileID: 1329897548}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1329897551 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7600710510521873877, guid: 50187c92b19aac6448ddff0b447aae63,
+    type: 3}
+  m_PrefabInstance: {fileID: 1329897548}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1329897552 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7600710510473832432, guid: 50187c92b19aac6448ddff0b447aae63,
+    type: 3}
+  m_PrefabInstance: {fileID: 1329897548}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1329897553 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7600710510897457212, guid: 50187c92b19aac6448ddff0b447aae63,
+    type: 3}
+  m_PrefabInstance: {fileID: 1329897548}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1343886781 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2561765516549535752, guid: ed168fcef7529764cbc88766cdfbeaae,
