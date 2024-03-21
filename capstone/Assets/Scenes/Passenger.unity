@@ -492,6 +492,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa5b106983c9773419ae54fa577c0d50, type: 3}
+--- !u!114 &519829325 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6544561388617410513, guid: eaf3d0e135f758048b697dc1237163f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1220988084}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &555305572 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 834659167647797068, guid: 98b6731885e18ee43b5b223cefc397c6,
@@ -970,8 +982,8 @@ MonoBehaviour:
   listItemPrefab: {fileID: 2316638557571897460}
   modalspinner: {fileID: 1875253687}
   cancelseatlistView: {fileID: 1220988085}
-  canceldriverarea2: {fileID: 1220988103}
-  canceldriverarea3: {fileID: 1220988102}
+  canceldriverarea2: {fileID: 1220988102}
+  canceldriverarea3: {fileID: 519829325}
   cancelfirstseat1: {fileID: 1220988101}
   cancelfirstseat2: {fileID: 1220988100}
   cancelfirstseat3: {fileID: 1220988099}
@@ -2225,6 +2237,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6544561389965992144, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544561389965992144, guid: eaf3d0e135f758048b697dc1237163f9,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -2372,6 +2389,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 6544561390101920342, guid: eaf3d0e135f758048b697dc1237163f9,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6544561390101920342, guid: eaf3d0e135f758048b697dc1237163f9,
         type: 3}
@@ -2651,18 +2673,6 @@ MonoBehaviour:
 --- !u!114 &1220988102 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6544561390043309444, guid: eaf3d0e135f758048b697dc1237163f9,
-    type: 3}
-  m_PrefabInstance: {fileID: 1220988084}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1220988103 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6544561390101920342, guid: eaf3d0e135f758048b697dc1237163f9,
     type: 3}
   m_PrefabInstance: {fileID: 1220988084}
   m_PrefabAsset: {fileID: 0}
@@ -4339,8 +4349,8 @@ MonoBehaviour:
   listItemPrefab: {fileID: 2316638557571897460}
   modalspinner: {fileID: 1875253687}
   cancelseatlistView: {fileID: 1220988085}
-  canceldriverarea2: {fileID: 1220988103}
-  canceldriverarea3: {fileID: 1220988102}
+  canceldriverarea2: {fileID: 1220988102}
+  canceldriverarea3: {fileID: 519829325}
   cancelfirstseat1: {fileID: 1220988101}
   cancelfirstseat2: {fileID: 1220988100}
   cancelfirstseat3: {fileID: 1220988099}
@@ -4351,7 +4361,7 @@ MonoBehaviour:
   cancelsecondseat4: {fileID: 1220988094}
   cancelthirdseat1: {fileID: 1220988093}
   cancelthirdseat2: {fileID: 1220988092}
-  cancelthirdseat3: {fileID: 1220988087}
+  cancelthirdseat3: {fileID: 1220988091}
   cancelthirdseat4: {fileID: 1220988090}
   cancelLastseat1: {fileID: 1220988089}
   cancelLastseat2: {fileID: 1220988088}

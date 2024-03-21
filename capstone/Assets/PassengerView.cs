@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -110,6 +111,7 @@ public class PassengerView : MonoBehaviour
 
     private void OnGetPassengerSeatScheduleChanged(ScheduledTransaction transaction)
     {
+        UpdateCancelSeat(transaction);
         cancelseatlistView.gameObject.SetActive(true);
     }
 
@@ -361,7 +363,7 @@ public class PassengerView : MonoBehaviour
 
             if (model.FirstSeat3 == 1)
             {
-                if (Context.firstname.Equals(model.FirstSeat2Name))
+                if (Context.firstname.Equals(model.FirstSeat3Name))
                 {
                     firstseat3.interactable = true;
                 }
@@ -627,18 +629,18 @@ public class PassengerView : MonoBehaviour
             {
                 if (Context.firstname.Equals(model.FrontSeat1Name))
                 {
-                    driverarea2.interactable = true;
+                    canceldriverarea2.interactable = true;
                 }
                 else
                 {
-                    driverarea2.interactable = false;
+                    canceldriverarea2.interactable = false;
                 }
 
-                UpdateButtonText(driverarea2, model.FrontSeat1Name);
+                UpdateButtonText(canceldriverarea2, model.FrontSeat1Name);
             }
             else
             {
-                driverarea2.interactable = true;
+                canceldriverarea2.interactable = false;
                 UpdateButtonText(driverarea2, Contants.Seat3);
             }
 
@@ -646,19 +648,19 @@ public class PassengerView : MonoBehaviour
             {
                 if (Context.firstname.Equals(model.FrontSeat2Name))
                 {
-                    driverarea3.interactable = true;
+                    canceldriverarea3.interactable = true;
                 }
                 else
                 {
-                    driverarea3.interactable = false;
+                    canceldriverarea3.interactable = false;
                 }
 
-                UpdateButtonText(driverarea3, model.FrontSeat2Name);
+                UpdateButtonText(canceldriverarea3, model.FrontSeat2Name);
             }
             else
             {
-                driverarea3.interactable = true;
-                UpdateButtonText(driverarea3, Contants.Seat4);
+                canceldriverarea3.interactable = false;
+                UpdateButtonText(canceldriverarea3, Contants.Seat4);
 
             }
 
@@ -666,54 +668,54 @@ public class PassengerView : MonoBehaviour
             {
                 if (Context.firstname.Equals(model.FirstSeat1Name))
                 {
-                    firstseat1.interactable = true;
+                    cancelfirstseat1.interactable = true;
                 }
                 else
                 {
-                    firstseat1.interactable = false;
+                    cancelfirstseat1.interactable = false;
                 }
 
-                UpdateButtonText(firstseat1, model.FirstSeat1Name);
+                UpdateButtonText(cancelfirstseat1, model.FirstSeat1Name);
             }
             else
             {
-                firstseat1.interactable = true;
-                UpdateButtonText(firstseat1, Contants.Seat1);
+                cancelfirstseat1.interactable = false;
+                UpdateButtonText(cancelfirstseat1, Contants.Seat1);
             }
 
             if (model.FirstSeat2 == 1)
             {
                 if (Context.firstname.Equals(model.FirstSeat2Name))
                 {
-                    firstseat2.interactable = true;
+                    cancelfirstseat2.interactable = true;
                 }
                 else
                 {
-                    firstseat2.interactable = false;
+                    cancelfirstseat2.interactable = false;
                 }
-                UpdateButtonText(firstseat2, model.FirstSeat2Name);
+                UpdateButtonText(cancelfirstseat2, model.FirstSeat2Name);
             }
             else
             {
-                firstseat2.interactable = true;
-                UpdateButtonText(firstseat2, Contants.Seat2);
+                cancelfirstseat2.interactable = false;
+                UpdateButtonText(cancelfirstseat2, Contants.Seat2);
             }
 
             if (model.FirstSeat3 == 1)
             {
-                if (Context.firstname.Equals(model.FirstSeat2Name))
+                if (Context.firstname.Equals(model.FirstSeat3Name))
                 {
-                    firstseat3.interactable = true;
+                    cancelfirstseat3.interactable = true;
                 }
                 else
                 {
-                    firstseat3.interactable = false;
+                    cancelfirstseat3.interactable = false;
                 }
-                UpdateButtonText(firstseat3, model.FirstSeat3Name);
+                UpdateButtonText(cancelfirstseat3, model.FirstSeat3Name);
             }
             else
             {
-                firstseat3.interactable = true;
+                cancelfirstseat3.interactable = false;
                 UpdateButtonText(firstseat3, Contants.Seat3);
             }
 
@@ -721,164 +723,164 @@ public class PassengerView : MonoBehaviour
             {
                 if (Context.firstname.Equals(model.FirstSeat4Name))
                 {
-                    firstseat4.interactable = true;
+                    cancelfirstseat4.interactable = true;
                 }
                 else
                 {
-                    firstseat4.interactable = false;
+                    cancelfirstseat4.interactable = false;
                 }
-                UpdateButtonText(firstseat4, model.FirstSeat4Name);
+                UpdateButtonText(cancelfirstseat4, model.FirstSeat4Name);
             }
             else
             {
-                firstseat4.interactable = true;
-                UpdateButtonText(firstseat4, Contants.Seat4);
+                cancelfirstseat4.interactable = false;
+                UpdateButtonText(cancelfirstseat4, Contants.Seat4);
             }
 
             if (model.SecondSeat1 == 1)
             {
                 if (Context.firstname.Equals(model.SecondSeat1Name))
                 {
-                    secondseat1.interactable = true;
+                    cancelsecondseat1.interactable = true;
                 }
                 else
                 {
-                    secondseat1.interactable = false;
+                    cancelsecondseat1.interactable = false;
                 }
 
-                UpdateButtonText(secondseat1, model.SecondSeat1Name);
+                UpdateButtonText(cancelsecondseat1, model.SecondSeat1Name);
             }
             else
             {
-                secondseat1.interactable = true;
-                UpdateButtonText(secondseat1, Contants.Seat1);
+                cancelsecondseat1.interactable = false;
+                UpdateButtonText(cancelsecondseat1, Contants.Seat1);
             }
 
             if (model.SecondSeat2 == 1)
             {
                 if (Context.firstname.Equals(model.SecondSeat2Name))
                 {
-                    secondseat2.interactable = true;
+                    cancelsecondseat2.interactable = true;
                 }
                 else
                 {
-                    secondseat2.interactable = false;
+                    cancelsecondseat2.interactable = false;
                 }
-                UpdateButtonText(secondseat2, model.SecondSeat2Name);
+                UpdateButtonText(cancelsecondseat2, model.SecondSeat2Name);
             }
             else
             {
-                secondseat2.interactable = true;
-                UpdateButtonText(secondseat2, Contants.Seat2);
+                cancelsecondseat2.interactable = false;
+                UpdateButtonText(cancelsecondseat2, Contants.Seat2);
             }
 
             if (model.SecondSeat3 == 1)
             {
                 if (Context.firstname.Equals(model.SecondSeat3Name))
                 {
-                    secondseat3.interactable = true;
+                    cancelsecondseat3.interactable = true;
                 }
                 else
                 {
-                    secondseat3.interactable = false;
+                    cancelsecondseat3.interactable = false;
                 }
-                UpdateButtonText(secondseat3, model.SecondSeat3Name);
+                UpdateButtonText(cancelsecondseat3, model.SecondSeat3Name);
             }
             else
             {
-                secondseat3.interactable = true;
-                UpdateButtonText(secondseat3, Contants.Seat3);
+                cancelsecondseat3.interactable = false;
+                UpdateButtonText(cancelsecondseat3, Contants.Seat3);
             }
 
             if (model.SecondSeat4 == 1)
             {
                 if (Context.firstname.Equals(model.SecondSeat4Name))
                 {
-                    secondseat4.interactable = true;
+                    cancelsecondseat4.interactable = true;
                 }
                 else
                 {
-                    secondseat4.interactable = false;
+                    cancelsecondseat4.interactable = false;
                 }
-                UpdateButtonText(secondseat4, model.SecondSeat4Name);
+                UpdateButtonText(cancelsecondseat4, model.SecondSeat4Name);
             }
             else
             {
-                secondseat4.interactable = true;
-                UpdateButtonText(secondseat4, Contants.Seat4);
+                cancelsecondseat4.interactable = false;
+                UpdateButtonText(cancelsecondseat4, Contants.Seat4);
             }
 
             if (model.ThirdSeat1 == 1)
             {
                 if (Context.firstname.Equals(model.ThirdSeat1Name))
                 {
-                    thirdseat1.interactable = true;
+                    cancelthirdseat1.interactable = true;
                 }
                 else
                 {
-                    thirdseat1.interactable = false;
+                    cancelthirdseat1.interactable = false;
                 }
 
-                UpdateButtonText(thirdseat1, model.ThirdSeat1Name);
+                UpdateButtonText(cancelthirdseat1, model.ThirdSeat1Name);
             }
             else
             {
-                thirdseat1.interactable = true;
-                UpdateButtonText(thirdseat1, Contants.Seat1);
+                cancelthirdseat1.interactable = false;
+                UpdateButtonText(cancelthirdseat1, Contants.Seat1);
             }
 
             if (model.ThirdSeat2 == 1)
             {
                 if (Context.firstname.Equals(model.ThirdSeat2Name))
                 {
-                    thirdseat2.interactable = true;
+                    cancelthirdseat2.interactable = true;
                 }
                 else
                 {
-                    thirdseat2.interactable = false;
+                    cancelthirdseat2.interactable = false;
                 }
-                UpdateButtonText(thirdseat2, model.ThirdSeat2Name);
+                UpdateButtonText(cancelthirdseat2, model.ThirdSeat2Name);
             }
             else
             {
-                thirdseat2.interactable = true;
-                UpdateButtonText(thirdseat2, Contants.Seat2);
+                cancelthirdseat2.interactable = false;
+                UpdateButtonText(cancelthirdseat2, Contants.Seat2);
             }
 
             if (model.ThirdSeat3 == 1)
             {
                 if (Context.firstname.Equals(model.ThirdSeat3Name))
                 {
-                    thirdseat3.interactable = true;
+                    cancelthirdseat3.interactable = true;
                 }
                 else
                 {
-                    thirdseat3.interactable = false;
+                    cancelthirdseat3.interactable = false;
                 }
-                UpdateButtonText(thirdseat3, model.ThirdSeat3Name);
+                UpdateButtonText(cancelthirdseat3, model.ThirdSeat3Name);
             }
             else
             {
-                thirdseat3.interactable = true;
-                UpdateButtonText(thirdseat3, Contants.Seat3);
+                cancelthirdseat3.interactable = false;
+                UpdateButtonText(cancelthirdseat3, Contants.Seat3);
             }
 
             if (model.ThirdSeat4 == 1)
             {
                 if (Context.firstname.Equals(model.ThirdSeat4Name))
                 {
-                    thirdseat4.interactable = true;
+                    cancelthirdseat4.interactable = true;
                 }
                 else
                 {
-                    thirdseat4.interactable = false;
+                    cancelthirdseat4.interactable = false;
                 }
-                UpdateButtonText(thirdseat4, model.ThirdSeat4Name);
+                UpdateButtonText(cancelthirdseat4, model.ThirdSeat4Name);
             }
             else
             {
-                thirdseat4.interactable = true;
-                UpdateButtonText(thirdseat4, Contants.Seat4);
+                cancelthirdseat4.interactable = false;
+                UpdateButtonText(cancelthirdseat4, Contants.Seat4);
             }
 
 
@@ -886,72 +888,72 @@ public class PassengerView : MonoBehaviour
             {
                 if (Context.firstname.Equals(model.FourthSeat1Name))
                 {
-                    Lastseat1.interactable = true;
+                    cancelLastseat1.interactable = true;
                 }
                 else
                 {
-                    Lastseat1.interactable = false;
+                    cancelLastseat1.interactable = false;
                 }
-                UpdateButtonText(Lastseat1, model.FourthSeat1Name);
+                UpdateButtonText(cancelLastseat1, model.FourthSeat1Name);
             }
             else
             {
-                Lastseat1.interactable = true;
-                UpdateButtonText(Lastseat1, Contants.Seat1);
+                cancelLastseat1.interactable = false;
+                UpdateButtonText(cancelLastseat1, Contants.Seat1);
             }
 
             if (model.FourthSeat2 == 1)
             {
                 if (Context.firstname.Equals(model.FourthSeat2Name))
                 {
-                    Lastseat2.interactable = true;
+                    cancelLastseat2.interactable = true;
                 }
                 else
                 {
-                    Lastseat2.interactable = false;
+                    cancelLastseat2.interactable = false;
                 }
-                UpdateButtonText(Lastseat2, model.FourthSeat2Name);
+                UpdateButtonText(cancelLastseat2, model.FourthSeat2Name);
             }
             else
             {
-                Lastseat2.interactable = true;
-                UpdateButtonText(Lastseat2, Contants.Seat2);
+                cancelLastseat2.interactable = false;
+                UpdateButtonText(cancelLastseat2, Contants.Seat2);
             }
 
             if (model.FourthSeat3 == 1)
             {
                 if (Context.firstname.Equals(model.FourthSeat3Name))
                 {
-                    Lastseat3.interactable = true;
+                    cancelLastseat3.interactable = true;
                 }
                 else
                 {
-                    Lastseat3.interactable = false;
+                    cancelLastseat3.interactable = false;
                 }
-                UpdateButtonText(Lastseat3, model.FourthSeat3Name);
+                UpdateButtonText(cancelLastseat3, model.FourthSeat3Name);
             }
             else
             {
-                Lastseat3.interactable = true;
-                UpdateButtonText(Lastseat3, Contants.Seat3);
+                cancelLastseat3.interactable = false;
+                UpdateButtonText(cancelLastseat3, Contants.Seat3);
             }
 
             if (model.FourthSeat4 == 1)
             {
                 if (Context.firstname.Equals(model.FourthSeat4Name))
                 {
-                    Lastseat4.interactable = true;
+                    cancelLastseat4.interactable = true;
                 }
                 else
                 {
-                    Lastseat4.interactable = false;
+                    cancelLastseat4.interactable = false;
                 }
-                UpdateButtonText(Lastseat4, model.FourthSeat4Name);
+                UpdateButtonText(cancelLastseat4, model.FourthSeat4Name);
             }
             else
             {
-                Lastseat4.interactable = true;
-                UpdateButtonText(Lastseat4, Contants.Seat4);
+                cancelLastseat4.interactable = false;
+                UpdateButtonText(cancelLastseat4, Contants.Seat4);
             }
         }
     }
