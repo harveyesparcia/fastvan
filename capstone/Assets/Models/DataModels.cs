@@ -156,6 +156,11 @@ public class DataModels : MonoBehaviour
         StartCoroutine(Update_CancelSchedule(parameters));
     }
 
+    public void UpdatePassengerSchedule(string passengerid)
+    {
+        StartCoroutine(Update_passengerSchedule(passengerid));
+    }
+    
     public void CreatePassengerTransactions(string driversId, Dictionary<string, int> parameters)
     {
     }
@@ -768,6 +773,7 @@ public class DataModels : MonoBehaviour
         yield return request.SendWebRequest();
         if (request.isNetworkError || request.isHttpError)
         {
+            OnGetPassengerSeatSchedule?.Invoke(new ScheduledTransaction());
             Debug.LogError("Error: " + request.error);
         }
         else
@@ -786,12 +792,20 @@ public class DataModels : MonoBehaviour
                             var data = response.Data;
                             OnGetPassengerSeatSchedule?.Invoke(data?.FirstOrDefault());
                         }
+                        else
+                        {
+                            OnGetPassengerSeatSchedule?.Invoke(new ScheduledTransaction());
+                            StartCoroutine(Update_passengerSchedule(id));
+                            
+                        }
+
 
                     }
                 }
             }
             catch (Exception ex)
             {
+                OnGetPassengerSeatSchedule?.Invoke(new ScheduledTransaction());
             }
 
         }
@@ -837,6 +851,34 @@ public class DataModels : MonoBehaviour
                 catch (Exception ex)
                 {
                     OnCancelSchedule?.Invoke(false);
+                    Debug.LogError("Exception: " + ex.Message);
+                }
+            }
+        }
+    }
+
+    private IEnumerator Update_passengerSchedule(string passengerId)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("PassengersId", passengerId);
+
+        using (UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/update_passengertransactions.php", form))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.isNetworkError || request.isHttpError)
+            {
+                Debug.LogError("Error: " + request.error);
+            }
+            else
+            {
+                try
+                {
+                    string jsonResponse = request.downloadHandler.text;
+                 
+                }
+                catch (Exception ex)
+                {
                     Debug.LogError("Exception: " + ex.Message);
                 }
             }
