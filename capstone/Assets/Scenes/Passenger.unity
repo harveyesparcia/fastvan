@@ -1186,7 +1186,7 @@ PrefabInstance:
     - target: {fileID: 4703212376442125847, guid: 72eea526d40f4ba4985af2a16d86edd8,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: cancelmodalYes
+      value: cancelbookedYesTap
       objectReference: {fileID: 0}
     - target: {fileID: 4703212376442125847, guid: 72eea526d40f4ba4985af2a16d86edd8,
         type: 3}

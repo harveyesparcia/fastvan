@@ -20,6 +20,7 @@ public class DataModels : MonoBehaviour
     public Action<CheckPassengerExistResponse> OnPassengerCheckExist;
     public Action<bool, UserModel> OnRegisterChanged;
     public Action<bool, List<UserModel>> OnListOfDriversChanged;
+    public Action<bool> OnCancelSchedule;
     private int currentQueue;
 
     public int CurrentQueue
@@ -103,7 +104,7 @@ public class DataModels : MonoBehaviour
     {
         StartCoroutine(Get_PassengerSeatSchedule(passengerId));
     }
-    
+
     public void GetSeatSchedule(string driversId)
     {
         StartCoroutine(Get_SeatSchedule(driversId));
@@ -148,6 +149,11 @@ public class DataModels : MonoBehaviour
     public void UpdateQueues(string driversId, Dictionary<string, int> parameters)
     {
         StartCoroutine(Update_Schedule(driversId, parameters));
+    }
+
+    public void UpdateCancelSchedule(Dictionary<string, int> parameters)
+    {
+        StartCoroutine(Update_CancelSchedule(parameters));
     }
 
     public void CreatePassengerTransactions(string driversId, Dictionary<string, int> parameters)
@@ -422,7 +428,7 @@ public class DataModels : MonoBehaviour
             form.AddField(param.Key, param.Value);
             seatList.Add(param.Key);
             form.AddField($"{param.Key}Name", Context.firstname);
-            form.AddField($"{param.Key}PassengerId", string.IsNullOrEmpty(Context.PassengerId)?  driversId : Context.PassengerId);
+            form.AddField($"{param.Key}PassengerId", string.IsNullOrEmpty(Context.PassengerId) ? driversId : Context.PassengerId);
         }
 
         using (UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/update_scheduledtransactions.php", form))
@@ -788,6 +794,52 @@ public class DataModels : MonoBehaviour
             {
             }
 
+        }
+    }
+
+    private IEnumerator Update_CancelSchedule(Dictionary<string, int> parameters)
+    {
+        WWWForm form = new WWWForm();
+        var seatList = new List<string>();
+
+        foreach (var param in parameters)
+        {
+            form.AddField(param.Key, 1);
+            seatList.Add(param.Key);
+            form.AddField($"{param.Key}PassengerId", string.IsNullOrEmpty(Context.PassengerId) ? driversId : Context.PassengerId);
+        }
+
+        using (UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/update_scheduletransaction_passengerId.php", form))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.isNetworkError || request.isHttpError)
+            {
+                Debug.LogError("Error: " + request.error);
+                OnCancelSchedule?.Invoke(false);
+            }
+            else
+            {
+                try
+                {
+                    string jsonResponse = request.downloadHandler.text;
+                    var response = JsonConvert.DeserializeObject<ApiUpdateResponse>(jsonResponse);
+
+                    if (response != null)
+                    {
+                        if (response.Status.Contains("success"))
+                        {
+                            OnCancelSchedule?.Invoke(true);
+
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    OnCancelSchedule?.Invoke(false);
+                    Debug.LogError("Exception: " + ex.Message);
+                }
+            }
         }
     }
 }

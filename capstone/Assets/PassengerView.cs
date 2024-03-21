@@ -105,12 +105,20 @@ public class PassengerView : MonoBehaviour
             DataModels.Instance.OnAddQueue += OnAddQueue;
             DataModels.Instance.OnPassengerCheckExist += OnPassengerCheckExistChanged;
             DataModels.Instance.OnGetPassengerSeatSchedule += OnGetPassengerSeatScheduleChanged;
-            
+            DataModels.Instance.OnCancelSchedule += OnCancelScheduleChanged;
+
+
         }
+    }
+
+    private void OnCancelScheduleChanged(bool obj)
+    {
+        DataModels.Instance.GetPassengerSeatSchedule(Context.PassengerId);
     }
 
     private void OnGetPassengerSeatScheduleChanged(ScheduledTransaction transaction)
     {
+        modalspinner.gameObject.SetActive(false);
         UpdateCancelSeat(transaction);
         cancelseatlistView.gameObject.SetActive(true);
     }
@@ -122,8 +130,8 @@ public class PassengerView : MonoBehaviour
 
     public void cancelMenuTapped()
     {
+        modalspinner.gameObject.SetActive(true);
         DataModels.Instance.GetPassengerSeatSchedule(Context.PassengerId);
-       
     }
 
     public void cancelViewBackTapped()
@@ -193,6 +201,7 @@ public class PassengerView : MonoBehaviour
             UpdateSeat(model.Where(x=>x.Status==1).FirstOrDefault());
             seat.gameObject.SetActive(true);
             bookedobjt.gameObject.SetActive(false);
+            cancelbookedobjt.gameObject.SetActive(false);
             seats.Clear();
         }
     }
@@ -239,6 +248,15 @@ public class PassengerView : MonoBehaviour
         string formattedSeats = string.Join(", ", cancelseats.Keys);
         cancelmessage3.text = $"Your about to cancel a book on seat {formattedSeats}";
         cancelbookedobjt.gameObject.SetActive(true);
+        bookedobjt.gameObject.SetActive(false);
+    }
+
+    public void cancelbookedYesTap()
+    {
+        cancelbookedobjt.gameObject.SetActive(false);
+        bookedobjt.gameObject.SetActive(false);
+        modalspinner.gameObject.SetActive(true);
+        DataModels.Instance.UpdateCancelSchedule(cancelseats);
     }
 
     public void bookedYesTap()
@@ -641,7 +659,7 @@ public class PassengerView : MonoBehaviour
             else
             {
                 canceldriverarea2.interactable = false;
-                UpdateButtonText(driverarea2, Contants.Seat3);
+                UpdateButtonText(canceldriverarea2, Contants.Seat3);
             }
 
             if (model.FrontSeat2 == 1)
@@ -1203,6 +1221,7 @@ public class PassengerView : MonoBehaviour
             DataModels.Instance.OnDriverGetSchedule -= OnDriverGetSchedule;
             DataModels.Instance.OnPassengerCheckExist -= OnPassengerCheckExistChanged;
             DataModels.Instance.OnGetPassengerSeatSchedule -= OnGetPassengerSeatScheduleChanged;
+            DataModels.Instance.OnCancelSchedule -= OnCancelScheduleChanged;
         }
     }
 
