@@ -157,6 +157,8 @@ public class DashboardView : MonoBehaviour
         else
         {
             message.text = "Failed to register driver.";
+            messageold2.gameObject.SetActive(false);
+            messageold3.gameObject.SetActive(false);
             Modal.gameObject.SetActive(true);
         }
     }
