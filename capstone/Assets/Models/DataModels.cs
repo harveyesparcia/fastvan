@@ -15,6 +15,7 @@ public class DataModels : MonoBehaviour
     public Action<QueuesModel> OnDriverUpdateSchedule;
     public Action<List<ScheduledTransaction>> OnDriverGetSchedule;
     public Action<ScheduledTransaction> OnGetSeatSchedule;
+    public Action<ScheduledTransaction> OnGetPassengerSeatSchedule;
     public Action<bool> OnCheckExist;
     public Action<CheckPassengerExistResponse> OnPassengerCheckExist;
     public Action<bool, UserModel> OnRegisterChanged;
@@ -98,6 +99,11 @@ public class DataModels : MonoBehaviour
         StartCoroutine(Get_DriverSchedule(driversId, int.Parse(QueuesId), int.Parse(schedId)));
     }
 
+    public void GetPassengerSeatSchedule(string passengerId)
+    {
+        StartCoroutine(Get_PassengerSeatSchedule(passengerId));
+    }
+    
     public void GetSeatSchedule(string driversId)
     {
         StartCoroutine(Get_SeatSchedule(driversId));
@@ -535,7 +541,6 @@ public class DataModels : MonoBehaviour
         }
     }
 
-
     private IEnumerator Create_Queues(int count)
     {
         WWWForm form = new WWWForm();
@@ -742,6 +747,45 @@ public class DataModels : MonoBehaviour
             catch (Exception ex)
             {
                 OnListOfDriversChanged.Invoke(false, null);
+            }
+
+        }
+    }
+
+    private IEnumerator Get_PassengerSeatSchedule(string id)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("PassengerId", id);
+
+        using UnityWebRequest request = UnityWebRequest.Post("http://www.aasimudin.cctc-ccs.net/Api/select_scheduledtransactions_passengerId.php", form);
+
+        yield return request.SendWebRequest();
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.LogError("Error: " + request.error);
+        }
+        else
+        {
+            try
+            {
+                string jsonResponse = request.downloadHandler.text;
+                var response = JsonConvert.DeserializeObject<ApiResponse>(jsonResponse);
+
+                if (response != null)
+                {
+                    if (response.Status.Contains("success"))
+                    {
+                        if (response.Data.Any())
+                        {
+                            var data = response.Data;
+                            OnGetPassengerSeatSchedule?.Invoke(data?.FirstOrDefault());
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
             }
 
         }

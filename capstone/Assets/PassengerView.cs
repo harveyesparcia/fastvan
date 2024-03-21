@@ -103,7 +103,14 @@ public class PassengerView : MonoBehaviour
             DataModels.Instance.OnDriverGetSchedule += OnDriverGetSchedule;
             DataModels.Instance.OnAddQueue += OnAddQueue;
             DataModels.Instance.OnPassengerCheckExist += OnPassengerCheckExistChanged;
+            DataModels.Instance.OnGetPassengerSeatSchedule += OnGetPassengerSeatScheduleChanged;
+            
         }
+    }
+
+    private void OnGetPassengerSeatScheduleChanged(ScheduledTransaction transaction)
+    {
+        cancelseatlistView.gameObject.SetActive(true);
     }
 
     public void okaybuttonTapped()
@@ -113,7 +120,8 @@ public class PassengerView : MonoBehaviour
 
     public void cancelMenuTapped()
     {
-        cancelseatlistView.gameObject.SetActive(true);
+        DataModels.Instance.GetPassengerSeatSchedule(Context.PassengerId);
+       
     }
 
     public void cancelViewBackTapped()
@@ -124,6 +132,7 @@ public class PassengerView : MonoBehaviour
     public void cancelViewCancelTapped()
     {
         cancelseatlistView.gameObject.SetActive(false);
+
     }
 
     private void OnPassengerCheckExistChanged(CheckPassengerExistResponse obj)
@@ -1191,6 +1200,7 @@ public class PassengerView : MonoBehaviour
             DataModels.Instance.OnCountSchedule -= OnCountScheduleChanged;
             DataModels.Instance.OnDriverGetSchedule -= OnDriverGetSchedule;
             DataModels.Instance.OnPassengerCheckExist -= OnPassengerCheckExistChanged;
+            DataModels.Instance.OnGetPassengerSeatSchedule -= OnGetPassengerSeatScheduleChanged;
         }
     }
 
