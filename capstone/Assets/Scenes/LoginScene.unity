@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6978,8 +6978,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: FastVan
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 59d021d254da35046960fbdbf5c4d44c, type: 2}
+  m_sharedMaterial: {fileID: -8236565761258615900, guid: 59d021d254da35046960fbdbf5c4d44c,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12171,6 +12172,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4282391574
+      objectReference: {fileID: 0}
+    - target: {fileID: 6887595850244393304, guid: 64f674bdc7d217c4c847ba92e5e63ec4,
+        type: 3}
+      propertyPath: m_text
+      value: Username
       objectReference: {fileID: 0}
     - target: {fileID: 6887595850244393304, guid: 64f674bdc7d217c4c847ba92e5e63ec4,
         type: 3}
