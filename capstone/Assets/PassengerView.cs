@@ -113,6 +113,7 @@ public class PassengerView : MonoBehaviour
 
     private void OnCancelScheduleChanged(bool obj)
     {
+        cancelseats.Clear();
         DataModels.Instance.GetPassengerSeatSchedule(Context.PassengerId);
     }
 
@@ -203,6 +204,7 @@ public class PassengerView : MonoBehaviour
             bookedobjt.gameObject.SetActive(false);
             cancelbookedobjt.gameObject.SetActive(false);
             seats.Clear();
+            cancelseats.Clear();
         }
     }
 
@@ -734,7 +736,7 @@ public class PassengerView : MonoBehaviour
             else
             {
                 cancelfirstseat3.interactable = false;
-                UpdateButtonText(firstseat3, Contants.Seat3);
+                UpdateButtonText(cancelfirstseat3, Contants.Seat3);
             }
 
             if (model.FirstSeat4 == 1)
