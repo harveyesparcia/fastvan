@@ -30,6 +30,7 @@ public class DriverView : MonoBehaviour
     [SerializeField] private TMP_Text headerMessage;
     [SerializeField] private GameObject cancelbookedobjt;
     [SerializeField] private TMP_Text cancelmessage3;
+    [SerializeField] private GameObject cancelBooking;
 
 
     [SerializeField] private Button driver;
@@ -512,6 +513,14 @@ public class DriverView : MonoBehaviour
         string formattedSeats = string.Join(", ", cancelseats.Keys);
         cancelmessage3.text = $"Your about to cancel a book on seat {formattedSeats}";
         cancelbookedobjt.gameObject.SetActive(true);
+    }
+
+    public void cancelbookedYesTap()
+    {
+        cancelbookedobjt.gameObject.SetActive(false);
+        bookedobjt.gameObject.SetActive(false);
+        modalspinner.gameObject.SetActive(true);
+        DataModels.Instance.UpdateCancelSchedule(cancelseats);
     }
 
     public void AddtoCancelUpdateSeats(string seatNumber)
@@ -1042,5 +1051,16 @@ public class DriverView : MonoBehaviour
     public void SaveTapped()
     {
         DataModels.Instance.CreateQueues(count.text);
+    }
+
+    public void BackCancelBookingTapped()
+    {
+
+
+    }
+
+    public void cancelmodalYes()
+    {
+        cancelbookedobjt.gameObject.SetActive(false);
     }
 }

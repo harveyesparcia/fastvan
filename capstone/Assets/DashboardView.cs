@@ -45,6 +45,7 @@ public class DashboardView : MonoBehaviour
     [SerializeField] private GameObject bookedobjt;
     [SerializeField] private GameObject messageExist;
     [SerializeField] private GameObject modalCOnfimrationTapped;
+    [SerializeField] private GameObject cancelBooking;
 
     [SerializeField] private Button driver;
     [SerializeField] private Button driverarea2;
@@ -533,6 +534,14 @@ public class DashboardView : MonoBehaviour
         string formattedSeats = string.Join(", ", cancelseats.Keys);
         cancelmessage3.text = $"Your about to cancel a book on seat {formattedSeats}";
         cancelbookedobjt.gameObject.SetActive(true);
+    }
+
+    public void cancelbookedYesTap()
+    {
+        cancelbookedobjt.gameObject.SetActive(false);
+        bookedobjt.gameObject.SetActive(false);
+        modalspinner.gameObject.SetActive(true);
+        DataModels.Instance.UpdateCancelSchedule(cancelseats);
     }
 
     public void AddtoCancelUpdateSeats(string seatNumber)
@@ -1183,5 +1192,16 @@ public class DashboardView : MonoBehaviour
     public void SaveTapped()
     {
         DataModels.Instance.CreateQueues(count.text);
+    }
+
+    public void BackCancelBookingTapped()
+    {
+
+
+    }
+
+    public void cancelmodalYes()
+    {
+        cancelbookedobjt.gameObject.SetActive(false);
     }
 }
