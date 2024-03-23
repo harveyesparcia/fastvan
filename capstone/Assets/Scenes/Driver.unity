@@ -1852,7 +1852,7 @@ MonoBehaviour:
   headerMessage: {fileID: 7225732505103673601}
   cancelbookedobjt: {fileID: 0}
   cancelmessage3: {fileID: 0}
-  cancelBooking: {fileID: 0}
+  cancelBooking: {fileID: 1618203227}
   driver: {fileID: 2005881414}
   driverarea2: {fileID: 1281562386}
   driverarea3: {fileID: 660641095}
@@ -2578,6 +2578,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1382630869748956568}
+    - target: {fileID: 7600710509314930570, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: cancelViewCancelTapped
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710509314930572, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_Name
@@ -3583,6 +3588,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72eea526d40f4ba4985af2a16d86edd8, type: 3}
+--- !u!1 &1618203227 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2638631115444827830, guid: 72eea526d40f4ba4985af2a16d86edd8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1618203226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1672103937 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7600710509031910759, guid: 50187c92b19aac6448ddff0b447aae63,
@@ -7573,7 +7584,7 @@ MonoBehaviour:
   headerMessage: {fileID: 7225732505103673601}
   cancelbookedobjt: {fileID: 0}
   cancelmessage3: {fileID: 0}
-  cancelBooking: {fileID: 0}
+  cancelBooking: {fileID: 1618203227}
   driver: {fileID: 2005881414}
   driverarea2: {fileID: 1281562386}
   driverarea3: {fileID: 660641095}
