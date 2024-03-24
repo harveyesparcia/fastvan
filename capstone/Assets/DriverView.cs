@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -110,8 +111,15 @@ public class DriverView : MonoBehaviour
             DataModels.Instance.OnCheckExist += OnCheckExist;
             DataModels.Instance.OnGetSeatSchedule += OnGetSeatSchedule;
             DataModels.Instance.OnGetPassengerSeatSchedule += OnGetPassengerSeatScheduleChanged;
+            DataModels.Instance.OnCancelSchedule += OnCancelScheduleChanged;
 
         }
+    }
+
+    private void OnCancelScheduleChanged(bool obj)
+    {
+        cancelseats.Clear();
+        DataModels.Instance.GetPassengerSeatSchedule(Context.PassengerId);
     }
 
     public void accountBackTapped()
@@ -172,7 +180,7 @@ public class DriverView : MonoBehaviour
             else
             {
                 canceldriverarea2.interactable = false;
-                UpdateButtonText(driverarea2, Contants.Seat3);
+                UpdateButtonText(canceldriverarea2, Contants.Seat3);
             }
 
             if (model.FrontSeat2 == 1)
@@ -247,7 +255,7 @@ public class DriverView : MonoBehaviour
             else
             {
                 cancelfirstseat3.interactable = false;
-                UpdateButtonText(firstseat3, Contants.Seat3);
+                UpdateButtonText(cancelfirstseat3, Contants.Seat3);
             }
 
             if (model.FirstSeat4 == 1)
@@ -494,6 +502,7 @@ public class DriverView : MonoBehaviour
     {
         UpdateCancelSeat(transaction);
         cancelseatlistView.gameObject.SetActive(true);
+        modalspinner.gameObject.SetActive(false);
     }
 
     public void cancelViewBackTapped()
@@ -1038,6 +1047,7 @@ public class DriverView : MonoBehaviour
             DataModels.Instance.OnCheckExist -= OnCheckExist;
             DataModels.Instance.OnGetSeatSchedule -= OnGetSeatSchedule;
             DataModels.Instance.OnGetPassengerSeatSchedule -= OnGetPassengerSeatScheduleChanged;
+            DataModels.Instance.OnCancelSchedule -= OnCancelScheduleChanged;
 
         }
     }

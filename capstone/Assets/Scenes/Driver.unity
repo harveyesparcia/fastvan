@@ -1638,6 +1638,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944925807}
   m_CullTransparentMesh: 1
+--- !u!114 &977668737 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8246048924475619615, guid: 72eea526d40f4ba4985af2a16d86edd8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1618203226}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1011302922 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 682409453153167833, guid: 2dfc1776370f0594fb0bb8571ff3f2be,
@@ -1850,8 +1862,8 @@ MonoBehaviour:
   changepassView: {fileID: 6887595851159154178}
   accountSettingsVIew: {fileID: 132204543289645669}
   headerMessage: {fileID: 7225732505103673601}
-  cancelbookedobjt: {fileID: 0}
-  cancelmessage3: {fileID: 0}
+  cancelbookedobjt: {fileID: 1618203227}
+  cancelmessage3: {fileID: 977668737}
   cancelBooking: {fileID: 1618203227}
   driver: {fileID: 2005881414}
   driverarea2: {fileID: 1281562386}
@@ -2513,6 +2525,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710508872608149, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710508943955700, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_Color.a
@@ -2573,6 +2590,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710509031910759, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710509314930570, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2581,7 +2603,7 @@ PrefabInstance:
     - target: {fileID: 7600710509314930570, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: cancelViewCancelTapped
+      value: cancelbookedTap
       objectReference: {fileID: 0}
     - target: {fileID: 7600710509314930572, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
@@ -2628,6 +2650,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710509408008216, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710509408008219, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -2653,6 +2680,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710509455061620, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710509455061623, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -2678,6 +2710,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710509483363834, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710509483363837, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -2763,6 +2800,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710509931994430, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710509973654102, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -2788,6 +2830,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710509973654103, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710510084918596, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -2813,6 +2860,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710510084918597, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710510153432626, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_fontSize
@@ -2848,6 +2900,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710510176514081, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710510330916556, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -2873,6 +2930,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710510330916557, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710510369250170, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2898,6 +2960,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710510473832432, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710510473832435, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -2943,6 +3010,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710510521873877, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710510616152130, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -2968,6 +3040,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710510616152131, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710510656136918, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -2993,6 +3070,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710510656136919, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710510816150394, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_Sprite
@@ -3018,6 +3100,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710510897457212, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710510897457215, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -3063,11 +3150,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710510922524127, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710510945435692, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710510945435692, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     - target: {fileID: 7600710510945435695, guid: 50187c92b19aac6448ddff0b447aae63,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -3113,6 +3210,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 7600710510974852526, guid: 50187c92b19aac6448ddff0b447aae63,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddtoCancelUpdateSeats
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50187c92b19aac6448ddff0b447aae63, type: 3}
 --- !u!1 &1329897549 stripped
@@ -6377,6 +6479,66 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 729209940517092135, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 729209940517092135, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 729209940517092135, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 729209940517092135, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 729209940732939025, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 729209940732939025, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 729209940732939025, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 729209940732939025, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 729209940900264202, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 729209940900264202, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 729209940900264202, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 729209940900264202, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4122024981788085273, guid: d29f06b2b92abfc49b6a2d0627778ed6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6502,6 +6664,41 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1100507849}
+    - target: {fileID: 6696633129761835109, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.23529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696633129761835109, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.1254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696633129761835109, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.02745098
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696633130044090895, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696633130044090895, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696633130044090895, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696633130044090895, guid: d29f06b2b92abfc49b6a2d0627778ed6,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d29f06b2b92abfc49b6a2d0627778ed6, type: 3}
 --- !u!1001 &1023882607947165265
@@ -7582,8 +7779,8 @@ MonoBehaviour:
   changepassView: {fileID: 6887595851159154178}
   accountSettingsVIew: {fileID: 7225732505103673607}
   headerMessage: {fileID: 7225732505103673601}
-  cancelbookedobjt: {fileID: 0}
-  cancelmessage3: {fileID: 0}
+  cancelbookedobjt: {fileID: 1618203227}
+  cancelmessage3: {fileID: 977668737}
   cancelBooking: {fileID: 1618203227}
   driver: {fileID: 2005881414}
   driverarea2: {fileID: 1281562386}
